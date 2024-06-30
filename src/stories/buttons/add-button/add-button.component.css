@@ -1,0 +1,37 @@
+.btn-container {
+  display: flex;
+  /* padding: 10px 10px; */
+  justify-content: space-around;
+  align-items: center;
+  gap: 10px;
+  border-radius: 6px;
+  background: #0660fc;
+  width: 100px;
+  height: 32px;
+  cursor: pointer;
+  opacity: 0.85;
+}
+
+.btn-container span {
+  color: #fff;
+  font-family: "DM Sans";
+  font-size: 12px;
+  font-style: normal;
+  font-weight: 500;
+  line-height: 9.491px; /* 79.093% */
+}
+
+.btn-container:hover {
+  opacity: 1;
+}
+
+.btn-container:active {
+  border: 1px solid #fff;
+  outline: 1px solid #0660fc;
+}
+
+.btn-container:focus {
+  border: 2px solid #fff;
+  outline: 1px solid #0660fc;
+}
+

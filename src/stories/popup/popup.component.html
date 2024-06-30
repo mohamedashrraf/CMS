@@ -1,0 +1,15 @@
+<div class="popup" [hidden]="!errorExit">
+  <div class="popup-header">
+    <span>Unsaved Changes</span>
+    <button class="close-button">×</button>
+  </div>
+  <hr />
+  <div class="popup-content">
+    <p>
+      {{ message }}
+    </p>
+  </div>
+  <div class="popup-buttons">
+    <button class="ok-button" (click)="this.onConfirm.emit()">Ok</button>
+  </div>
+</div>

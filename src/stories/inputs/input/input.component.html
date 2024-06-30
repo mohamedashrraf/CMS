@@ -1,0 +1,11 @@
+<form #inpTextForm="ngForm">
+  <div class="input-text">
+    <label class="label-name" for="name">Full Name</label>
+    <input #fullname="ngModel" type="text" id="name" name="name" placeholder="i.e. Spatium Software" required
+      [(ngModel)]="inp">
+  </div>
+
+  <div [hidden]="fullname.valid || fullname.pristine" class="required">
+    Full Name is required
+  </div>
+</form>

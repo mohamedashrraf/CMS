@@ -1,0 +1,31 @@
+<!-- <div class="custom-dropdown">
+  <div class="selected-option" (click)="toggleDropdown()">
+    {{ isDescending ? 'From Z - A' : 'From A - Z' }}
+    <img class="arrow" [class.open]="dropdownOpen" src="../../../assets/images/arrow-down.svg" alt="arrow">
+  </div>
+  @if (dropdownOpen) {
+  <div class="dropdown-options">
+    <div class="dropdown-option" (click)="selectOption(false)">From A - Z</div>
+    <div class="dropdown-option" (click)="selectOption(true)">From Z - A</div>
+  </div>
+}
+</div> -->
+
+
+<!-- <div class="custom-dropdown">
+  <div class="selected-option" (click)="toggleDropdown()">
+    {{ isDescending ? 'From Z - A' : 'From A - Z' }}
+    <img class="arrow" [class.open]="dropdownOpen" src="../../../assets/images/arrow-down.svg" alt="arrow">
+  </div>
+  @if (dropdownOpen) {
+  <div class="dropdown-options" [ngModel]="selectedValue">
+    @for (option of options; track $index) {
+    <div class="dropdown-option" [value]="option.key" (click)="selectOption()">{{ option.displayName }}</div>
+    }
+  </div>
+}
+</div> -->
+
+<!-- <select [ngModel]="selectedValue" (ngModelChange)="onChange($event)" class="custom-select">
+  <option *ngFor="let option of options" [value]="option.key">{{ option.displayName }}</option>
+</select> -->

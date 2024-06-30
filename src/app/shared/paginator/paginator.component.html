@@ -1,0 +1,87 @@
+<div class="container">
+  <div class="rows-count">
+    <span [ngClass]="{ notAllowed: active === 0 }" (click)="prevPage()">
+      <svg width="16" height="16" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <path d="M10.06 12L11 11.06L7.94667 8L11 4.94L10.06 4L6.06 8L10.06 12Z" fill="#3F4254" />
+      </svg>
+    </span>
+    <div class="rows">
+      <span>Rows </span>
+      <div class="select-group" (click)="toggleMenu()">
+        <div class="select" id="count" [ngClass]="{'select-active':toggleSelectMenu}">{{numberOfRecords}}</div>
+        @if(toggleSelectMenu){
+        <div class="select-options">
+          <div value="2" (click)="selectPaginationNumber($event)">1</div>
+          <div value="4" (click)="selectPaginationNumber($event)">2</div>
+          <div value="6" (click)="selectPaginationNumber($event)">3</div>
+          <div value="8" (click)="selectPaginationNumber($event)">4</div>
+          <div value="2" (click)="selectPaginationNumber($event)">5</div>
+          <div value="4" (click)="selectPaginationNumber($event)">6</div>
+          <div value="6" (click)="selectPaginationNumber($event)">7</div>
+          <div value="8" (click)="selectPaginationNumber($event)">8</div>
+        </div>
+        }
+      </div>
+      <span> of {{all}}</span>
+    </div>
+
+    <span [ngClass]="{ notAllowed: active >= pages - 1 }" (click)="nextPage()">
+      <svg width="16" height="16" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <path d="M6.94 4L6 4.94L9.05333 8L6 11.06L6.94 12L10.94 8L6.94 4Z" fill="#3F4254" />
+      </svg>
+    </span>
+  </div>
+  <div class="controls">
+    <span [ngClass]="{ notAllowed: active === 0 }" (click)="firstSlide()">
+      <svg width="16" height="16" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <path d="M11.7267 12L12.6667 11.06L9.61335 8L12.6667 4.94L11.7267 4L7.72669 8L11.7267 12Z" fill="#3F4254" />
+        <path d="M7.33332 12L8.27332 11.06L5.21998 8L8.27331 4.94L7.33331 4L3.33332 8L7.33332 12Z" fill="#3F4254" />
+      </svg>
+
+    </span>
+    <span [ngClass]="{ notAllowed: active === 0 }" (click)="prevPage()">
+      <svg width="16" height="16" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <path d="M10.06 12L11 11.06L7.94667 8L11 4.94L10.06 4L6.06 8L10.06 12Z" fill="#3F4254" />
+      </svg>
+
+    </span>
+    <div class="pages" #container>
+      @if(pages !== 0 && pages > 4){
+      <!-- not move yet -->
+      @if(active < 2 || active===0){ <span>1</span>
+        <span>2</span>
+        <span>3</span>
+        <span>...</span>
+        <span>{{ pages }}</span>
+        <!-- go to page three -->
+        }@else if(active >= 2 && active !== pages && active < pages - 2 ){ <span>1</span>
+          <span>...</span>
+          <span>2</span>
+          <span class="active" #senarioTwoS>3</span>
+          <span class="semi" #senarioTwoT>4</span>
+          <span>...</span>
+          <span>{{ pages }}</span>
+          }@else if(active === pages || active >= pages - 2){
+          <span>1</span>
+          <span>...</span>
+          <span>{{ pages - 2 }}</span>
+          <span>{{ pages - 1 }}</span>
+          <span>{{ pages }}</span>
+          } } @if(pages <= 4 && pages !==0){ @for(page of [].constructor(pages);track $index){ <span>{{ $index + 1
+            }}</span>
+            } }
+    </div>
+    <span [ngClass]="{ notAllowed: active >= pages - 1 }" (click)="nextPage()">
+      <svg width="16" height="16" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <path d="M6.94 4L6 4.94L9.05333 8L6 11.06L6.94 12L10.94 8L6.94 4Z" fill="#3F4254" />
+      </svg>
+
+    </span>
+    <span [ngClass]="{ notAllowed: active >= pages - 1 }" (click)="lastSlide()">
+      <svg width="16" height="16" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <path d="M4.27337 4L3.33337 4.94L6.38671 8L3.33337 11.06L4.27337 12L8.27337 8L4.27337 4Z" fill="#3F4254" />
+        <path d="M8.66668 4L7.72668 4.94L10.78 8L7.72668 11.06L8.66668 12L12.6667 8L8.66668 4Z" fill="#3F4254" />
+      </svg>
+    </span>
+  </div>
+</div>

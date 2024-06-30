@@ -1,0 +1,144 @@
+<div class="container" [ngClass]="{ lowOpacity: addUserToggler }">
+  <div>
+    <div class="col-12">
+      <div class="section-title">
+        <h3>User Management</h3>
+        <small>Mange your users and roles</small>
+      </div>
+    </div>
+  </div>
+
+  <div class="row cards-row" style="margin: 10px 0px;">
+    <div class="card">
+      <app-card [icon_path]="'assets/images/total_users.svg'" [title]="'Total Users'"
+        [description]="'Total user number'" [description_continue]="'in this system'"
+        [total_number]="analytics.totalCount" (onCall)="('sss')"></app-card>
+    </div>
+    <div class="card">
+      <app-card [icon_path]="'assets/images/active_users.svg'" [title]="'Active Users'"
+        [description]="'Total user number'" [description_continue]="'Activate'"
+        [total_number]="analytics.activateUsers"></app-card>
+    </div>
+
+    <div class="card">
+      <app-card [icon_path]="'assets/images/deactivate_users.svg'" [title]="'Deactive Users'"
+        [description]="'Total user number'" [description_continue]="'Deactivate'"
+        [total_number]="analytics.deactivateUsers"></app-card>
+    </div>
+
+    <div class="card">
+      <app-card [icon_path]="'assets/images/online_users.svg'" [title]="'Online Users'"
+        [description]="'Total user number'" [description_continue]="'Online'" [total_number]="1"></app-card>
+    </div>
+  </div>
+
+  <div class="row filteration" style="margin: 10px 0px;">
+    <div class="nav-col col-12">
+      <div class="navigation">
+        <ul>
+          <li class="all-users" [ngClass]="{'active-navigation': isActive('1')}"
+            (click)="[setActive('1'), navigateWithQueryParam('ustatus', '0')]">
+            <p>All Users</p>
+          </li>
+          <li [ngClass]="{'active-navigation': isActive('2')}"
+            (click)="[setActive('2'), navigateWithQueryParam('ustatus', '1')]">
+            <p>Active</p>
+          </li>
+          <li [ngClass]="{'active-navigation': isActive('3')}"
+            (click)="[setActive('3'), navigateWithQueryParam('ustatus', '3')]">
+            <p>Pending</p>
+          </li>
+          <li [ngClass]="{'active-navigation': isActive('4')}"
+            (click)="[setActive('4'), navigateWithQueryParam('ustatus', '2')]">
+            <p>Deactive</p>
+          </li>
+        </ul>
+      </div>
+    </div>
+    <div class="feature-col col-12">
+      <div class="features">
+        <div class="search">
+          <app-search (onInput)="onSearchChange($event)"></app-search>
+        </div>
+        <div class="filter">
+          <app-filter [filters]="filterData" (filterCriteria)="filterUsers($event)"></app-filter>
+        </div>
+        <div class="new-user">
+          <app-add-button [btnIcon]="'assets/images/add-circle.svg'" [btnName]="'Add User'"
+            (onAddUser)="toggleUserModal()"></app-add-button>
+        </div>
+      </div>
+    </div>
+
+  </div>
+  @if(users.data.length > 0){
+  <div class="user-status" style="margin: 10px 0px;">
+    <app-table [data]="users.data" [tableData]="tableData" (userActivation)="confirmChangeUserStatus($event)"
+      (deleteUser)="deleteUserToggle($event)" (inviteUser)="confirmUserInvitation($event)"></app-table>
+    <app-paginator (getHistoryPaginator)="getCount($event)" [all]="users.data.length != 0 ? users.total : 0" />
+  </div>
+  }
+  @else {
+  <section class="noUsers">
+    <div class="content">
+      <h2>No Users</h2>
+      <!-- <h2>No Users</h2> -->
+    </div>
+  </section>
+
+  }
+</div>
+
+<!-- delete popup -->
+@if(deleteUserFlag){
+<div class="dark-background"></div>
+<div class="deleting">
+  <app-card-modal [title]="'Are you Sure you want to Delete this user ?'"
+    [description]="'You cannot undo this action.This user will not be able to access the system.'" [action]="'Delete'"
+    [cancel]="'Cancel'" [icon_path]="'assets/images/delete_icon.svg'" (actionBtn)="deleteUser()"
+    (cancelBtn)="cancelDeletingUser()"></app-card-modal>
+</div>
+}
+
+<!-- Activate popup -->
+@if(activateUserFlag){
+<div class="dark-background"></div>
+<div class="deleting">
+  <app-card-modal [title]="'Do you want to activate this user ?'" [backgroundImg]="'assets/images/ellipse-blue.svg'"
+    [actionBackground]="'#0660FC'"
+    [description]="'This action will set the account as active. and this user will access to the system.'"
+    [action]="'Activate'" [cancel]="'Cancel'" [icon_path]="'assets/images/activate_user.svg'"
+    (actionBtn)="changeUserState()" (cancelBtn)="cancelActivateUser()"></app-card-modal>
+</div>
+}
+
+<!-- Deactivate popup -->
+@if(deactivateUserFlag){
+<div class="dark-background"></div>
+<div class="deleting">
+  <app-card-modal [title]="'Do you want to deactivate user\'s account?'" [action]="'Deactivate'"
+    [description]="'There may be records in the system will continue to reference this inactive user.'"
+    [cancel]="'Cancel'" [icon_path]="'assets/images/delete_icon.svg'" (actionBtn)="changeUserState()"
+    (cancelBtn)="cancelActivateUser()"></app-card-modal>
+</div>
+}
+
+<!-- Invite popup -->
+@if(sendInviteFlag){
+<div class="dark-background"></div>
+<div class="deleting">
+  <app-card-modal [title]="'Invite link generated successfully !'" [actionBackground]="'#0660FC'"
+    [backgroundImg]="'assets/images/ellipse-blue.svg'"
+    [description]="'You are about to send an invitation link again to this user.'" [action]="'Invite'"
+    [cancel]="'Cancel'" [icon_path]="'assets/images/activate_user.svg'" (actionBtn)="inviteUser()"
+    (cancelBtn)="cancelUserInvitation()"></app-card-modal>
+</div>
+}
+
+<!-- Create new user -->
+@if (addUserToggler) {
+<div class="splitter"></div>
+<div class="add-user">
+  <app-add-user (onAddUser)="addUserForm($event)"></app-add-user>
+</div>
+}

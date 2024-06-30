@@ -1,0 +1,109 @@
+<div class="loginContainer" id="loginContainerId">
+  <div class="bg3">
+    <div style="text-align: center" class="loginDiv">
+      <div>
+        <form action="" [formGroup]="formVerification" #form="ngForm">
+          <div>
+            <label for="verificationCode" class="labelInput">Type your 6 digits security code </label><br />
+            <div class="verificationInpts">
+              <input appAutoFocus type="text" maxlength="1" class="inputVerificationStyle" id="verificationCode"
+                formControlName="verificationCode1" [(ngModel)]="str1" min="0" max="9"
+                oninput="this.value = this.value.replace(/[^0-9.]/g, '').replace(/(\..*)\./g, '$1');" [ngClass]="{
+                  'is-invalid1':
+                  (formVerification.controls.verificationCode1.touched &&
+                  formVerification.controls.verificationCode1.errors) || errorExist ,
+                  'is-valid':
+                  formVerification.controls.verificationCode1.touched && 
+                  formVerification.controls.verificationCode1.errors == null && !errorExist,
+                  'is-touched':
+                  formVerification.controls.verificationCode1.untouched && 
+                  formVerification.controls.verificationCode1.errors == null,
+              }" (change)="removeErrorExit()" />&#32;
+              <input appAutoFocus type="text" maxlength="1" class="inputVerificationStyle" id="verificationNum"
+                [(ngModel)]="str2" min="0" max="9"
+                oninput="this.value = this.value.replace(/[^0-9.]/g, '').replace(/(\..*)\./g, '$1');"
+                formControlName="verificationCode2" [ngClass]="{
+                  'is-invalid1':
+                  (formVerification.controls.verificationCode2.touched &&
+                  formVerification.controls.verificationCode2.errors) || errorExist ,
+                  'is-valid':
+                  formVerification.controls.verificationCode2.touched && 
+                  formVerification.controls.verificationCode2.errors == null && !errorExist,
+                  'is-touched':
+                  formVerification.controls.verificationCode2.untouched && 
+                  formVerification.controls.verificationCode2.errors == null,
+              }" (change)="removeErrorExit()" />
+              <input appAutoFocus type="text" maxlength="1" minlength="1" class="inputVerificationStyle"
+                id="verificationNum" [(ngModel)]="str3" min="0" max="9"
+                oninput="this.value = this.value.replace(/[^0-9.]/g, '').replace(/(\..*)\./g, '$1');"
+                formControlName="verificationCode3" [ngClass]="{
+                  'is-invalid1':
+                  (formVerification.controls.verificationCode3.touched &&
+                  formVerification.controls.verificationCode3.errors) || errorExist ,
+                  'is-valid':
+                  formVerification.controls.verificationCode3.touched && 
+                  formVerification.controls.verificationCode3.errors == null && !errorExist,
+                  'is-touched':
+                  formVerification.controls.verificationCode3.untouched && 
+                  formVerification.controls.verificationCode3.errors == null,
+              }" (change)="removeErrorExit()" />
+              <input appAutoFocus type="text" maxlength="1" minlength="1" class="inputVerificationStyle"
+                id="verificationNum" formControlName="verificationCode4" [(ngModel)]="str4" min="0" max="9"
+                oninput="this.value = this.value.replace(/[^0-9.]/g, '').replace(/(\..*)\./g, '$1');" [ngClass]="{
+                  'is-invalid1':
+                  (formVerification.controls.verificationCode4.touched &&
+                  formVerification.controls.verificationCode4.errors) || errorExist ,
+                  'is-valid':
+                  formVerification.controls.verificationCode4.touched && 
+                  formVerification.controls.verificationCode4.errors == null && !errorExist,
+                  'is-touched':
+                  formVerification.controls.verificationCode4.untouched && 
+                  formVerification.controls.verificationCode4.errors == null,
+              }" (change)="removeErrorExit()" />
+              <input appAutoFocus type="text" maxlength="1" minlength="1" class="inputVerificationStyle"
+                id="verificationNum" formControlName="verificationCode5" [(ngModel)]="str5" min="0" max="9"
+                oninput="this.value = this.value.replace(/[^0-9.]/g, '').replace(/(\..*)\./g, '$1');" [ngClass]="{
+                  'is-invalid1':
+                  (formVerification.controls.verificationCode5.touched &&
+                  formVerification.controls.verificationCode5.errors) || errorExist ,
+                  'is-valid':
+                  formVerification.controls.verificationCode5.touched && 
+                  formVerification.controls.verificationCode5.errors == null && !errorExist,
+                  'is-touched':
+                  formVerification.controls.verificationCode5.untouched && 
+                  formVerification.controls.verificationCode5.errors == null,
+              }" (change)="removeErrorExit()" />
+              <input appAutoFocus type="text" maxlength="1" minlength="1" class="inputVerificationStyle"
+                id="verificationNum" formControlName="verificationCode6" [(ngModel)]="str6" min="0" max="9"
+                oninput="this.value = this.value.replace(/[^0-9.]/g, '').replace(/(\..*)\./g, '$1');" [ngClass]="{
+                  'is-invalid1':
+                  (formVerification.controls.verificationCode6.touched &&
+                  formVerification.controls.verificationCode6.errors) || errorExist ,
+                  'is-valid':
+                  formVerification.controls.verificationCode6.touched && 
+                  formVerification.controls.verificationCode6.errors == null && !errorExist,
+                  'is-touched':
+                  formVerification.controls.verificationCode6.untouched && 
+                  formVerification.controls.verificationCode6.errors == null,
+              }" (change)="removeErrorExit()" />
+            </div>
+            @if (errorExist) {
+            <p class="required1">Invalid Code</p>
+            } @if (resendOTPBool) {
+            <p class="required1">{{ resendOtpMsg }}</p>
+            }
+          </div>
+          <button type="submit" [ngClass]="{ disabled: formVerification.invalid }"
+            [disabled]="formVerification.invalid">
+            Reset password
+          </button>
+          <p class="info2">
+            Didn't get the code ? <a>Resend</a> or
+            <a>call us</a>
+          </p>
+          <!-- <input type="submit"> -->
+        </form>
+      </div>
+    </div>
+  </div>
+</div>

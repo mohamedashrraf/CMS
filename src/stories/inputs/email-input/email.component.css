@@ -1,0 +1,62 @@
+.input-text {
+  display: flex;
+  justify-content: flex-start;
+  align-items: baseline;
+  flex-direction: column;
+}
+
+.label-email {
+  color: #5e6278;
+  font-family: "DM Sans";
+  font-size: 12px;
+  font-style: normal;
+  font-weight: 500;
+  line-height: 28px;
+}
+
+#email {
+  width: 409px;
+  height: 42px;
+  padding: 11.5px 10px;
+  align-items: center;
+  gap: 10px;
+  flex-shrink: 0;
+  border-radius: 6px;
+  border: 0.75px solid rgba(191, 212, 228, 0.4);
+  background: #fff;
+}
+
+#email::placeholder {
+  color: #a1a5b7;
+  font-family: "DM Sans";
+  font-size: 14px;
+  font-style: normal;
+  font-weight: 500;
+  line-height: 26px; /* 185.714% */
+  letter-spacing: -0.1px;
+}
+
+#email:focus {
+  outline: 0.75px solid #0660fc;
+  border: none;
+}
+
+#email.ng-touched {
+  outline: 0.75px solid #f1416c;
+  border: none;
+}
+
+#email.ng-valid {
+  outline: 0.75px solid #0660fc;
+  border: none;
+}
+
+.required {
+  margin-top: 10px;
+  color: #f1416c;
+  font-family: "DM Sans";
+  font-size: 12px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: 14px; /* 116.667% */
+}

@@ -1,0 +1,65 @@
+<div class="container">
+  <div class="rows-count">
+    <span><img src="paginator-prev.png" alt="" /></span>
+    <div class="rows">
+      <span>Rows </span>
+
+      <div class="select-group" (click)="toggleMenu()">
+        <div class="select" #selectValue id="count" [ngClass]="{'select-active':toggleSelectMenu}"></div>
+        @if(toggleSelectMenu){
+        <div class="select-options">
+          <div value="2" (click)="selectPaginationNumber($event)">1</div>
+          <div value="4" (click)="selectPaginationNumber($event)">2</div>
+          <div value="6" (click)="selectPaginationNumber($event)">3</div>
+          <div value="8" (click)="selectPaginationNumber($event)">4</div>
+          <div value="2" (click)="selectPaginationNumber($event)">5</div>
+          <div value="4" (click)="selectPaginationNumber($event)">6</div>
+          <div value="6" (click)="selectPaginationNumber($event)">7</div>
+          <div value="8" (click)="selectPaginationNumber($event)">8</div>
+        </div>
+        }
+      </div>
+      <!-- <span>of {{ all }}</span> -->
+    </div>
+    <span><img src="paginator-next.png" alt="" /></span>
+  </div>
+  <div class="controls">
+    <span [ngClass]="{ notAllowed: active === 0 }" (click)="firstSlide()">
+      <img src="paginator-left.png" alt="" />
+    </span>
+    <span [ngClass]="{ notAllowed: active === 0 }" (click)="prevPage()">
+      <img src="paginator-prev.png" alt="" />
+    </span>
+    <div class="pages" #container>
+      @if(pages !== 0 && pages > 4){
+      <!-- not move yet -->
+      @if(active < 2 || active===0){ <span>1</span>
+        <span>2</span>
+        <span>3</span>
+        <span>...</span>
+        <span>{{ pages }}</span>
+        <!-- go to page three -->
+        }@else if(active >= 2 && active !== pages && active < pages - 2 ){ <span>1</span>
+          <span>...</span>
+          <span>2</span>
+          <span class="active" #senarioTwoS>3</span>
+          <span class="semi" #senarioTwoT>4</span>
+          <span>...</span>
+          <span>{{ pages }}</span>
+          }@else if(active === pages || active >= pages - 2){
+          <span>1</span>
+          <span>...</span>
+          <span>{{ pages - 2 }}</span>
+          <span>{{ pages - 1 }}</span>
+          <span>{{ pages }}</span>
+          } } @if(pages <= 4 && pages !==0){ @for(page of [].constructor(pages);track $index){ <span>{{ $index + 1
+            }}</span>
+            } }
+    </div>
+    <span [ngClass]="{ notAllowed: active >= pages - 1 }" (click)="nextPage()">
+      <img src="paginator-next.png" alt="" />
+    </span>
+    <span [ngClass]="{ notAllowed: active >= pages - 1 }" (click)="lastSlide()">
+      <img src="paginator-right.png" alt="" /></span>
+  </div>
+</div>

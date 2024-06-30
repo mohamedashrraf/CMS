@@ -1,0 +1,33 @@
+.button {
+  display: flex;
+  width: 380px;
+  height: 42px;
+  padding: 12px 10px;
+  justify-content: center;
+  align-items: center;
+  gap: 10px;
+  border-radius: 6px;
+  background: #0660fc;
+  color: #fff;
+  font-family: "DM Sans";
+  font-size: 14px;
+  font-style: normal;
+  font-weight: 700;
+  line-height: 14px;
+  cursor: pointer;
+  opacity: 0.85;
+}
+
+.button:hover {
+  opacity: 1;
+}
+
+.button:active {
+  border: 2px solid #fff;
+  outline: 1px solid #0660fc;
+}
+
+.button:focus {
+  border: 2px solid #fff;
+  outline: 1px solid #0660fc;
+}

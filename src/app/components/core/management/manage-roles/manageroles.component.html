@@ -1,0 +1,230 @@
+<div class="container">
+  <!--  Role Header  -->
+  <div>
+    <div class="col-12">
+      <div class="section-title">
+        <h3>Roles Management</h3>
+        <small>Mange your users and roles</small>
+      </div>
+    </div>
+  </div>
+
+  <!--  Role Structure  -->
+  <div class="rolesHeader" style="margin: 10px 0px;">
+    <div class="nav-col col-12">
+      <div class="navigation">
+        <ul>
+          <li class="all-users" [ngClass]="{'active-navigation': isActive(true)}"
+            (click)="[setActive(true), navigateWithQueryParam('rstatus', true)]">
+            <p>All Roles</p>
+          </li>
+          <li [ngClass]="{'active-navigation': isActive(false)}"
+            (click)="[setActive(false), navigateWithQueryParam('rstatus', false)]">
+            <p>Deactivated</p>
+          </li>
+        </ul>
+      </div>
+    </div>
+    <div class="feature-col col-12">
+      <div class="features">
+        <div class="search">
+          <app-search (onInput)="searchRoles($event)"></app-search>
+        </div>
+        <div class="gridView">
+          @if (!gridView) {
+          <img src="assets/images/gridView.svg" alt="gridView" (click)="activeGridView()">
+          }
+          @else {
+          <img src="assets/images/gridViewActive.svg" alt="gridViewActive">
+          }
+        </div>
+        <div class="tableView">
+          @if (!tableView) {
+          <img src="assets/images/tableView.svg" alt="tableView" (click)="activeTableView()">
+          }
+          @else {
+          <img src="assets/images/tableViewActive.svg" alt="tableViewActive">
+          }
+        </div>
+        <div class="filter">
+          <app-filter class="filter" [filters]="filterData" (filterCriteria)="filterRoles($event)"></app-filter>
+        </div>
+        <!-- (filterCriteria)="filterPosts($event)" -->
+
+        <div class="addBtn">
+          <app-add-button [btnIcon]="'assets/images/add-circle.svg'" [btnName]="'Add Role'"
+            (onAddUser)="toggleCreateRole()"></app-add-button>
+        </div>
+      </div>
+    </div>
+
+  </div>
+  <!-- @if(roles.data){
+    <div class="user-status" style="margin: 10px 0px;">
+        <app-table [data]="roles.data" [tableData]="tableData"></app-table>
+        <app-paginator (getHistoryPaginator)="getCount($event)"
+        [all]="roles.data.length != 0 ? roles.total : 0" />
+    </div>
+    } -->
+
+    <!--  Role Cards  -->
+  @if (roles.data.length > 0) {
+    @if (gridView) {
+    <div class="roles-container">
+      @for (role of roles.data; track $index) {
+      <div class="role-card" (roleState)="roleStateToggle($event)" (click)="getRoleId(role.id)">
+        <div class="card-header">
+          <div class="left">
+            <img [src]="role.roleIcon.iconPath ? role.roleIcon.iconPath : 'assets/images/admin.svg'" [alt]="role.name">
+            <div class="text">
+              <h2>{{ role.name }}</h2>
+              <p>{{ role.description | sliceText }}</p>
+            </div>
+          </div>
+          <div class="right-header">
+            <div class="status">
+              <div class="dot"></div>
+              <p>{{ role.isActive ? 'Activate' : 'Deactivate' }}</p>
+            </div>
+            <div class="dots" (click)="showRoleMenu(role.id)">
+              <div class="dot" [style.background-color]="selectedRoleId !== role.id ? '#A1A5B7' : '#0660FC'"></div>
+              <div class="dot" [style.background-color]="selectedRoleId !== role.id ? '#A1A5B7' : '#0660FC'"></div>
+              <div class="dot" [style.background-color]="selectedRoleId !== role.id ? '#A1A5B7' : '#0660FC'"></div>
+            </div>
+          </div>
+        </div>
+        <div class="hr"></div>
+        <div class="members">
+          <div class="members-numbers">
+            <p>Members</p>
+            <div class="number">{{ role.usersCount }}</div>
+          </div>
+          <div class="imgs-container">
+            @for (user of role.applicationUsers; track $index) {
+            <div class="user-profile tooltip">
+              <img [src]="user.profileImagePath ? user.profileImagePath : 'assets/images/default-user.png'" alt="">
+              <span class="tooltiptext">{{ user.fullName }}</span>
+            </div>
+            }
+          </div>
+        </div>
+        @if (selectedRoleId === role.id && roleOptions) {
+        <div class="roles-status">
+          <ul>
+            <li (click)="toggleUpdateRole()"><img src="assets/images/message-edit.svg" alt=""> Update Role</li>
+            <li (click)="changeActivation()"><img src="assets/images/profile-delete.svg" alt=""> Deactivate</li>
+            <li (click)="deleteRoleToggle($event)"><img src="assets/images/trash.svg" alt=""> Delete Role</li>
+          </ul>
+        </div>
+        }
+      </div>
+      }
+    </div>
+    }
+
+    @else if (tableView) {
+    <div style="margin: 10px 0px;">
+      <app-table [data]="roles.data" [tableData]="tableData" (roleState)="roleStateToggle($event)"
+        (updateRole)="toggleUpdateRole()" (onEdit)="changeActivation()" (deleteRole)="deleteRoleToggle($event)" ></app-table>
+    </div>
+    }
+  }
+  @else {
+  <section class="noRoles">
+    <div class="content">
+      <h2>No Roles</h2>
+      <h2>No Roles</h2>
+    </div>
+  </section>
+  }
+</div>
+<app-paginator (getHistoryPaginator)="getCount($event)" [all]="roles.data.length  ? roles.total : 0" />
+
+@if (newRole) {
+<div class="dark-background"></div>
+<div class="create-role">
+  <app-create-role (toggleCreateRole)="toggleCreateRole()" (addRoleForm)="createRole($event)"></app-create-role>
+</div>
+}
+
+<!-- @if (viewRole) {
+<div class="dark-background"></div>
+<div class="create-role">
+  <app-view-role (toggleViewRole)="toggleViewRole()" [roleId]="selectedId"></app-view-role>
+</div>
+} -->
+
+@if(updateRoleFlag){
+  <div class="dark-background"></div>
+  <div class="create-role">
+    <app-update-role (toggleUpdateRole)="toggleUpdateRole()" (updateRoleForm)="updateRole($event)"></app-update-role>
+  </div>
+}
+
+<!-- delete popup -->
+@if(deleteRoleFlag){
+<div class="dark-background"></div>
+<div class="deleting">
+  <app-card-modal [title]="'Are you Sure you want to Delete this Role ?'"
+    [description]="'You cannot undo this action.This Role will not be able to access the system.'" [action]="'Delete'"
+    [cancel]="'Cancel'" [icon_path]="'assets/images/delete_icon.svg'" (actionBtn)="deleteRole()"
+    (cancelBtn)="cancelDeletingRole()"></app-card-modal>
+</div>
+}
+
+
+<!-- <div class="roles-container">
+        @for (role of roles.data; track $index) {
+        <div class="role-card" (roleState)="roleStateToggle($event)">
+          <div class="card-header">
+            <div class="left">
+              <img [src]="role.roleIcon.iconPath? role.roleIcon.iconPath: 'assets/images/admin.svg'" [alt]="role.name">
+              <div class="text">
+                <h2>{{role.name}}</h2>
+                <p>{{role.description}}</p>
+              </div>
+            </div>
+            <div class="right-header">
+              <div class="status">
+                <div class="dot">
+
+                </div>
+                <p>{{role.isActive? 'Activate':'Deactivate'}}</p>
+              </div>
+              <div class="dots" (click)="show(role.id)">
+                <div class="dot" [style.background-color]="!isShown? '#A1A5B7':'#0660FC'"></div>
+                <div class="dot" [style.background-color]="!isShown? '#A1A5B7':'#0660FC'"></div>
+                <div class="dot" [style.background-color]="!isShown? '#A1A5B7':'#0660FC'"></div>
+              </div>
+
+            </div>
+          </div>
+          <div class="hr"></div>
+          <div class="members">
+            <div class="members-numbers">
+              <p>Members</p>
+              <div class="number">{{role.usersCount}}</div>
+            </div>
+            <div class="imgs-container">
+              @for (user of role.applicationUsers; track user; let i = $index) {
+              <div class="user-profile tooltip">
+                <img [src]="user.profileImagePath? user.profileImagePath: 'assets/images/default-user.png'" alt="">
+                <span class="tooltiptext">{{user.fullName}}</span>
+
+              </div>
+              }
+            </div>
+          </div>
+          @if (isShown) {
+          <div class="roles-status">
+            <ul>
+              <li><img src="assets/images/message-edit.svg" alt=""> Update Role</li>
+              <li> <img src="assets/images/profile-delete.svg" alt=""> Deactivate</li>
+              <li> <img src="assets/images/trash.svg" alt=""> Delete Role</li>
+            </ul>
+
+          </div>
+          }
+        </div>
+        }
+      </div> -->

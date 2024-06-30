@@ -1,0 +1,107 @@
+<div class="container">
+  <div class="blogTitle">
+    <p class="">Blog Posts</p>
+    <small class="">Manage your Blogs Posts</small>
+  </div>
+  <section class="blogHeader">
+    <div class="navigation">
+      <ul>
+        <li [routerLink]="['/cms/blogs']" [ngClass]="{'active-navigation': isActive('0')}"
+          (click)="setActive('0'); navigateWithQueryParam('pstatus', '0')">
+          <p id="allPosts">All Posts</p>
+        </li>
+        <li [ngClass]="{'active-navigation': isActive('1')}"
+          (click)="setActive('1'); navigateWithQueryParam('pstatus', '1')">
+          <p>Published</p>
+        </li>
+        <li [ngClass]="{'active-navigation': isActive('3')}"
+          (click)="setActive('3'); navigateWithQueryParam('pstatus', '3')">
+          <p>Pending</p>
+        </li>
+        <li [ngClass]="{'active-navigation': isActive('4')}"
+          (click)="setActive('4'); navigateWithQueryParam('pstatus', '4')">
+          <p>Scheduled</p>
+        </li>
+        <li [ngClass]="{'active-navigation': isActive('2')}"
+          (click)="setActive('2'); navigateWithQueryParam('pstatus', '2')">
+          <p>Unpublish</p>
+        </li>
+        <li [ngClass]="{'active-navigation': isActive('5')}"
+          (click)="setActive('5'); navigateWithQueryParam('pstatus', '5')" id="draft">
+          <p>Draft</p>
+        </li>
+      </ul>
+
+    </div>
+    <div class="category">
+      <!-- <div class="seacrhInput">
+          <input type="search" name="search" id="search" [(ngModel)]="searchTitle"  (input)="searchPosts()"
+          placeholder="Search..." />
+          <svg width="20" height="20" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <path
+              d="M18.7083 16.8015L15.8025 14.0515C15.25 14.7628 14.5878 15.3817 13.8408 15.8848L16.8292 18.7265C16.9548 18.8733 17.1102 18.9917 17.285 19.074C17.4598 19.1563 17.6501 19.2005 17.8432 19.2038C18.0364 19.2071 18.2281 19.1694 18.4056 19.0932C18.5832 19.017 18.7425 18.9039 18.8731 18.7615C19.0037 18.6192 19.1026 18.4507 19.1633 18.2673C19.224 18.0839 19.2451 17.8897 19.2252 17.6975C19.2053 17.5053 19.1449 17.3195 19.0479 17.1525C18.9509 16.9854 18.8195 16.8408 18.6625 16.7282L18.7083 16.8015Z"
+              fill="#A1A5B7" />
+            <path opacity="0.3"
+              d="M9.21167 0.833252C7.57998 0.833252 5.98492 1.31711 4.62822 2.22363C3.27151 3.13015 2.21409 4.41862 1.58967 5.92611C0.965244 7.4336 0.801867 9.0924 1.1202 10.6927C1.43852 12.2931 2.22426 13.7631 3.37804 14.9169C4.53183 16.0707 6.00183 16.8564 7.60218 17.1747C9.20252 17.4931 10.8613 17.3297 12.3688 16.7053C13.8763 16.0808 15.1648 15.0234 16.0713 13.6667C16.9778 12.31 17.4617 10.7149 17.4617 9.08325C17.4617 6.89522 16.5925 4.7968 15.0453 3.24962C13.4981 1.70245 11.3997 0.833252 9.21167 0.833252ZM9.21167 14.9133C8.06081 14.9132 6.93578 14.5721 5.97875 13.9329C5.02172 13.2937 4.27564 12.3852 3.83481 11.3221C3.39397 10.259 3.27817 9.08908 3.50202 7.9602C3.72588 6.83132 4.27935 5.79413 5.09249 4.97971C5.90563 4.16529 6.94195 3.61018 8.07048 3.38455C9.199 3.15892 10.3691 3.27288 11.4329 3.71204C12.4966 4.1512 13.4064 4.89585 14.0471 5.85187C14.6878 6.8079 15.0307 7.93239 15.0325 9.08325C15.0349 9.84876 14.8861 10.6072 14.5945 11.315C14.303 12.0229 13.8744 12.6661 13.3336 13.2078C12.7927 13.7496 12.1501 14.1791 11.4428 14.4718C10.7354 14.7644 9.97719 14.9145 9.21167 14.9133V14.9133Z"
+              fill="#A1A5B7" />
+          </svg>
+        </div> -->
+
+      <div>
+        <app-search class="searchBlogs" (onInput)="searchPosts($event)"></app-search>
+      </div>
+
+      <div>
+        <app-sort class="sort" [sortOptions]="sortData" (sortCriteria)="sortPosts($event)"></app-sort>
+
+      </div>
+      <div>
+        <app-filter class="filter" [filters]="filterData" (filterCriteria)="filterPosts($event)"></app-filter>
+      </div>
+      <div>
+        <app-add-button class="add" [btnIcon]="'assets/images/add-circle.svg'" [btnName]="'Add Post'"></app-add-button>
+      </div>
+    </div>
+  </section>
+
+  @if (searchedPosts.length > 0) {
+  <div style="margin: 10px 0px;">
+    <app-table [data]="searchedPosts" [tableData]="tableData" (blogState)="postStateToggle($event)" (deletePost)="deletePostToggle($event)"></app-table>
+    <app-paginator (rowsCount)="getCount($event)" [all]="searchedPosts.length!=0?searchedPosts.length:0" />
+  </div>
+
+  }@else {
+  <section class="noBlogs">
+    <div class="content">
+      <h2>No Blogs</h2>
+      <h2>No Blogs</h2>
+    </div>
+  </section>
+
+  }
+</div>
+
+
+
+<!-- Invite popup -->
+@if(unpublishBlogFlag){
+<div class="dark-background"></div>
+<div class="deleting">
+  <app-card-modal [title]="'Invite link generated successfully !'" [actionBackground]="'#0660FC'"
+    [backgroundImg]="'assets/images/ellipse-blue.svg'"
+    [description]="'You are about to change an invitation link again to this user.'" [action]="'Change'"
+    [cancel]="'Cancel'" [icon_path]="'assets/images/activate_user.svg'" (actionBtn)="changePostState()"
+    (cancelBtn)="cancelChangePostState()"></app-card-modal>
+</div>
+}
+
+<!-- delete popup -->
+@if(deletePostFlag){
+<div class="dark-background"></div>
+<div class="deleting">
+  <app-card-modal [title]="'Are you Sure you want to Delete this Post ?'"
+    [description]="'You cannot undo this action.This Post will not be able to access the system.'" [action]="'Delete'"
+    [cancel]="'Cancel'" [icon_path]="'assets/images/delete_icon.svg'" (actionBtn)="deletePost()"
+    (cancelBtn)="cancelDeletingPost()"></app-card-modal>
+</div>
+}

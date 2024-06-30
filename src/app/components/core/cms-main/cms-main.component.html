@@ -1,0 +1,26 @@
+<div class="container">
+  <div class="row">
+    <div class="sidebar" [ngClass]="toggler_val ? 'toggle' : 'beforeToggle'">
+      <app-sidebar></app-sidebar>
+    </div>
+    <div class="col-12" [ngClass]="
+        toggler_val
+          ? 'beside-sidebar-with-no-margin'
+          : 'beside-sidebar-with-margin'
+      ">
+      <div class="row header">
+        <div class="col-12 head-side">
+          <app-header></app-header>
+        </div>
+        <div class="content">
+          @if(request){
+          <div class="spinner">
+            <app-spinner></app-spinner>
+          </div>
+          }
+          <router-outlet></router-outlet>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

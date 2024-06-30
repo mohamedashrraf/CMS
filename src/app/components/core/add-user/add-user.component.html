@@ -1,0 +1,283 @@
+@if( isavailable){
+
+<div class="container">
+  <div class="add-user-container">
+    <div class="user-form">
+      <form [formGroup]="addUser" (ngSubmit)="AddUser()">
+        <div class="user-header">
+          <div class="header-icons">
+            <div class="header-text">
+              <h3>Create New User</h3>
+              <p>Lorem ipsum is placeholder text commonly</p>
+            </div>
+            <img src="/assets/images/Frame 1000016151.svg" alt="" (click)="close()" />
+          </div>
+          <div class="hr"></div>
+
+          <div class="user-background">
+            <div class="user-info" (click)="imgHiddenInp.click()">
+              <img class="user-profile-img" width='88' height='88'
+                [src]="selectedImage != null? selectedImageUrl :'/assets/images/add-user.svg'" alt="user-img" />
+              <div class="edit">
+                <input formControlName="ImageProfile" class="imgHiddenInp" accept=".jpg, .png" id="file-upload"
+                  (change)="uploadProfileImage($event)" type="file" #imgHiddenInp name="imgHiddenInp" hidden>
+                <svg xmlns="http://www.w3.org/2000/svg" width="12" height="12" viewBox="0 0 12 12" fill="none">
+                  <path opacity="0.4"
+                    d="M7.74 1.5H3.76C2.035 1.5 1 2.53 1 4.26V8.235C1 9.97 2.035 11 3.76 11H7.735C9.465 11 10.495 9.97 10.495 8.24V4.26C10.5 2.53 9.465 1.5 7.74 1.5Z"
+                    fill="#7E8299" />
+                  <path
+                    d="M10.51 1.49014C9.61499 0.590138 8.73999 0.570138 7.81999 1.49014L7.25499 2.05014C7.20499 2.10014 7.18999 2.17014 7.20999 2.23514C7.55999 3.46014 8.53999 4.44014 9.76499 4.79014C9.77999 4.79514 9.80499 4.79514 9.81999 4.79514C9.86999 4.79514 9.91999 4.77514 9.95499 4.74014L10.51 4.18014C10.965 3.72514 11.19 3.29014 11.19 2.84514C11.19 2.39514 10.965 1.95014 10.51 1.49014Z"
+                    fill="#7E8299" />
+                  <path
+                    d="M8.92993 5.20992C8.79493 5.14492 8.66493 5.07992 8.54493 5.00492C8.44493 4.94492 8.34493 4.87992 8.24993 4.80992C8.16993 4.75992 8.07993 4.68492 7.98993 4.60992C7.97993 4.60492 7.94993 4.57992 7.90993 4.53992C7.75493 4.41492 7.58993 4.24492 7.43493 4.05992C7.42493 4.04992 7.39493 4.01992 7.36993 3.97492C7.31993 3.91992 7.24493 3.82492 7.17993 3.71992C7.12493 3.64992 7.05993 3.54992 6.99993 3.44492C6.92493 3.31992 6.85993 3.19492 6.79993 3.06492C6.73493 2.92492 6.68493 2.79492 6.63993 2.66992L3.94993 5.35992C3.77493 5.53492 3.60493 5.86492 3.56993 6.10992L3.35493 7.59992C3.30993 7.91492 3.39493 8.20992 3.58993 8.40492C3.75493 8.56992 3.97993 8.65492 4.22993 8.65492C4.28493 8.65492 4.33993 8.64992 4.39493 8.64492L5.87993 8.43492C6.12493 8.39992 6.45493 8.23492 6.62993 8.05492L9.31993 5.36492C9.19493 5.32492 9.06993 5.26992 8.92993 5.20992Z"
+                    fill="#7E8299" />
+                </svg>
+              </div>
+            </div>
+          </div>
+        </div>
+
+
+        <div class="full-input">
+          <label for="name"> Full Name</label>
+          <input type="text" id="name" placeholder="Haitham Mohamed" formControlName="FullName" required />
+          @if (addUser.controls['FullName'].errors &&
+          addUser.controls['FullName'].touched) {
+          <div class="invalid-feedback">
+            @if (addUser.controls['FullName'].errors['required'] ) {
+            <p class="required">Full Name is required</p>
+            }
+            @if (addUser.controls['FullName'].errors['pattern'] ||
+            addUser.controls['FullName'].errors['minlength']) {
+            <p class="required">Full Name is invalid</p>
+            }
+          </div>
+          }
+        </div>
+
+        <div class="inputs-container">
+          <div class="input">
+            <div class="input">
+              <label for="email">Email</label>
+              <input type="email" id="email" placeholder="HaithamMohamed@saptiumsoftware.com" formControlName="Email"
+                required />
+
+              @if (addUser.controls['Email'].touched && addUser.controls['Email'].errors)
+              {
+              <div class="invalid-feedback">
+                @if (addUser.controls['Email'].errors['required']) {
+                <p class="required">Email is required</p>
+                } @if (addUser.controls['Email'].errors['Email']) {
+                <p>Email is invalid</p>
+                }
+              </div>
+              }
+              @if(errorExit){
+              <p class="required1">Email Already Exists</p>
+              }
+            </div>
+          </div>
+          <div class="input customSelect">
+            <label for="selectRole">Role & Permissions</label>
+            <!-- <select name="" id="selectRole" formControlName="roleId" required> -->
+            <!-- </select> -->
+            <div class="select-group" (click)="toggleMenu()">
+              <div class="select" id="count" [ngClass]="{'select-active':toggleSelectMenu}">
+                @if(selectedRoleIcon){ <img width="20" height="20" [src]="selectedRoleIcon" [alt]="selectedRole">
+                <p> {{ selectedRole }}</p>}
+
+              </div>
+              @if (toggleSelectMenu) {
+              <div class="select-options">
+                <ul>
+                  @for (role of rolesList.data; track role.roleId;let i=$index) {
+                  <li class="role-list" (click)="selectRole(role)">
+                    <img [src]="role.roleIconPath" [alt]="role.roleName">
+                    <p>{{role.roleName}}</p>
+                  </li>
+                  }
+                </ul>
+              </div>
+              }
+            </div>
+
+          </div>
+        </div>
+        <div class="inputs-container">
+          <div class="input">
+            <label for="fromInput3">Password</label>
+            <div class="input-container">
+              @if (showPass) {
+              <input type="text" class="form-input passwordCheck" id="fromInput3" placeholder="******************"
+                formControlName="Password" (onChangeInputValue)="shooww($event, 'Password')"
+                (input)="checkPasswordLength('Password')" [ngClass]="{
+                    'is-invalid':
+                    addUser.controls['Password'].touched &&
+                    addUser.controls['Password'].errors,
+                    'is-valid':
+                    addUser.controls['Password'].touched && 
+                    addUser.controls['Password'].errors == null ,
+                    'is-touched':
+                    addUser.controls['Password'].untouched && 
+                    addUser.controls['Password'].errors == null,
+                }" (focusin)="test()" (focusout)="test()" [appPassword]="showPass" />
+              }@else {
+              <input type="password" class="form-input passwordCheck" id="fromInput3" placeholder="******************"
+                formControlName="Password" (change)="unshowPassAfter2S($event)"
+                (input)="checkPasswordLength('Password')" (onChangeInputValue)="shooww($event, 'Password')" [ngClass]="{
+                    'is-invalid':
+                    addUser.controls['Password'].touched &&
+                    addUser.controls['Password'].errors,
+                    'is-valid':
+                    addUser.controls['Password'].touched && 
+                    addUser.controls['Password'].errors == null ,
+                    'is-touched':
+                    addUser.controls['Password'].untouched && 
+                    addUser.controls['Password'].errors == null,
+                }" (focusin)="test()" (focusout)="test()" [appPassword]="showPass" />
+              } @if(showPass){
+              <svg class="EyeIcon" (click)="showPassword()" width="14" height="14" viewBox="0 0 16 16" fill="none"
+                xmlns="http://www.w3.org/2000/svg">
+                <path opacity="0.4"
+                  d="M14.1668 6.09995C12.6268 3.67995 10.3735 2.28662 8.00016 2.28662C6.8135 2.28662 5.66016 2.63329 4.60683 3.27995C3.5535 3.93329 2.60683 4.88662 1.8335 6.09995C1.16683 7.14662 1.16683 8.84662 1.8335 9.89329C3.3735 12.32 5.62683 13.7066 8.00016 13.7066C9.18683 13.7066 10.3402 13.36 11.3935 12.7133C12.4468 12.06 13.3935 11.1066 14.1668 9.89329C14.8335 8.85329 14.8335 7.14662 14.1668 6.09995ZM8.00016 10.6933C6.50683 10.6933 5.30683 9.48662 5.30683 7.99995C5.30683 6.51329 6.50683 5.30662 8.00016 5.30662C9.4935 5.30662 10.6935 6.51329 10.6935 7.99995C10.6935 9.48662 9.4935 10.6933 8.00016 10.6933Z"
+                  fill="#0660FC" />
+                <path
+                  d="M8.0001 6.09326C6.95343 6.09326 6.1001 6.94659 6.1001 7.99993C6.1001 9.04659 6.95343 9.89993 8.0001 9.89993C9.04676 9.89993 9.90676 9.04659 9.90676 7.99993C9.90676 6.95326 9.04676 6.09326 8.0001 6.09326Z"
+                  fill="#0660FC" />
+              </svg>
+              }@else {
+              <svg class="EyeIcon" (click)="showPassword()" xmlns="http://www.w3.org/2000/svg" width="14" height="14"
+                viewBox="0 0 14 14" fill="none">
+                <path
+                  d="M0.920014 13.5601C0.785702 13.5589 0.656921 13.5064 0.560014 13.4134C0.465971 13.3185 0.413208 13.1903 0.413208 13.0567C0.413208 12.9232 0.465971 12.795 0.560014 12.7001L12.7333 0.586749C12.7757 0.525039 12.8313 0.473621 12.8962 0.436287C12.9611 0.398953 13.0335 0.376656 13.1081 0.371039C13.1827 0.365422 13.2577 0.37663 13.3274 0.403835C13.3971 0.431041 13.4598 0.473549 13.5109 0.528227C13.562 0.582904 13.6002 0.648355 13.6226 0.719752C13.6451 0.79115 13.6512 0.866673 13.6405 0.94075C13.6299 1.01483 13.6028 1.08557 13.5611 1.14776C13.5195 1.20995 13.4644 1.26201 13.4 1.30008L1.26668 13.4134C1.17505 13.5062 1.05041 13.5589 0.920014 13.5601Z"
+                  fill="#7E8299" />
+                <path
+                  d="M5.09999 7.40684C5.10175 6.90346 5.30249 6.42121 5.65843 6.06527C6.01437 5.70933 6.49662 5.50859 6.99999 5.50684C7.28346 5.50697 7.56323 5.5712 7.81837 5.69473C8.07351 5.81826 8.29741 5.99788 8.47333 6.22017L5.80666 8.88684C5.58508 8.70923 5.40645 8.4839 5.2841 8.22764C5.16174 7.97138 5.09881 7.69081 5.09999 7.40684ZM6.80666 9.28684C6.87106 9.29012 6.93559 9.29012 6.99999 9.28684C7.5039 9.28684 7.98718 9.08666 8.3435 8.73034C8.69981 8.37402 8.89999 7.89075 8.89999 7.38684C8.90326 7.32688 8.90326 7.26679 8.89999 7.20684L6.80666 9.28684Z"
+                  fill="#7E8299" />
+                <path opacity="0.3"
+                  d="M3.03337 11.6669L5.10004 9.60686C4.80303 9.34609 4.56274 9.0271 4.39406 8.66966C4.22537 8.31222 4.13189 7.92395 4.11939 7.52891C4.1069 7.13386 4.17566 6.74046 4.32143 6.37308C4.46719 6.0057 4.68684 5.67216 4.96678 5.39314C5.24671 5.11412 5.58097 4.89556 5.94882 4.751C6.31668 4.60644 6.71031 4.53896 7.10531 4.55275C7.50031 4.56654 7.88827 4.66129 8.24516 4.83115C8.60204 5.001 8.92024 5.24234 9.18004 5.5402L11.2867 3.44019C10.0916 2.39876 8.58289 1.78635 7.00004 1.7002C3.84671 1.7002 0.333374 4.78019 0.333374 7.40686C0.333374 8.83353 1.47337 10.4802 3.03337 11.6669Z"
+                  fill="#7E8299" />
+                <path opacity="0.3"
+                  d="M9.70672 6.39991C9.83227 6.72079 9.8978 7.06201 9.90005 7.40658C9.90348 7.87631 9.79196 8.33975 9.57521 8.75649C9.35846 9.17324 9.04307 9.53065 8.65652 9.79755C8.26997 10.0645 7.824 10.2328 7.35749 10.2878C6.89098 10.3428 6.41809 10.2829 5.98005 10.1132L3.88672 12.1932C4.82768 12.7635 5.90026 13.0805 7.00005 13.1132C10.3334 13.1132 13.6667 10.0532 13.6667 7.40658C13.5586 6.1288 12.973 4.93866 12.0267 4.07324L9.70672 6.39991Z"
+                  fill="#7E8299" />
+              </svg> }
+            </div>
+            @if (addUser.controls['Password'].touched &&
+            addUser.controls['Password'].errors) {
+            <div class="invalid-feedback">
+              @if (addUser.controls['Password'].errors['required']) {
+              <p class="required">Password is required</p>
+              }
+               @if (addUser.controls['Password'].errors['pattern']) {
+              <p class="required">Invalid Password</p>
+              }
+            </div>
+            }
+          </div>
+
+          <div class="input">
+            <label for="fromInput4">Confirm Password</label>
+            <div class="input-container">
+
+              @if (showConfirmPass) {
+              <input type="text" class="form-input passwordCheck" id="fromInput4" formControlName="ConfirmPassword"
+                placeholder="******************" (input)="checkPasswordLength('ConfirmPassword')"
+                (onChangeInputValue)="shooww($event, 'ConfirmPassword')" [ngClass]="{
+                      'is-invalid':
+                      addUser.controls['ConfirmPassword'].touched &&
+                      addUser.controls['ConfirmPassword'].errors,
+                      'is-valid':
+                      addUser.controls['ConfirmPassword'].touched && 
+                      addUser.controls['ConfirmPassword'].errors == null ,
+                      'is-touched':
+                      addUser.controls['ConfirmPassword'].untouched && 
+                      addUser.controls['ConfirmPassword'].errors == null,
+                  }" [appPassword]="showConfirmPass" />
+              }@else {
+              <input type="password" class="form-input passwordCheck" id="fromInput4" formControlName="ConfirmPassword"
+                placeholder="******************" (input)="checkPasswordLength('ConfirmPassword')"
+                (onChangeInputValue)="shooww($event, 'ConfirmPassword')" [ngClass]="{
+                      'is-invalid':
+                      addUser.controls['ConfirmPassword'].touched &&
+                      addUser.controls['ConfirmPassword'].errors,
+                      'is-valid':
+                      addUser.controls['ConfirmPassword'].touched && 
+                      addUser.controls['ConfirmPassword'].errors == null ,
+                      'is-touched':
+                      addUser.controls['ConfirmPassword'].untouched && 
+                      addUser.controls['ConfirmPassword'].errors == null,
+                  }" [appPassword]="showConfirmPass" />
+              } @if(showConfirmPass){
+              <svg class="EyeIcon" (click)="showConfirmPassword()" width="14" height="14" viewBox="0 0 16 16"
+                fill="none" xmlns="http://www.w3.org/2000/svg">
+                <path opacity="0.4"
+                  d="M14.1668 6.09995C12.6268 3.67995 10.3735 2.28662 8.00016 2.28662C6.8135 2.28662 5.66016 2.63329 4.60683 3.27995C3.5535 3.93329 2.60683 4.88662 1.8335 6.09995C1.16683 7.14662 1.16683 8.84662 1.8335 9.89329C3.3735 12.32 5.62683 13.7066 8.00016 13.7066C9.18683 13.7066 10.3402 13.36 11.3935 12.7133C12.4468 12.06 13.3935 11.1066 14.1668 9.89329C14.8335 8.85329 14.8335 7.14662 14.1668 6.09995ZM8.00016 10.6933C6.50683 10.6933 5.30683 9.48662 5.30683 7.99995C5.30683 6.51329 6.50683 5.30662 8.00016 5.30662C9.4935 5.30662 10.6935 6.51329 10.6935 7.99995C10.6935 9.48662 9.4935 10.6933 8.00016 10.6933Z"
+                  fill="#0660FC" />
+                <path
+                  d="M8.0001 6.09326C6.95343 6.09326 6.1001 6.94659 6.1001 7.99993C6.1001 9.04659 6.95343 9.89993 8.0001 9.89993C9.04676 9.89993 9.90676 9.04659 9.90676 7.99993C9.90676 6.95326 9.04676 6.09326 8.0001 6.09326Z"
+                  fill="#0660FC" />
+              </svg>
+              }@else {
+              <svg class="EyeIcon" (click)="showConfirmPassword()" xmlns="http://www.w3.org/2000/svg" width="14"
+                height="14" viewBox="0 0 14 14" fill="none">
+                <path
+                  d="M0.920014 13.5601C0.785702 13.5589 0.656921 13.5064 0.560014 13.4134C0.465971 13.3185 0.413208 13.1903 0.413208 13.0567C0.413208 12.9232 0.465971 12.795 0.560014 12.7001L12.7333 0.586749C12.7757 0.525039 12.8313 0.473621 12.8962 0.436287C12.9611 0.398953 13.0335 0.376656 13.1081 0.371039C13.1827 0.365422 13.2577 0.37663 13.3274 0.403835C13.3971 0.431041 13.4598 0.473549 13.5109 0.528227C13.562 0.582904 13.6002 0.648355 13.6226 0.719752C13.6451 0.79115 13.6512 0.866673 13.6405 0.94075C13.6299 1.01483 13.6028 1.08557 13.5611 1.14776C13.5195 1.20995 13.4644 1.26201 13.4 1.30008L1.26668 13.4134C1.17505 13.5062 1.05041 13.5589 0.920014 13.5601Z"
+                  fill="#7E8299" />
+                <path
+                  d="M5.09999 7.40684C5.10175 6.90346 5.30249 6.42121 5.65843 6.06527C6.01437 5.70933 6.49662 5.50859 6.99999 5.50684C7.28346 5.50697 7.56323 5.5712 7.81837 5.69473C8.07351 5.81826 8.29741 5.99788 8.47333 6.22017L5.80666 8.88684C5.58508 8.70923 5.40645 8.4839 5.2841 8.22764C5.16174 7.97138 5.09881 7.69081 5.09999 7.40684ZM6.80666 9.28684C6.87106 9.29012 6.93559 9.29012 6.99999 9.28684C7.5039 9.28684 7.98718 9.08666 8.3435 8.73034C8.69981 8.37402 8.89999 7.89075 8.89999 7.38684C8.90326 7.32688 8.90326 7.26679 8.89999 7.20684L6.80666 9.28684Z"
+                  fill="#7E8299" />
+                <path opacity="0.3"
+                  d="M3.03337 11.6669L5.10004 9.60686C4.80303 9.34609 4.56274 9.0271 4.39406 8.66966C4.22537 8.31222 4.13189 7.92395 4.11939 7.52891C4.1069 7.13386 4.17566 6.74046 4.32143 6.37308C4.46719 6.0057 4.68684 5.67216 4.96678 5.39314C5.24671 5.11412 5.58097 4.89556 5.94882 4.751C6.31668 4.60644 6.71031 4.53896 7.10531 4.55275C7.50031 4.56654 7.88827 4.66129 8.24516 4.83115C8.60204 5.001 8.92024 5.24234 9.18004 5.5402L11.2867 3.44019C10.0916 2.39876 8.58289 1.78635 7.00004 1.7002C3.84671 1.7002 0.333374 4.78019 0.333374 7.40686C0.333374 8.83353 1.47337 10.4802 3.03337 11.6669Z"
+                  fill="#7E8299" />
+                <path opacity="0.3"
+                  d="M9.70672 6.39991C9.83227 6.72079 9.8978 7.06201 9.90005 7.40658C9.90348 7.87631 9.79196 8.33975 9.57521 8.75649C9.35846 9.17324 9.04307 9.53065 8.65652 9.79755C8.26997 10.0645 7.824 10.2328 7.35749 10.2878C6.89098 10.3428 6.41809 10.2829 5.98005 10.1132L3.88672 12.1932C4.82768 12.7635 5.90026 13.0805 7.00005 13.1132C10.3334 13.1132 13.6667 10.0532 13.6667 7.40658C13.5586 6.1288 12.973 4.93866 12.0267 4.07324L9.70672 6.39991Z"
+                  fill="#7E8299" />
+              </svg> }
+            </div>
+            @if (addUser.controls['ConfirmPassword'].touched &&
+            addUser.controls['ConfirmPassword'].errors) {
+            <div class="invalid-feedback">
+              @if (addUser.controls['ConfirmPassword'].errors['required']) {
+              <p class="required">Confirm Password is required</p>
+              } @if (addUser.controls['ConfirmPassword'].errors['passwordMismatch']) {
+              <p class="required">Confirm Password does not match</p>
+              }
+            </div>
+            }
+          </div>
+        </div>
+
+        <div class="hr"></div>
+        <div class="user-form-footer">
+          <button type="button" (click)="close()">
+            <span>Cancel</span>
+          </button>
+          <button type="submit" [class]="addUser.pending || addUser.invalid ? 'disabled' : ''"
+            [disabled]="addUser.pending  || addUser.invalid">
+            <span>Add User</span>
+          </button>
+        </div>
+      </form>
+    </div>
+  </div>
+</div>
+}
+
+<!-- <div
+  class="card-modal"
+  [ngClass]="{ hide: !addAccountModal, show: addAccountModal }"
+>
+  <app-card-modal
+    [title]="'Are you sure to delete the account?'"
+    [description]="
+      'Lorem ipsum is placeholder text commonly ipsum is placeholde commonly'
+    "
+    [backgroundImg]="'http://localhost:4200/assets/images/ellipse.svg'"
+    [icon_path]="'assets/images/delete_icon.svg'"
+    [cancel]="'Cancel'"
+    [action]="'Delete Account'"
+    [actionBackground]="'rgba(241, 65, 108, 1);'"
+    (actionBtn)="AddUser()"
+    (cancelBtn)="closeModal()"
+  ></app-card-modal>
+</div> -->

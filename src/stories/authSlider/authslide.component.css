@@ -1,0 +1,130 @@
+.SlidesContainer {
+  width: 720px;
+  height: 820px;
+  flex-shrink: 0;
+  background: #006cea;
+}
+
+/* Slideshow container */
+.slideshow-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 100%;
+  transition: ease all 1s;
+}
+
+/* Hide the images by default */
+.mySlides {
+  display: flex;
+  flex-direction: column;
+  transition: ease all 1s;
+}
+
+.TAP {
+  font-weight: 300;
+}
+
+/* Position the "next button" to the right */
+.next {
+  right: 0;
+  border-radius: 3px 0 0 3px;
+}
+
+/* On hover, add a black background color with a little bit see-through */
+.prev:hover,
+.next:hover {
+  background-color: rgba(0, 0, 0, 0.8);
+}
+
+/* Caption text */
+.text {
+  color: #f2f2f2;
+  font-size: 15px;
+  bottom: 8px;
+  width: 100%;
+  text-align: center;
+  padding: 0px 50px 0px 50px;
+}
+.text p:nth-child(2) {
+  /* margin-top: 60px; */
+}
+.disabled {
+  background-color: #adc4ec;
+  cursor: default;
+}
+
+.dots {
+  display: flex;
+  justify-content: center;
+  height: 20px;
+  text-align: center;
+  align-items: center;
+  gap: 6px;
+  margin: 20px 0px;
+}
+
+/* The dots/bullets/indicators */
+.dot {
+  cursor: pointer;
+  height: 7px;
+  width: 7px;
+  margin: 0 2px;
+  opacity: 0.6;
+  border-radius: 50%;
+  display: inline-block;
+  transition: background-color 0.6s ease;
+  align-items: center;
+  text-align: center;
+}
+.active-dot {
+  cursor: pointer;
+  height: 7px;
+  width: 20px;
+  margin: 0 2px;
+  background-color: hsl(0, 33%, 98%);
+  border-radius: 15%;
+  display: inline-block;
+  transition: background-color 0.6s ease;
+}
+.arrows {
+  text-align: center;
+  color: white;
+  cursor: pointer;
+  align-items: center;
+  font-size: 28px;
+  font-weight: 500;
+  height: 136%;
+}
+
+.active {
+  background-color: #717171;
+}
+
+.cardDiv {
+  position: relative;
+}
+
+.cardDiv img {
+  position: relative;
+  height: 613.024px;
+  left: 30px;
+  flex-shrink: 0;
+  border-radius: 12.29px;
+}
+
+#inside {
+  position: absolute;
+  width: 332.35px;
+  height: 123.093px;
+  flex-shrink: 0;
+  border-radius: 14.771px;
+  background: #fff;
+  bottom: 65px;
+  left: 205px;
+  z-index: 999;
+}
+
+.hide {
+  display: none;
+}

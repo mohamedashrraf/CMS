@@ -1,0 +1,3412 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  margin: 0;
+}
+.container {
+  width: 100%;
+  box-sizing: border-box;
+  height: 100%;
+  margin-top: 20px;
+  min-height: 77.5vh !important;
+}
+.plan-details {
+  flex-shrink: 0;
+  border-radius: 12px;
+  border: 0.75px solid rgba(191, 212, 228, 0.4);
+  background: #0660fc;
+  color: var(--white);
+  margin: 10px 0px;
+  padding: 10px 24px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  gap: 20px;
+  overflow: hidden;
+}
+.plan-details::before {
+  content: url("../../../../assets/images/Circle-4.svg");
+  width: 300px;
+  height: 300px;
+  /* transform: rotate(-121.387deg); */
+  flex-shrink: 0;
+  position: absolute;
+  border-radius: 300px;
+  opacity: 0.5;
+  left: -80px;
+  /* background: linear-gradient(
+    1deg,
+    #fff -29.69%,
+    rgba(255, 255, 255, 0) 124.98%
+  ); */
+}
+
+.plan-details-header,
+.non-free-plan-details-header {
+  margin-top: 10px;
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  gap: 12px;
+}
+
+.plan-details-header .plan-details-header-content p,
+.plan-details-header .plan-details-header-content h4,
+.non-free-plan-details-header .non-free-plan-details-header-content p,
+.non-free-plan-details-header .non-free-plan-details-header-content h4 {
+  margin: 0px;
+}
+
+.plan-details-header .plan-details-header-content p,
+.non-free-plan-details-header .non-free-plan-details-header-content p {
+  color: #f9f9f9;
+  font-family: "DM Sans";
+  font-size: 16px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: 150%; /* 21px */
+}
+
+.plan-details-header .plan-details-header-content h4,
+.non-free-plan-details-header .non-free-plan-details-header-content h4 {
+  color: #fff;
+  font-family: "DM Sans";
+  font-size: 26px;
+  font-style: normal;
+  font-weight: 700;
+  line-height: 115%; /* 27.6px */
+}
+
+.plan-details-header-price {
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+  /* margin-right: 20px; */
+}
+
+.plan-details-header-price > p {
+  color: #fff;
+  font-family: "DM Sans";
+  font-size: 36px;
+  font-style: normal;
+  font-weight: 700;
+  line-height: 115%; /* 41.4px */
+  margin: 0;
+}
+.plan-details-header-price > p span {
+  color: #f9f9f9;
+  font-family: "DM Sans";
+  font-size: 14px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: 115%; /* 16.1px */
+}
+
+.upgrade-plan p {
+  margin: 0px;
+}
+
+.upgrade-plan {
+  display: inline-flex;
+  padding: 8px 10px;
+  justify-content: center;
+  align-items: center;
+  gap: 6px;
+  border-radius: 7px;
+  background: rgba(252, 252, 252, 0.2);
+  cursor: pointer;
+}
+.upgrade-plan:hover {
+  opacity: 0.8;
+}
+
+.non-free-upgrade-plan p {
+  margin: 0px;
+  color: #fff;
+  font-family: "DM Sans";
+  font-size: 12px;
+  font-style: normal;
+  font-weight: 500;
+  line-height: 9.491px; /* 79.093% */
+}
+
+.non-free-upgrade-plan {
+  display: inline-flex;
+  padding: 8px 10px;
+  justify-content: center;
+  align-items: center;
+  gap: 6px;
+  border-radius: 7px;
+  background: #01ccff;
+  cursor: pointer;
+}
+
+.non-free-upgrade-plan:hover {
+  opacity: 0.8;
+}
+
+.usage-percentage {
+  position: relative;
+  width: 300px;
+  height: 10px;
+  flex-shrink: 0;
+  border-radius: 82px;
+  border: 0.4px solid rgba(255, 255, 255, 0.3);
+  background: rgba(255, 255, 255, 0.16);
+}
+
+.usage-percentage .exact-usage {
+  position: absolute;
+  width: 50%;
+  height: 10px;
+  flex-shrink: 0;
+  left: -1px;
+  top: -1px;
+  background-color: #01ccff;
+  border-radius: 82px;
+}
+
+.percentage-text {
+  position: absolute;
+  right: -6px;
+  top: -6px;
+  display: inline-flex;
+  padding: 3px 6px;
+  justify-content: center;
+  align-items: center;
+  gap: 10px;
+  border-radius: 19px;
+  border: 1px solid #fff;
+  background: #fff;
+  box-shadow: 0px 2.375px 4.75px -1.187px rgba(16, 24, 40, 0.1),
+    0px 1.188px 2.375px -1.187px rgba(16, 24, 40, 0.06);
+  color: #101828;
+  text-align: center;
+  font-family: "DM Sans";
+  font-size: 12px;
+  font-style: normal;
+  font-weight: 800;
+  line-height: 14.25px; /* 178.125% */
+}
+
+.plan-details-usage {
+  display: flex;
+  /* gap: 8px; */
+  align-items: center;
+  justify-content: space-between;
+  gap: 50px;
+  margin-top: 0px;
+}
+
+.availability {
+  display: flex;
+  align-items: center;
+  gap: 50px;
+}
+
+.plan-details-usage > .usage-content > .usage {
+  color: #fff !important;
+  font-feature-settings: "clig" off, "liga" off;
+  font-family: "DM Sans";
+  font-size: 16px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: 27.053px;
+  margin: 0px;
+}
+
+#usagee {
+  color: #fff !important;
+  font-feature-settings: "clig" off, "liga" off;
+  font-family: "DM Sans";
+  font-size: 16px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: 27.053px;
+  margin: 0px;
+}
+
+.plan-details-usage-details p {
+  margin: 0px;
+  color: rgba(249, 249, 249, 0.6);
+  font-feature-settings: "clig" off, "liga" off;
+  font-family: "DM Sans";
+  font-size: 20px;
+  font-style: normal;
+  font-weight: 500;
+  line-height: 27.053px;
+}
+
+.plan-details-usage-details p > span {
+  color: #fff;
+  font-feature-settings: "clig" off, "liga" off;
+  font-family: "DM Sans";
+  font-size: 20px;
+  font-style: normal;
+  font-weight: 500;
+  line-height: 27.053px; /* 169.082% */
+}
+
+.plan-details-features {
+  margin-top: 20px;
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+  gap: 50px;
+}
+
+.plan-details-features-seats::before {
+  content: "";
+  position: absolute;
+  right: -25px;
+  width: 0.75px;
+  height: 35px;
+  background: rgba(255, 255, 255, 0.2);
+}
+
+.plan-details-features-seats,
+.plan-details-features-posts,
+.plan-details-expiration-date {
+  position: relative;
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+}
+
+.plan-details-expiration-date::before {
+  content: "";
+  position: absolute;
+  left: -25px;
+  width: 0.75px;
+  height: 35px;
+  background: rgba(255, 255, 255, 0.2);
+}
+
+.plan-details-features-seats svg,
+.plan-details-features-posts svg,
+.plan-details-expiration-date svg {
+  margin-right: 10px;
+}
+
+.seats-details p,
+.posts-details p,
+.ates-details p {
+  margin: 0;
+}
+
+.seats-details p:nth-child(2),
+.posts-details p:nth-child(2) {
+  margin: 0px;
+  color: rgba(249, 249, 249, 0.6);
+  font-feature-settings: "clig" off, "liga" off;
+  font-family: "DM Sans";
+  font-size: 20px;
+  font-style: normal;
+  font-weight: 500;
+  line-height: 27.053px;
+}
+
+.dates-details p:nth-child(1),
+.seats-details p:nth-child(1),
+.posts-details p:nth-child(1) {
+  color: #fff;
+  font-family: "DM Sans";
+  font-size: 16px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: 150%; /* 18px */
+}
+
+.dates-details p:nth-child(2) {
+  color: #fff;
+  font-family: "DM Sans";
+  font-size: 18px;
+  font-style: normal;
+  font-weight: 500;
+  line-height: 115%; /* 18.4px */
+}
+
+.seats-details p > span,
+.posts-details p > span {
+  color: #fff;
+  font-feature-settings: "clig" off, "liga" off;
+  font-family: "DM Sans";
+  font-size: 20px;
+  font-style: normal;
+  font-weight: 500;
+  line-height: 27.053px; /* 169.082% */
+}
+
+.subscription-content {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+small {
+  font-size: 16px;
+  color: rgba(161, 165, 183, 1);
+}
+
+.total-number {
+  font-weight: bold;
+}
+
+.section-title {
+  margin: 7px;
+  padding: 5px;
+}
+
+.non-free {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 10px;
+  margin: 10px 0px;
+}
+
+.section-title-total {
+  display: flex;
+  padding: 4px 6px;
+  justify-content: center;
+  align-items: center;
+  gap: 10px;
+  border-radius: var(--x, 12px);
+  border: 0.5px solid var(--stroke, rgba(191, 212, 228, 0.4));
+  background: #f9f9f9;
+}
+.section-title h3 {
+  color: #3f4254;
+  font-family: "DM Sans";
+  font-size: 18px;
+  font-style: normal;
+  font-weight: 700;
+  line-height: 35px; /* 194.444% */
+  letter-spacing: 0.16px;
+}
+
+.section-title p {
+  color: #7e8299;
+  font-family: "DM Sans";
+  font-size: 14px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: 20.3px; /* 145% */
+  letter-spacing: 0.16px;
+}
+
+.year-month-toggle {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-direction: row-reverse;
+}
+
+.year-month {
+  display: flex;
+  padding: 4px;
+  justify-content: space-between;
+  align-items: center;
+  border-radius: 100px;
+  border: 1px solid #e4e4e7;
+  background: #fff;
+}
+
+.subscription-duration-month {
+  color: #7e8299;
+  font-size: 12px;
+  font-style: normal;
+  font-weight: 600;
+  line-height: 115%; /* 13.8px */
+  padding: 6px 16px;
+  cursor: pointer;
+}
+
+.subscription-duration-year {
+  color: #7e8299;
+  font-size: 12px;
+  font-style: normal;
+  font-weight: 600;
+  line-height: 115%; /* 13.8px */
+  padding: 6px 16px;
+  cursor: pointer;
+}
+
+.subscription-duration-active {
+  display: flex;
+  padding: 6px 16px;
+  justify-content: center;
+  align-items: center;
+  gap: 10px;
+  border-radius: 100px;
+  background: #0660fc;
+  color: #fff;
+  font-size: 12px;
+  font-style: normal;
+  font-weight: 600;
+  line-height: 115%; /* 13.8px */
+  transition: all 0.5s;
+}
+
+.hint-subscription {
+  margin-right: 20px;
+  color: #0660fc;
+  font-family: "DM Sans";
+  font-size: 12px;
+  font-style: normal;
+  font-weight: 700;
+  line-height: 125%; /* 15px */
+}
+
+.cards {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: wrap;
+}
+
+.card {
+  display: flex;
+  padding: 22.443px 14.962px 14.962px 14.962px;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 15px;
+  background-color: #ffffff;
+  width: 269.313px;
+  height: 522px;
+  border-radius: 7.481px;
+  border: 0.935px solid #e4e4e7;
+  margin-top: 30px;
+  transition: all 0.4s ease-in-out;
+  gap: 29.924px;
+}
+
+.card:hover {
+  transform: translateY(-20px);
+}
+.card-title {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 5.74px;
+}
+.card-title h4 {
+  color: #3f4254;
+  font-family: "DM Sans";
+  font-size: 18px;
+  font-style: normal;
+  font-weight: 700;
+  line-height: 115%; /* 20.7px */
+}
+
+.card-title p {
+  color: #3f4254;
+  font-family: "DM Sans";
+  font-size: 14px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: 125%; /* 17.5px */
+  margin: 0;
+}
+
+.card-plan {
+  display: flex;
+  flex-direction: column;
+  gap: 37.405px;
+  width: 100%;
+}
+
+.card-plan-cost {
+  display: flex;
+  align-items: baseline;
+  gap: 3.74px;
+}
+.card-plan .card-plan-cost h2 {
+  color: #3f4254;
+  font-family: "DM Sans";
+  font-size: 30px;
+  font-style: normal;
+  font-weight: 700;
+  line-height: 115%; /* 34.5px */
+}
+.card-plan-cost-per-month {
+  color: #3f4254;
+  font-family: "DM Sans";
+  font-size: 12px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: 115%; /* 13.8px */
+}
+
+.card-get-started {
+  display: flex;
+  /* padding: 11.221px 18.702px; */
+  justify-content: center;
+  align-items: center;
+  gap: 9.351px;
+  align-self: stretch;
+  border-radius: 7px;
+  border: 0.935px solid #0660fc;
+  cursor: pointer;
+  width: 239.38934px;
+  height: auto;
+}
+
+.card-get-started p {
+  color: #0660fc;
+  font-family: "DM Sans";
+  font-size: 16px;
+  font-style: normal;
+  font-weight: 700;
+  line-height: 115%; /* 18.4px */
+  margin: 0px;
+  padding: 10px;
+}
+
+.card-get-started:hover {
+  display: flex;
+  /* padding: 11.221px 18.702px; */
+  justify-content: center;
+  align-items: center;
+  gap: 9.351px;
+  align-self: stretch;
+  border-radius: 7px;
+  background: #0660fc;
+}
+
+.card-get-started:hover p {
+  color: #ffffff;
+  font-family: "DM Sans";
+  font-size: 16px;
+  font-style: normal;
+  font-weight: 700;
+  line-height: 115%; /* 18.4px */
+}
+
+.card-plan-feature {
+  display: flex;
+  padding: 0px 14.962px 14.962px 7.481px;
+  flex-direction: column;
+  align-items: flex-start;
+  /* gap: 14.962px; */
+  align-self: stretch;
+}
+
+.card-plan-feature-title {
+  margin-bottom: 14.962px;
+}
+
+.card-plan-feature-title h5 {
+  color: #3f4254;
+  font-family: "DM Sans";
+  font-size: 14px;
+  font-style: normal;
+  font-weight: 700;
+  line-height: 115%; /* 16.1px */
+}
+
+.card-plan-feature-description ul {
+  display: flex;
+  flex-direction: column;
+  gap: 14.962px;
+  padding: 0px;
+}
+
+.card-plan-feature-description ul li {
+  display: flex;
+  justify-content: start;
+  align-items: center;
+  list-style-type: none;
+  color: #3f4254;
+}
+
+.card-plan-feature-description ul li p {
+  margin: 0px 5px;
+  font-weight: bold;
+}
+
+.card-plan-feature-description ul li svg {
+  margin-right: 10px;
+}
+
+/* MOST POPULAR */
+
+.top-section-most-popular {
+  display: flex;
+  padding: 5.611px 7.481px;
+  justify-content: center;
+  align-items: center;
+  gap: 3.74px;
+  align-self: stretch;
+  background: #0660fc;
+  border-top-left-radius: 7.481px;
+  border-top-right-radius: 7.481px;
+}
+
+.top-section-most-popular p {
+  margin: 0px;
+  margin-right: 10px;
+  color: #fff;
+  font-family: "DM Sans";
+  font-size: 14px;
+  font-style: normal;
+  font-weight: 700;
+  line-height: 115%; /* 16.1px */
+}
+
+.card-most-popular {
+  transition: all 0.4s ease-in-out;
+}
+
+.card-most-popular:hover {
+  transform: translateY(-20px);
+}
+
+.card-most-popular-body {
+  padding: 22.443px 14.962px 14.962px 14.962px;
+  gap: 29.924px;
+  height: 522px;
+  display: flex;
+  width: 269.313px;
+  flex-direction: column;
+  align-items: flex-start;
+  border: 1.87px solid #0660fc;
+  background: #181c32;
+  border-bottom-left-radius: 7.481px;
+  border-bottom-right-radius: 7.481px;
+}
+
+.card-most-popular-body .card-title {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 5.74px;
+}
+.card-most-popular-body .card-title h4 {
+  color: #fff;
+  font-family: "DM Sans";
+  font-size: 18px;
+  font-style: normal;
+  font-weight: 700;
+  line-height: 115%; /* 20.7px */
+}
+
+.card-most-popular-body .card-title p {
+  color: #f9f9f9;
+  font-family: "DM Sans";
+  font-size: 14px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: 125%; /* 17.5px */
+}
+
+.card-most-popular-body .card-plan {
+  display: flex;
+  flex-direction: column;
+  gap: 37.405px;
+}
+
+.card-most-popular-body .card-plan-cost {
+  display: flex;
+  align-items: baseline;
+  gap: 3.74px;
+}
+.card-most-popular-body .card-plan .card-plan-cost h2 {
+  color: #f9f9f9;
+  font-family: "DM Sans";
+  font-size: 30px;
+  font-style: normal;
+  font-weight: 700;
+  line-height: 115%; /* 34.5px */
+}
+.card-most-popular-body .card-plan-cost-per-month {
+  color: #f9f9f9;
+  font-family: "DM Sans";
+  font-size: 12px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: 115%; /* 13.8px */
+}
+
+.card-most-popular-body .card-get-started {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 9.351px;
+  align-self: stretch;
+  border-radius: 7px;
+  border: 0.935px solid #0660fc;
+  background-color: #0660fc;
+  color: #f9f9f9;
+  cursor: pointer;
+  width: 239.38934px;
+  height: auto;
+}
+
+.card-most-popular-body .card-get-started:hover {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 9.351px;
+  align-self: stretch;
+  border-radius: 7px;
+  border: 0.935px solid #0660fc;
+  background-color: #f9f9f9;
+  color: #0660fc;
+  cursor: pointer;
+  height: auto;
+}
+
+.card-most-popular-body .card-get-started:hover > p {
+  color: #0660fc;
+  font-family: "DM Sans";
+  font-size: 16px;
+  font-style: normal;
+  font-weight: 700;
+  line-height: 115%; /* 18.4px */
+}
+
+.card-most-popular-body .card-get-started p {
+  color: #0660fc;
+  font-family: "DM Sans";
+  font-size: 16px;
+  font-style: normal;
+  font-weight: 700;
+  line-height: 115%; /* 18.4px */
+  margin: 0px;
+  padding: 10px;
+}
+
+.card-most-popular-body .card-get-started p {
+  color: #ffffff;
+  font-family: "DM Sans";
+  font-size: 16px;
+  font-style: normal;
+  font-weight: 700;
+  line-height: 115%; /* 18.4px */
+}
+
+.card-most-popular-body .card-plan-feature {
+  display: flex;
+  padding: 0px 14.962px 14.962px 7.481px;
+  flex-direction: column;
+  align-items: flex-start;
+  /* gap: 14.962px; */
+  align-self: stretch;
+}
+
+.card-most-popular-body .card-plan-feature-title h5 {
+  color: #f9f9f9;
+  font-family: "DM Sans";
+  font-size: 14px;
+  font-style: normal;
+  font-weight: 700;
+  line-height: 115%; /* 16.1px */
+}
+
+.card-most-popular-body .card-plan-feature-description ul {
+  display: flex;
+  flex-direction: column;
+  gap: 14.962px;
+  padding: 0px;
+}
+
+.card-most-popular-body .card-plan-feature-description ul li {
+  display: flex;
+  justify-content: start;
+  align-items: center;
+  list-style-type: none;
+  color: #f9f9f9;
+}
+
+.card-most-popular-body .card-plan-feature-description ul li svg {
+  margin-right: 10px;
+}
+.card-most-popular-body .card-plan-feature-description ul li p {
+  margin: 0px 5px;
+  font-weight: bold;
+}
+
+/* MOST POPULAR */
+.cards-content {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: wrap;
+  border-radius: 12px;
+  background: #fff;
+  width: 95%;
+  z-index: 50;
+  padding: 20px;
+  height: fit-content;
+}
+
+.closing-plans {
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  width: 22px;
+  height: 22px;
+  cursor: pointer;
+}
+
+.cards-popup {
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  flex-wrap: wrap;
+  width: 100%;
+  /* height: 80vh; */
+}
+
+.open-popup-plans {
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%);
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.5);
+  z-index: 30;
+}
+
+/* NON FREE PLANS */
+
+.non-free-plan-details {
+  padding: 12px 24px;
+  width: 100%;
+  /* height: 191px; */
+  flex-shrink: 0;
+  border-radius: var(--x, 12px);
+  border: 0.75px solid var(--stroke, rgba(191, 212, 228, 0.4));
+  background: #0660fc;
+}
+
+@media screen and (min-width: 2400px) {
+  .card {
+    width: 490px;
+    height: 822px;
+  }
+
+  .card-get-started {
+    width: 100%;
+  }
+
+  .card-most-popular-body {
+    width: 490px;
+    height: 822px;
+  }
+
+  .card-most-popular-body .card-get-started {
+    width: 100%;
+  }
+
+  .subscription-duration-year,
+  .subscription-duration-month {
+    font-size: 20px;
+    line-height: 115%; /* 13.8px */
+    padding: 10px 20px;
+  }
+
+  .hint-subscription {
+    font-size: 20px;
+  }
+
+  .section-title {
+    margin: 12px;
+    padding: 10px;
+  }
+
+  .section-title h3 {
+    font-size: 23px;
+    line-height: 37px; /* 194.444% */
+  }
+
+  .section-title p {
+    font-size: 23px;
+  }
+
+  .card-title h4 {
+    font-size: 26px;
+  }
+
+  .card-title p {
+    font-size: 22px;
+  }
+
+  .card-plan .card-plan-cost h2 {
+    font-size: 38px;
+  }
+  .card-plan-cost-per-month {
+    font-size: 20px;
+  }
+
+  .card-get-started p {
+    font-size: 24px;
+  }
+
+  .card-get-started:hover p {
+    font-size: 21px;
+  }
+  .card-plan-feature-title h5 {
+    font-size: 22px;
+  }
+
+  .card-plan-feature-description ul {
+    gap: 19.962px;
+  }
+
+  .card-plan-feature-description ul li {
+    font-size: 26px;
+  }
+
+  .card-plan-feature-description ul li svg {
+    margin-right: 15px;
+  }
+
+  /* MOST POPULAR */
+
+  .top-section-most-popular {
+    display: flex;
+    padding: 13.611px 13.481px;
+    justify-content: center;
+    align-items: center;
+    gap: 3.74px;
+    align-self: stretch;
+    background: #0660fc;
+    border-top-left-radius: 7.481px;
+    border-top-right-radius: 7.481px;
+  }
+
+  .top-section-most-popular p {
+    margin: 0px;
+    margin-right: 10px;
+    color: #fff;
+    font-family: "DM Sans";
+    font-size: 20px;
+    font-style: normal;
+    font-weight: 700;
+    line-height: 115%; /* 16.1px */
+  }
+
+  .card-most-popular .card-title h4 {
+    font-size: 26px;
+  }
+
+  .card-most-popular .card-title p {
+    font-size: 22px;
+  }
+
+  .card-most-popular .card-plan .card-plan-cost h2 {
+    font-size: 38px;
+  }
+  .card-most-popular .card-plan-cost-per-month {
+    font-size: 20px;
+  }
+
+  .card-most-popular .card-get-started p {
+    font-size: 24px;
+  }
+
+  .card-most-popular .card-get-started:hover p {
+    font-size: 24px;
+  }
+  .card-most-popular .card-plan-feature-title h5 {
+    font-size: 22px;
+  }
+
+  .card-most-popular .card-plan-feature-description ul {
+    gap: 21.962px;
+  }
+
+  .card-most-popular .card-plan-feature-description ul li {
+    font-size: 26px;
+  }
+
+  .card-most-popular .card-plan-feature-description ul li svg {
+    margin-right: 18px;
+  }
+  /* MOST POPULAR */
+}
+
+@media screen and (min-width: 2200px) and (max-width: 2400px) {
+  .card {
+    width: 439px;
+    height: 722px;
+  }
+
+  .card-get-started {
+    width: 100%;
+  }
+
+  .card-most-popular-body {
+    width: 439px;
+    height: 722px;
+  }
+
+  .card-most-popular-body .card-get-started {
+    width: 100%;
+  }
+
+  .subscription-duration-year,
+  .subscription-duration-month {
+    font-size: 20px;
+    line-height: 115%; /* 13.8px */
+    padding: 10px 20px;
+  }
+
+  .hint-subscription {
+    font-size: 20px;
+  }
+
+  .section-title {
+    margin: 9px;
+    padding: 7px;
+  }
+
+  .section-title h3 {
+    font-size: 23px;
+    line-height: 37px; /* 194.444% */
+  }
+
+  .section-title p {
+    font-size: 22px;
+  }
+
+  .card-title h4 {
+    font-size: 26px;
+  }
+
+  .card-title p {
+    font-size: 22px;
+  }
+
+  .card-plan .card-plan-cost h2 {
+    font-size: 38px;
+  }
+  .card-plan-cost-per-month {
+    font-size: 20px;
+  }
+
+  .card-get-started p {
+    font-size: 24px;
+  }
+
+  .card-get-started:hover p {
+    font-size: 21px;
+  }
+  .card-plan-feature-title h5 {
+    font-size: 22px;
+  }
+
+  .card-plan-feature-description ul {
+    gap: 18.962px;
+  }
+
+  .card-plan-feature-description ul li {
+    font-size: 26px;
+  }
+
+  .card-plan-feature-description ul li svg {
+    margin-right: 15px;
+  }
+
+  /* MOST POPULAR */
+
+  .top-section-most-popular {
+    display: flex;
+    padding: 13.611px 15.481px;
+    justify-content: center;
+    align-items: center;
+    gap: 3.74px;
+    align-self: stretch;
+    background: #0660fc;
+    border-top-left-radius: 7.481px;
+    border-top-right-radius: 7.481px;
+  }
+
+  .top-section-most-popular p {
+    margin: 0px;
+    margin-right: 10px;
+    color: #fff;
+    font-family: "DM Sans";
+    font-size: 22px;
+    font-style: normal;
+    font-weight: 700;
+    line-height: 115%; /* 16.1px */
+  }
+
+  .card-most-popular .card-title h4 {
+    font-size: 26px;
+  }
+
+  .card-most-popular .card-title p {
+    font-size: 22px;
+  }
+
+  .card-most-popular .card-plan .card-plan-cost h2 {
+    font-size: 38px;
+  }
+  .card-most-popular .card-plan-cost-per-month {
+    font-size: 20px;
+  }
+
+  .card-most-popular .card-get-started p {
+    font-size: 24px;
+  }
+
+  .card-most-popular .card-get-started:hover p {
+    font-size: 24px;
+  }
+  .card-most-popular .card-plan-feature-title h5 {
+    font-size: 22px;
+  }
+
+  .card-most-popular .card-plan-feature-description ul {
+    gap: 20.962px;
+  }
+
+  .card-most-popular .card-plan-feature-description ul li {
+    font-size: 26px;
+  }
+
+  .card-most-popular .card-plan-feature-description ul li svg {
+    margin-right: 18px;
+  }
+  /* MOST POPULAR */
+}
+
+@media screen and (min-width: 2000px) and (max-width: 2200px) {
+  .card {
+    width: 390px;
+    height: 722px;
+  }
+
+  .card-get-started {
+    width: 100%;
+  }
+
+  .card-most-popular-body {
+    width: 390px;
+    height: 722px;
+  }
+
+  .card-most-popular-body .card-get-started {
+    width: 100%;
+  }
+
+  .subscription-duration-year,
+  .subscription-duration-month {
+    font-size: 17px;
+    line-height: 115%; /* 13.8px */
+    padding: 10px 20px;
+  }
+
+  .hint-subscription {
+    font-size: 17px;
+  }
+
+  .section-title {
+    margin: 9px;
+    padding: 7px;
+  }
+
+  .section-title h3 {
+    font-size: 20px;
+    line-height: 37px; /* 194.444% */
+  }
+
+  .section-title p {
+    font-size: 19px;
+  }
+
+  .card-title h4 {
+    font-size: 23px;
+  }
+
+  .card-title p {
+    font-size: 19px;
+  }
+
+  .card-plan .card-plan-cost h2 {
+    font-size: 35px;
+  }
+  .card-plan-cost-per-month {
+    font-size: 17px;
+  }
+
+  .card-get-started p {
+    font-size: 21px;
+  }
+
+  .card-get-started:hover p {
+    font-size: 21px;
+  }
+  .card-plan-feature-title h5 {
+    font-size: 19px;
+  }
+
+  .card-plan-feature-description ul {
+    gap: 18.962px;
+  }
+
+  .card-plan-feature-description ul li {
+    font-size: 23px;
+  }
+
+  .card-plan-feature-description ul li svg {
+    margin-right: 15px;
+  }
+
+  /* MOST POPULAR */
+
+  .top-section-most-popular {
+    display: flex;
+    padding: 11.611px 13.481px;
+    justify-content: center;
+    align-items: center;
+    gap: 3.74px;
+    align-self: stretch;
+    background: #0660fc;
+    border-top-left-radius: 7.481px;
+    border-top-right-radius: 7.481px;
+  }
+
+  .top-section-most-popular p {
+    margin: 0px;
+    margin-right: 10px;
+    color: #fff;
+    font-family: "DM Sans";
+    font-size: 20px;
+    font-style: normal;
+    font-weight: 700;
+    line-height: 115%; /* 16.1px */
+  }
+
+  .card-most-popular .card-title h4 {
+    font-size: 23px;
+  }
+
+  .card-most-popular .card-title p {
+    font-size: 19px;
+  }
+
+  .card-most-popular .card-plan .card-plan-cost h2 {
+    font-size: 35px;
+  }
+  .card-most-popular .card-plan-cost-per-month {
+    font-size: 17px;
+  }
+
+  .card-most-popular .card-get-started p {
+    font-size: 21px;
+  }
+
+  .card-most-popular .card-get-started:hover p {
+    font-size: 21px;
+  }
+  .card-most-popular .card-plan-feature-title h5 {
+    font-size: 19px;
+  }
+
+  .card-most-popular .card-plan-feature-description ul {
+    gap: 18.962px;
+  }
+
+  .card-most-popular .card-plan-feature-description ul li {
+    font-size: 23px;
+  }
+
+  .card-most-popular .card-plan-feature-description ul li svg {
+    margin-right: 15px;
+  }
+  /* MOST POPULAR */
+}
+
+@media screen and (max-width: 2000px) and (min-width: 1800px) {
+  .card {
+    width: 350.313px;
+    height: 600px;
+  }
+
+  .card-get-started {
+    width: 100%;
+  }
+
+  .card-most-popular {
+    width: 350.313px;
+  }
+
+  .card-most-popular-body {
+    width: 350.313px;
+    height: 600px;
+  }
+
+  .card-most-popular-body .card-get-started {
+    width: 100%;
+  }
+
+  .subscription-duration-year,
+  .subscription-duration-month {
+    font-size: 14px;
+    line-height: 115%; /* 13.8px */
+    padding: 8px 18px;
+  }
+
+  .hint-subscription {
+    font-size: 14px;
+  }
+
+  .section-title {
+    margin: 9px;
+    padding: 7px;
+  }
+
+  .section-title h3 {
+    font-size: 20px;
+    line-height: 37px; /* 194.444% */
+  }
+
+  .section-title p {
+    font-size: 16px;
+  }
+
+  .card-title h4 {
+    font-size: 20px;
+  }
+
+  .card-title p {
+    font-size: 16px;
+  }
+
+  .card-plan .card-plan-cost h2 {
+    font-size: 32px;
+  }
+  .card-plan-cost-per-month {
+    font-size: 14px;
+  }
+
+  .card-get-started p {
+    font-size: 18px;
+  }
+
+  .card-get-started:hover p {
+    font-size: 18px;
+  }
+  .card-plan-feature-title h5 {
+    font-size: 16px;
+  }
+
+  .card-plan-feature-description ul {
+    gap: 16.962px;
+  }
+
+  .card-plan-feature-description ul li {
+    font-size: 20px;
+  }
+
+  .card-plan-feature-description ul li svg {
+    margin-right: 12px;
+  }
+
+  /* MOST POPULAR */
+  .top-section-most-popular {
+    display: flex;
+    padding: 9.611px 11.481px;
+    justify-content: center;
+    align-items: center;
+    gap: 3.74px;
+    align-self: stretch;
+    background: #0660fc;
+    border-top-left-radius: 7.481px;
+    border-top-right-radius: 7.481px;
+  }
+
+  .top-section-most-popular p {
+    margin: 0px;
+    margin-right: 10px;
+    color: #fff;
+    font-family: "DM Sans";
+    font-size: 18px;
+    font-style: normal;
+    font-weight: 700;
+    line-height: 115%; /* 16.1px */
+  }
+  .card-most-popular .card-title h4 {
+    font-size: 20px;
+  }
+
+  .card-most-popular .card-title p {
+    font-size: 16px;
+  }
+
+  .card-most-popular .card-plan .card-plan-cost h2 {
+    font-size: 32px;
+  }
+  .card-most-popular .card-plan-cost-per-month {
+    font-size: 14px;
+  }
+
+  .card-most-popular .card-get-started p {
+    font-size: 18px;
+  }
+
+  .card-most-popular .card-get-started:hover p {
+    font-size: 18px;
+  }
+  .card-most-popular .card-plan-feature-title h5 {
+    font-size: 16px;
+  }
+
+  .card-most-popular .card-plan-feature-description ul {
+    gap: 16.962px;
+  }
+
+  .card-most-popular .card-plan-feature-description ul li {
+    font-size: 20px;
+  }
+
+  .card-most-popular .card-plan-feature-description ul li svg {
+    margin-right: 12px;
+  }
+  /* MOST POPULAR */
+}
+
+@media screen and (max-width: 1800px) and (min-width: 1700px) {
+  .card {
+    width: 320.313px;
+    height: 622px;
+  }
+
+  .card-get-started {
+    width: 100%;
+  }
+
+  .card-most-popular {
+    width: 320.313px;
+  }
+
+  .card-most-popular-body {
+    width: 320.313px;
+    height: 622px;
+  }
+
+  .card-most-popular-body .card-get-started {
+    width: 100%;
+  }
+
+  .subscription-duration-year,
+  .subscription-duration-month {
+    font-size: 14px;
+    line-height: 115%; /* 13.8px */
+    padding: 8px 18px;
+  }
+
+  .hint-subscription {
+    font-size: 14px;
+  }
+
+  .section-title {
+    margin: 9px;
+    padding: 7px;
+  }
+
+  .section-title h3 {
+    font-size: 20px;
+    line-height: 37px; /* 194.444% */
+  }
+
+  .section-title p {
+    font-size: 16px;
+  }
+
+  .card-title h4 {
+    font-size: 20px;
+  }
+
+  .card-title p {
+    font-size: 16px;
+  }
+
+  .card-plan .card-plan-cost h2 {
+    font-size: 32px;
+  }
+  .card-plan-cost-per-month {
+    font-size: 14px;
+  }
+
+  .card-get-started p {
+    font-size: 18px;
+  }
+
+  .card-get-started:hover p {
+    font-size: 18px;
+  }
+  .card-plan-feature-title h5 {
+    font-size: 16px;
+  }
+
+  .card-plan-feature-description ul {
+    gap: 16.962px;
+  }
+
+  .card-plan-feature-description ul li {
+    font-size: 20px;
+  }
+
+  .card-plan-feature-description ul li svg {
+    margin-right: 12px;
+  }
+
+  /* MOST POPULAR */
+  .top-section-most-popular {
+    display: flex;
+    padding: 9.611px 11.481px;
+    justify-content: center;
+    align-items: center;
+    gap: 3.74px;
+    align-self: stretch;
+    background: #0660fc;
+    border-top-left-radius: 7.481px;
+    border-top-right-radius: 7.481px;
+  }
+
+  .top-section-most-popular p {
+    margin: 0px;
+    margin-right: 10px;
+    color: #fff;
+    font-family: "DM Sans";
+    font-size: 18px;
+    font-style: normal;
+    font-weight: 700;
+    line-height: 115%; /* 16.1px */
+  }
+  .card-most-popular .card-title h4 {
+    font-size: 20px;
+  }
+
+  .card-most-popular .card-title p {
+    font-size: 16px;
+  }
+
+  .card-most-popular .card-plan .card-plan-cost h2 {
+    font-size: 32px;
+  }
+  .card-most-popular .card-plan-cost-per-month {
+    font-size: 14px;
+  }
+
+  .card-most-popular .card-get-started p {
+    font-size: 18px;
+  }
+
+  .card-most-popular .card-get-started:hover p {
+    font-size: 18px;
+  }
+  .card-most-popular .card-plan-feature-title h5 {
+    font-size: 16px;
+  }
+
+  .card-most-popular .card-plan-feature-description ul {
+    gap: 16.962px;
+  }
+
+  .card-most-popular .card-plan-feature-description ul li {
+    font-size: 20px;
+  }
+
+  .card-most-popular .card-plan-feature-description ul li svg {
+    margin-right: 12px;
+  }
+  /* MOST POPULAR */
+}
+
+@media screen and (max-width: 1700px) and (min-width: 1600px) {
+  .card {
+    width: 300.313px;
+    height: 622px;
+  }
+
+  .card-get-started {
+    width: 100%;
+  }
+
+  .card-most-popular {
+    width: 300.313px;
+  }
+
+  .card-most-popular-body {
+    width: 300.313px;
+    height: 622px;
+  }
+
+  .card-most-popular-body .card-get-started {
+    width: 100%;
+  }
+
+  .subscription-duration-year,
+  .subscription-duration-month {
+    font-size: 14px;
+    line-height: 115%; /* 13.8px */
+    padding: 8px 18px;
+  }
+
+  .hint-subscription {
+    font-size: 14px;
+  }
+
+  .section-title {
+    margin: 9px;
+    padding: 7px;
+  }
+
+  .section-title h3 {
+    font-size: 20px;
+    line-height: 37px; /* 194.444% */
+  }
+
+  .section-title p {
+    font-size: 16px;
+  }
+
+  .card-title h4 {
+    font-size: 20px;
+  }
+
+  .card-title p {
+    font-size: 16px;
+  }
+
+  .card-plan .card-plan-cost h2 {
+    font-size: 32px;
+  }
+  .card-plan-cost-per-month {
+    font-size: 14px;
+  }
+
+  .card-get-started p {
+    font-size: 18px;
+  }
+
+  .card-get-started:hover p {
+    font-size: 18px;
+  }
+  .card-plan-feature-title h5 {
+    font-size: 16px;
+  }
+
+  .card-plan-feature-description ul {
+    gap: 16.962px;
+  }
+
+  .card-plan-feature-description ul li {
+    font-size: 20px;
+  }
+
+  .card-plan-feature-description ul li svg {
+    margin-right: 12px;
+  }
+
+  /* MOST POPULAR */
+  .top-section-most-popular {
+    display: flex;
+    padding: 9.611px 11.481px;
+    justify-content: center;
+    align-items: center;
+    gap: 3.74px;
+    align-self: stretch;
+    background: #0660fc;
+    border-top-left-radius: 7.481px;
+    border-top-right-radius: 7.481px;
+  }
+
+  .top-section-most-popular p {
+    margin: 0px;
+    margin-right: 10px;
+    color: #fff;
+    font-family: "DM Sans";
+    font-size: 18px;
+    font-style: normal;
+    font-weight: 700;
+    line-height: 115%; /* 16.1px */
+  }
+  .card-most-popular .card-title h4 {
+    font-size: 20px;
+  }
+
+  .card-most-popular .card-title p {
+    font-size: 16px;
+  }
+
+  .card-most-popular .card-plan .card-plan-cost h2 {
+    font-size: 32px;
+  }
+  .card-most-popular .card-plan-cost-per-month {
+    font-size: 14px;
+  }
+
+  .card-most-popular .card-get-started p {
+    font-size: 18px;
+  }
+
+  .card-most-popular .card-get-started:hover p {
+    font-size: 18px;
+  }
+  .card-most-popular .card-plan-feature-title h5 {
+    font-size: 16px;
+  }
+
+  .card-most-popular .card-plan-feature-description ul {
+    gap: 16.962px;
+  }
+
+  .card-most-popular .card-plan-feature-description ul li {
+    font-size: 20px;
+  }
+
+  .card-most-popular .card-plan-feature-description ul li svg {
+    margin-right: 12px;
+  }
+  /* MOST POPULAR */
+}
+
+@media screen and (max-width: 1600px) and (min-width: 1500.5px) {
+  .card {
+    width: 275.313px;
+    height: 622px;
+  }
+
+  .card-get-started {
+    width: 100%;
+  }
+
+  .card-most-popular {
+    width: 275.313px;
+  }
+
+  .card-most-popular-body {
+    width: 275.313px;
+    height: 622px;
+  }
+
+  .card-most-popular-body .card-get-started {
+    width: 100%;
+  }
+
+  .subscription-duration-year,
+  .subscription-duration-month {
+    font-size: 14px;
+    line-height: 115%; /* 13.8px */
+    padding: 8px 18px;
+  }
+
+  .hint-subscription {
+    font-size: 14px;
+  }
+
+  .section-title {
+    margin: 9px;
+    padding: 7px;
+  }
+
+  .section-title h3 {
+    font-size: 20px;
+    line-height: 37px; /* 194.444% */
+  }
+
+  .section-title p {
+    font-size: 16px;
+  }
+
+  .card-title h4 {
+    font-size: 20px;
+  }
+
+  .card-title p {
+    font-size: 16px;
+  }
+
+  .card-plan .card-plan-cost h2 {
+    font-size: 32px;
+  }
+  .card-plan-cost-per-month {
+    font-size: 14px;
+  }
+
+  .card-get-started p {
+    font-size: 18px;
+  }
+
+  .card-get-started:hover p {
+    font-size: 18px;
+  }
+  .card-plan-feature-title h5 {
+    font-size: 16px;
+  }
+
+  .card-plan-feature-description ul {
+    gap: 16.962px;
+  }
+
+  .card-plan-feature-description ul li {
+    font-size: 20px;
+  }
+
+  .card-plan-feature-description ul li svg {
+    margin-right: 12px;
+  }
+
+  /* MOST POPULAR */
+  .top-section-most-popular {
+    display: flex;
+    padding: 7.611px 9.481px;
+    justify-content: center;
+    align-items: center;
+    gap: 3.74px;
+    align-self: stretch;
+    background: #0660fc;
+    border-top-left-radius: 7.481px;
+    border-top-right-radius: 7.481px;
+  }
+
+  .top-section-most-popular p {
+    margin: 0px;
+    margin-right: 10px;
+    color: #fff;
+    font-family: "DM Sans";
+    font-size: 14px;
+    font-style: normal;
+    font-weight: 700;
+    line-height: 115%; /* 16.1px */
+  }
+  .card-most-popular .card-title h4 {
+    font-size: 20px;
+  }
+
+  .card-most-popular .card-title p {
+    font-size: 16px;
+  }
+
+  .card-most-popular .card-plan .card-plan-cost h2 {
+    font-size: 32px;
+  }
+  .card-most-popular .card-plan-cost-per-month {
+    font-size: 14px;
+  }
+
+  .card-most-popular .card-get-started p {
+    font-size: 18px;
+  }
+
+  .card-most-popular .card-get-started:hover p {
+    font-size: 18px;
+  }
+  .card-most-popular .card-plan-feature-title h5 {
+    font-size: 16px;
+  }
+
+  .card-most-popular .card-plan-feature-description ul {
+    gap: 16.962px;
+  }
+
+  .card-most-popular .card-plan-feature-description ul li {
+    font-size: 20px;
+  }
+
+  .card-most-popular .card-plan-feature-description ul li svg {
+    margin-right: 12px;
+  }
+  /* MOST POPULAR */
+}
+
+@media screen and (max-width: 1500.5px) and (min-width: 1300px) {
+  .card {
+    width: 239.313px;
+  }
+
+  .card-get-started {
+    width: 100%;
+  }
+  /* 
+  .card-most-popular {
+    width: 239.313px;
+    height: 622px;
+  } */
+
+  .card-most-popular-body {
+    width: 239.313px;
+  }
+  .card-most-popular-body .card-get-started {
+    width: 100%;
+  }
+}
+
+@media screen and (max-width: 1300px) and (min-width: 1120px) {
+  .card {
+    width: 245.313px;
+    height: 622px;
+  }
+
+  .card-get-started {
+    width: 100%;
+  }
+
+  .card-most-popular {
+    width: 245.313px;
+  }
+
+  .card-most-popular-body {
+    width: 245.313px;
+    height: 622px;
+  }
+
+  .card-most-popular-body .card-get-started {
+    width: 100%;
+  }
+
+  .subscription-duration-year,
+  .subscription-duration-month {
+    font-size: 14px;
+    line-height: 115%; /* 13.8px */
+    padding: 8px 18px;
+  }
+
+  .hint-subscription {
+    font-size: 14px;
+  }
+
+  .section-title {
+    margin: 9px;
+    padding: 7px;
+  }
+
+  .section-title h3 {
+    font-size: 20px;
+    line-height: 37px; /* 194.444% */
+  }
+
+  .section-title p {
+    font-size: 16px;
+  }
+
+  .card-title h4 {
+    font-size: 20px;
+  }
+
+  .card-title p {
+    font-size: 16px;
+  }
+
+  .card-plan .card-plan-cost h2 {
+    font-size: 32px;
+  }
+  .card-plan-cost-per-month {
+    font-size: 14px;
+  }
+
+  .card-get-started p {
+    font-size: 18px;
+  }
+
+  .card-get-started:hover p {
+    font-size: 18px;
+  }
+  .card-plan-feature-title h5 {
+    font-size: 16px;
+  }
+
+  .card-plan-feature-description ul {
+    gap: 16.962px;
+  }
+
+  .card-plan-feature-description ul li {
+    font-size: 20px;
+  }
+
+  .card-plan-feature-description ul li svg {
+    margin-right: 12px;
+  }
+
+  /* MOST POPULAR */
+  .top-section-most-popular {
+    display: flex;
+    padding: 9.611px 9.481px;
+    justify-content: center;
+    align-items: center;
+    gap: 3.74px;
+    align-self: stretch;
+    background: #0660fc;
+    border-top-left-radius: 7.481px;
+    border-top-right-radius: 7.481px;
+  }
+
+  .top-section-most-popular p {
+    margin: 0px;
+    margin-right: 10px;
+    color: #fff;
+    font-family: "DM Sans";
+    font-size: 18px;
+    font-style: normal;
+    font-weight: 700;
+    line-height: 115%; /* 16.1px */
+  }
+  .card-most-popular .card-title h4 {
+    font-size: 20px;
+  }
+
+  .card-most-popular .card-title p {
+    font-size: 16px;
+  }
+
+  .card-most-popular .card-plan .card-plan-cost h2 {
+    font-size: 32px;
+  }
+  .card-most-popular .card-plan-cost-per-month {
+    font-size: 14px;
+  }
+
+  .card-most-popular .card-get-started p {
+    font-size: 18px;
+  }
+
+  .card-most-popular .card-get-started:hover p {
+    font-size: 18px;
+  }
+  .card-most-popular .card-plan-feature-title h5 {
+    font-size: 16px;
+  }
+
+  .card-most-popular .card-plan-feature-description ul {
+    gap: 16.962px;
+  }
+
+  .card-most-popular .card-plan-feature-description ul li {
+    font-size: 20px;
+  }
+
+  .card-most-popular .card-plan-feature-description ul li svg {
+    margin-right: 12px;
+  }
+  /* MOST POPULAR */
+}
+
+@media screen and (max-width: 1085px) and (min-width: 993px) {
+  .card-most-popular {
+    margin-top: 20px;
+  }
+
+  .seats-details .header,
+  .posts-details .header,
+  .dates-details .header {
+    font-size: 14px !important;
+  }
+
+  .seats-details p:nth-child(2),
+  .posts-details p:nth-child(2),
+  .dates-details p:nth-child(2),
+  .seats-details p:nth-child(2) > span,
+  .posts-details p:nth-child(2) > span,
+  .dates-details p:nth-child(2) > span {
+    font-size: 14px !important;
+  }
+}
+
+@media screen and (max-width: 1120px) and (min-width: 992.5px) {
+  .cards {
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    flex-wrap: wrap;
+  }
+
+  .card {
+    width: 245.313px;
+    height: 622px;
+  }
+
+  .card-get-started {
+    width: 100%;
+  }
+
+  .card-most-popular {
+    margin-top: 10px;
+    width: 245.313px;
+  }
+
+  .card-most-popular-body {
+    width: 245.313px;
+    height: 622px;
+  }
+
+  .card-most-popular-body .card-get-started {
+    width: 100%;
+  }
+
+  .subscription-duration-year,
+  .subscription-duration-month {
+    font-size: 14px;
+    line-height: 115%; /* 13.8px */
+    padding: 8px 18px;
+  }
+
+  .hint-subscription {
+    font-size: 14px;
+  }
+
+  .section-title {
+    margin: 9px;
+    padding: 7px;
+  }
+
+  .section-title h3 {
+    font-size: 20px;
+    line-height: 37px; /* 194.444% */
+  }
+
+  .section-title p {
+    font-size: 16px;
+  }
+
+  .card-title h4 {
+    font-size: 20px;
+  }
+
+  .card-title p {
+    font-size: 16px;
+  }
+
+  .card-plan .card-plan-cost h2 {
+    font-size: 32px;
+  }
+  .card-plan-cost-per-month {
+    font-size: 14px;
+  }
+
+  .card-get-started p {
+    font-size: 18px;
+  }
+
+  .card-get-started:hover p {
+    font-size: 18px;
+  }
+  .card-plan-feature-title h5 {
+    font-size: 16px;
+  }
+
+  .card-plan-feature-description ul {
+    gap: 16.962px;
+  }
+
+  .card-plan-feature-description ul li {
+    font-size: 20px;
+  }
+
+  .card-plan-feature-description ul li svg {
+    margin-right: 12px;
+  }
+
+  /* MOST POPULAR */
+  .top-section-most-popular {
+    display: flex;
+    padding: 9.611px 11.481px;
+    justify-content: center;
+    align-items: center;
+    gap: 3.74px;
+    align-self: stretch;
+    background: #0660fc;
+    border-top-left-radius: 7.481px;
+    border-top-right-radius: 7.481px;
+  }
+
+  .top-section-most-popular p {
+    margin: 0px;
+    margin-right: 10px;
+    color: #fff;
+    font-family: "DM Sans";
+    font-size: 18px;
+    font-style: normal;
+    font-weight: 700;
+    line-height: 115%; /* 16.1px */
+  }
+  .card-most-popular .card-title h4 {
+    font-size: 20px;
+  }
+
+  .card-most-popular .card-title p {
+    font-size: 16px;
+  }
+
+  .card-most-popular .card-plan .card-plan-cost h2 {
+    font-size: 32px;
+  }
+  .card-most-popular .card-plan-cost-per-month {
+    font-size: 14px;
+  }
+
+  .card-most-popular .card-get-started p {
+    font-size: 18px;
+  }
+
+  .card-most-popular .card-get-started:hover p {
+    font-size: 18px;
+  }
+  .card-most-popular .card-plan-feature-title h5 {
+    font-size: 16px;
+  }
+
+  .card-most-popular .card-plan-feature-description ul {
+    gap: 16.962px;
+  }
+
+  .card-most-popular .card-plan-feature-description ul li {
+    font-size: 20px;
+  }
+
+  .card-most-popular .card-plan-feature-description ul li svg {
+    margin-right: 12px;
+  }
+  /* MOST POPULAR */
+
+  .plan-details {
+    width: 100%;
+  }
+
+  .plan-details-header-price {
+    display: flex;
+    align-items: end;
+    justify-content: space-between;
+    width: 100%;
+  }
+
+  .plan-details-header-content {
+    width: 100%;
+  }
+
+  .plan-details-header-content p {
+    font-size: 16px !important;
+  }
+
+  .plan-details-header-content h4 {
+    font-size: 20px !important;
+  }
+
+  .plan-details-header-price > p {
+    font-size: 36px;
+  }
+
+  .upgrade-plan p {
+    font-size: 12px;
+  }
+  .non-free-upgrade-plan > p {
+    font-size: 14px;
+  }
+  .non-free-plan-details-header .plan-details-header-price > p {
+    font-size: 36px;
+  }
+}
+
+@media screen and (max-width: 992px) {
+  .plan-details,
+  .plan-details-header,
+  .plan-details-header-content {
+    width: 100%;
+  }
+  .non-free-plan-details {
+    width: 100%;
+  }
+  .plan-details-header-price {
+    display: flex;
+    align-items: end;
+    justify-content: space-between;
+    width: 100%;
+  }
+  .non-free-plan-details-header-content p {
+    font-size: 16px !important;
+  }
+  .non-free-plan-details-header-content h4 {
+    font-size: 20px !important;
+  }
+  .plan-details-header-price p {
+    font-size: 36px;
+  }
+
+  .non-free-upgrade-plan p {
+    font-size: 12px;
+  }
+}
+
+@media screen and (max-width: 992px) and (min-width: 768px) {
+  .non-free-plan-details {
+    width: 100%;
+  }
+  .plan-details-header-price {
+    display: flex;
+    align-items: end;
+    justify-content: space-between;
+    width: 100%;
+  }
+  .non-free-plan-details-header-content p {
+    font-size: 14px !important;
+  }
+  .non-free-plan-details-header-content h4 {
+    font-size: 18px !important;
+  }
+
+  .non-free-upgrade-plan p {
+    font-size: 14px;
+  }
+  .usage-percentage {
+    width: 200px;
+  }
+  .plan-details-features .plan-details-features-seats .seats-details p,
+  .plan-details-features .plan-details-features-seats .seats-details span,
+  .plan-details-features .plan-details-features-posts .posts-details p,
+  .plan-details-features .plan-details-features-posts .posts-details span,
+  .plan-details-features .plan-details-expiration-date .dates-details p {
+    font-size: 16px;
+  }
+}
+
+@media screen and (max-width: 880px) {
+  .card-most-popular {
+    margin-top: 10px;
+  }
+}
+
+@media screen and (max-width: 768px) {
+  .plan-details-header-free {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+  }
+
+  .plan-details-header-free .plan-details-header-price {
+    display: flex;
+    align-items: center;
+    justify-content: end;
+  }
+  .plan-details-header-price {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+    width: 100%;
+  }
+
+  .plan-details-usage,
+  .plan-details-features {
+    display: none;
+  }
+
+  .non-free-plan-details {
+    width: 100%;
+  }
+
+  .non-free-plan-details-header {
+    display: flex;
+    flex-direction: column;
+  }
+
+  .plan-details-header-price p {
+    font-size: 36px;
+  }
+
+  .non-free-upgrade-plan p {
+    font-size: 16px;
+  }
+
+  .paymentType {
+    width: 110px;
+  }
+
+  .paymentAmount {
+    width: 110px;
+    text-align: center !important;
+  }
+}
+
+@media screen and (max-width: 670px) {
+  .year-month-toggle {
+    flex-direction: column;
+  }
+}
+
+@media screen and (max-width: 650px) {
+  .paymentAmount,
+  .paymentType {
+    display: none;
+  }
+
+  .bill .test {
+    display: grid;
+    grid-template-columns: auto auto !important;
+    justify-content: space-between;
+    align-items: center;
+    gap: 30px;
+  }
+
+  .paymentId-content p,
+  .renewal-date {
+    font-size: 14px !important;
+  }
+}
+
+@media screen and (max-width: 850px) and (min-width: 600px) {
+  .cards {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap;
+  }
+
+  .card {
+    width: 249.313px;
+    height: 622px;
+  }
+
+  .card-get-started {
+    width: 100%;
+  }
+
+  .card-most-popular {
+    width: 249.313px;
+  }
+
+  .card-most-popular-body {
+    width: 249.313px;
+    height: 622px;
+  }
+
+  .card-most-popular-body .card-get-started {
+    width: 100%;
+  }
+
+  .subscription-duration-year,
+  .subscription-duration-month {
+    font-size: 14px;
+    line-height: 115%; /* 13.8px */
+    padding: 8px 18px;
+  }
+
+  .hint-subscription {
+    font-size: 14px;
+  }
+
+  .section-title {
+    margin: 9px;
+    padding: 7px;
+  }
+
+  .section-title h3 {
+    font-size: 20px;
+    line-height: 37px; /* 194.444% */
+  }
+
+  .section-title p {
+    font-size: 16px;
+  }
+
+  .card-title h4 {
+    font-size: 20px;
+  }
+
+  .card-title p {
+    font-size: 16px;
+  }
+
+  .card-plan .card-plan-cost h2 {
+    font-size: 32px;
+  }
+  .card-plan-cost-per-month {
+    font-size: 14px;
+  }
+
+  .card-get-started p {
+    font-size: 18px;
+  }
+
+  .card-get-started:hover p {
+    font-size: 18px;
+  }
+  .card-plan-feature-title h5 {
+    font-size: 16px;
+  }
+
+  .card-plan-feature-description ul {
+    gap: 16.962px;
+  }
+
+  .card-plan-feature-description ul li {
+    font-size: 20px;
+  }
+
+  .card-plan-feature-description ul li svg {
+    margin-right: 12px;
+  }
+
+  /* MOST POPULAR */
+  .top-section-most-popular {
+    display: flex;
+    padding: 7.611px 9.481px;
+    justify-content: center;
+    align-items: center;
+    gap: 3.74px;
+    align-self: stretch;
+    background: #0660fc;
+    border-top-left-radius: 7.481px;
+    border-top-right-radius: 7.481px;
+  }
+
+  .top-section-most-popular p {
+    margin: 0px;
+    margin-right: 10px;
+    color: #fff;
+    font-family: "DM Sans";
+    font-size: 14px;
+    font-style: normal;
+    font-weight: 700;
+    line-height: 115%; /* 16.1px */
+  }
+  .card-most-popular .card-title h4 {
+    font-size: 20px;
+  }
+
+  .card-most-popular .card-title p {
+    font-size: 16px;
+  }
+
+  .card-most-popular .card-plan .card-plan-cost h2 {
+    font-size: 32px;
+  }
+  .card-most-popular .card-plan-cost-per-month {
+    font-size: 14px;
+  }
+
+  .card-most-popular .card-get-started p {
+    font-size: 18px;
+  }
+
+  .card-most-popular .card-get-started:hover p {
+    font-size: 18px;
+  }
+  .card-most-popular .card-plan-feature-title h5 {
+    font-size: 16px;
+  }
+
+  .card-most-popular .card-plan-feature-description ul {
+    gap: 16.962px;
+  }
+
+  .card-most-popular .card-plan-feature-description ul li {
+    font-size: 20px;
+  }
+
+  .card-most-popular .card-plan-feature-description ul li svg {
+    margin-right: 12px;
+  }
+  /* MOST POPULAR */
+}
+
+@media screen and (max-width: 530px) {
+  .subscription-content .section-title h3,
+  .subscription-content .filteration .search-container #search::placeholder {
+    font-size: 15px;
+  }
+  .subscription-content .section-title .section-title-total {
+    font-size: 14px;
+  }
+
+  .subscription-content .filteration .search-container,
+  .subscription-content .filteration .search-container #search {
+    width: 83px;
+  }
+
+  .subscription-content .filteration .search-container #search::placeholder {
+    font-size: 10px;
+    padding-left: 10px;
+  }
+
+  .subscription-content .filteration .search-container svg {
+    left: 5px;
+    top: 4px;
+  }
+  .subscription-content .filteration .filter p {
+    font-size: 14px;
+  }
+}
+
+@media screen and (max-width: 380px) {
+  /* .subscription-content {
+    flex-direction: column;
+  } */
+  .section-title.non-free {
+    margin: 0;
+  }
+}
+
+@media screen and (max-width: 600px) and (min-width: 425px) {
+  .cards {
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    flex-wrap: wrap;
+  }
+  .card {
+    width: 249.313px;
+  }
+
+  .card-get-started {
+    width: 100%;
+  }
+
+  .card-most-popular-body {
+    width: 249.313px;
+  }
+  .card-most-popular-body .card-get-started {
+    width: 100%;
+  }
+  .bill .test .paymentRecipe .download > p {
+    display: none;
+  }
+}
+
+@media screen and (max-width: 578px) {
+  .card {
+    width: 249.313px;
+  }
+
+  .card-most-popular {
+    width: 249.313px;
+  }
+}
+
+@media screen and (max-width: 425px) {
+  .cards {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-wrap: wrap;
+  }
+  .bill .test .paymentRecipe .download > p {
+    display: none;
+  }
+  /* .card {
+    width: 249.313px;
+  } */
+
+  .card-get-started {
+    width: 100%;
+  }
+  .section-title h3 {
+    font-size: 15px;
+  }
+  .card-most-popular-body {
+    width: 249.313px;
+  }
+
+  .card-most-popular-body .card-get-started {
+    width: 100%;
+  }
+  .plan-details-header-price p,
+  .non-free-plan-details-header-content h4 {
+    font-size: 23px;
+  }
+
+  .non-free-upgrade-plan > p,
+  .non-free-plan-details-header-content > p {
+    font-size: 14px !important;
+  }
+
+  .non-free-upgrade-plan {
+    padding: 6px 8px;
+  }
+}
+
+@media screen and (max-width: 360px) {
+  .non-free-plan-details .plan-details-header-price > p {
+    font-size: 18px;
+  }
+  .non-free-plan-details .plan-details-header-price > p span {
+    font-size: 12px;
+  }
+
+  .non-free-upgrade-plan {
+    padding: 5px 7px;
+  }
+
+  .non-free-upgrade-plan > p {
+    font-size: 14px;
+  }
+
+  .filter > p {
+    display: none;
+  }
+}
+
+@media screen and (max-width: 350px) {
+  .subscription-content .filteration .search-container #search::placeholder {
+    color: transparent;
+  }
+
+  .non-free-upgrade-plan p {
+    font-size: 10px !important;
+  }
+
+  .bill .test .paymentRecipe .download > p {
+    display: none;
+  }
+
+  .subscription-content .filteration .search-container,
+  .subscription-content .filteration .search-container #search {
+    width: 63px;
+  }
+
+  .subscription-content .filteration .filter {
+    justify-content: space-between;
+    gap: 0px;
+    padding: 3px 6px;
+  }
+
+  .filteration {
+    margin: 0px;
+  }
+
+  .non-free-plan-details .plan-details-header-price > p {
+    font-size: 18px;
+  }
+  .non-free-plan-details .plan-details-header-price > p span {
+    font-size: 12px;
+  }
+
+  .non-free-upgrade-plan {
+    padding: 5px 7px;
+  }
+
+  .non-free-upgrade-plan > p {
+    font-size: 14px;
+  }
+  .paymentId {
+    min-width: 202px !important;
+  }
+}
+
+/* plan container */
+
+.filteration {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 10px;
+}
+
+.filter {
+  display: inline-flex;
+  padding: 5px 10px;
+  align-items: center;
+  gap: 6px;
+  border-radius: 7px;
+  border: 0.75px solid rgba(191, 212, 228, 0.4);
+  background: #fff;
+  cursor: pointer;
+}
+
+.filter > p {
+  color: #5e6278;
+  font-family: "DM Sans";
+  font-size: 16px;
+  font-style: normal;
+  font-weight: 500;
+  line-height: 9.491px; /* 79.093% */
+}
+
+.activeFilter {
+  border-radius: 7px;
+  border: 0.75px solid #0660fc;
+  background: #fafcff;
+}
+
+#search {
+  padding-left: 25px;
+  border: none;
+  outline: none;
+  line-height: 9.491px; /* 79.093% */
+}
+
+#search::placeholder {
+  color: #d8d8e5;
+  font-family: "DM Sans";
+  font-size: 16px;
+  font-style: normal;
+  font-weight: 500;
+  line-height: 9.491px; /* 79.093% */
+}
+
+.search-container {
+  position: relative;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 6px 10px;
+  gap: 10px;
+  border-radius: 7px;
+  border: 0.75px solid rgba(191, 212, 228, 0.4);
+  background: #fff;
+}
+
+.search-container svg {
+  position: absolute;
+  left: 10px;
+}
+
+.bill {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.bill .test {
+  /* height: 58px; */
+  flex-shrink: 0;
+  border-radius: 8px;
+  border: 0.75px solid rgba(191, 212, 228, 0.4);
+  background: #fff;
+  text-align: center;
+  display: grid;
+  align-items: center;
+  justify-content: space-between;
+  grid-template-columns: auto auto auto auto auto;
+  padding: 12px;
+  margin-bottom: 7px;
+  border-radius: 8px;
+  overflow-y: hidden;
+  overflow-x: auto;
+}
+
+.paymentId {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  /* gap: 10px; */
+  min-width: 230px;
+}
+
+.paymentId-content {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: flex-start;
+}
+
+.paymentId-content > p {
+  color: #3f4254;
+  font-family: "DM Sans";
+  font-size: 16px;
+  font-style: normal;
+  font-weight: bold;
+  line-height: 20px; /* 166.667% */
+  letter-spacing: -0.24px;
+}
+
+.renewal-date {
+  color: #7e8299;
+  font-family: "DM Sans";
+  font-size: 14px;
+  font-style: normal;
+  font-weight: 500;
+  line-height: 20px; /* 166.667% */
+  letter-spacing: -0.24px;
+}
+
+.paymentId-badge {
+  display: flex;
+  padding: 2px 10px;
+  justify-content: center;
+  align-items: center;
+  gap: 10px;
+  border-radius: 5px;
+  background: #e9faf1;
+}
+
+.paymentId-badge {
+  color: #48b29a;
+  text-align: right;
+  font-family: "DM Sans";
+  font-size: 10px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: 18px; /* 180% */
+}
+
+.paymentAmount {
+  color: #1c1c28;
+  text-align: right;
+  font-family: "DM Sans";
+  font-size: 14px;
+  font-style: normal;
+  font-weight: 900;
+  line-height: 39px; /* 325% */
+}
+
+.bill .test .paymentRecipe .download {
+  display: inline-flex;
+  padding: 6px 7px;
+  justify-content: center;
+  align-items: center;
+  gap: 6px;
+  border-radius: 6px;
+  border: 0.75px solid rgba(191, 212, 228, 0.4);
+  background: #fff;
+  cursor: pointer;
+}
+
+.bill .test .paymentRecipe .download > p {
+  margin: 0px;
+}
+
+.avoid-layer {
+  width: 100%;
+  height: 100%;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  z-index: 99;
+  background-color: rgba(0, 0, 0, 0.4);
+  overflow: hidden;
+}
+
+.subscription-plan-container {
+  /* height: 334px; */
+  flex-shrink: 0;
+  border-radius: 12px;
+  background: #f9fafc;
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+  flex-direction: column;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  padding: 10px;
+  z-index: 999;
+}
+
+.subscription-plan-content {
+  display: flex;
+  flex-direction: column;
+  gap: 40px;
+}
+.subscription-plan-header-image {
+  cursor: pointer;
+}
+.subscription-plan-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 20px;
+  width: 431px;
+  position: relative;
+  /* margin-bottom: 40px; */
+}
+
+.subscription-plan-header::after {
+  content: "";
+  width: 100%;
+  bottom: -20px;
+  height: 0.75px;
+  background: rgba(191, 212, 228, 0.4);
+  position: absolute;
+}
+
+.subscription-plan-header-content {
+  margin-left: 10px;
+}
+
+.subscription-plan-header-content h2 {
+  color: #3f4254;
+  font-family: "DM Sans";
+  font-size: 18px;
+  font-style: normal;
+  font-weight: 700;
+  line-height: 150%; /* 27px */
+  margin: 0px;
+}
+
+.subscription-plan-header-content p {
+  color: #3f4254;
+  font-family: "DM Sans";
+  font-size: 12px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: 150%; /* 18px */
+  margin: 0px;
+}
+
+.plan-type {
+  position: relative;
+  display: flex;
+  justify-content: center;
+  width: 100%;
+}
+
+.plan-type::after {
+  content: "";
+  position: absolute;
+  width: 100%;
+  bottom: -20px;
+  height: 0.75px;
+  background: rgba(191, 212, 228, 0.4);
+}
+
+.plan-type-content {
+  display: inline-flex;
+  flex-direction: column;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: 29.924px;
+  padding: 10px;
+  width: 276px;
+  height: 130px;
+  flex-shrink: 0;
+  border-radius: 12px;
+  border: 1px solid rgba(191, 212, 228, 0.4);
+  background: #0660fc;
+  background: url("/assets/images/subscription-plan-card.svg");
+}
+
+.plan-type-title {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 3.74px;
+}
+
+.plan-type-title h4 {
+  color: #fff;
+  font-family: "DM Sans";
+  font-size: 18px;
+  font-style: normal;
+  font-weight: 700;
+  line-height: 115%; /* 20.7px */
+}
+
+.plan-type-title p {
+  color: #f9f9f9;
+  font-family: "DM Sans";
+  font-size: 14px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: 125%; /* 17.5px */
+}
+
+.plan-type-price {
+  display: flex;
+  align-items: baseline;
+  gap: 4px;
+}
+
+.plan-type-price h2 {
+  color: #fff;
+  font-family: "DM Sans";
+  font-size: 30px;
+  font-style: normal;
+  font-weight: 700;
+  line-height: 115%; /* 34.5px */
+  margin: 0px;
+}
+.plan-type-price span {
+  color: #f9f9f9;
+  font-family: "DM Sans";
+  font-size: 12px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: 115%; /* 13.8px */
+}
+
+.plan-type-summary {
+  display: flex;
+  flex-direction: column;
+  width: 276px;
+  height: 130px;
+  flex-shrink: 0;
+  padding: 10px;
+  gap: 22px;
+  border-radius: 12px;
+  border: 1px solid rgba(191, 212, 228, 0.4);
+  background: rgba(227, 238, 245, 0.3);
+}
+
+.plan-type-summary > h2 {
+  color: #3f4254;
+  font-family: "DM Sans";
+  font-size: 16px;
+  font-style: normal;
+  font-weight: 700;
+  line-height: 115%; /* 18.4px */
+}
+
+.plan-summary-details {
+  position: relative;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.plan-summary-details::after {
+  content: "";
+  bottom: -10px;
+  position: absolute;
+  width: 100%;
+  height: 1px;
+  background: rgba(191, 212, 228, 0.4);
+}
+
+.plan-summary-details-text {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 4px;
+}
+.plan-summary-details-text h3 {
+  color: #7e8299;
+  font-family: "DM Sans";
+  font-size: 14px;
+  font-style: normal;
+  font-weight: 700;
+  line-height: 115%; /* 16.1px */
+}
+.plan-summary-details-text p {
+  color: #7e8299;
+  font-family: "DM Sans";
+  font-size: 10px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: 115%; /* 11.5px */
+}
+.plan-summary-details-cost {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+  gap: 4px;
+}
+.plan-summary-details-cost h3 {
+  width: 40px;
+  height: 15px;
+  color: #3f4254;
+  font-family: "DM Sans";
+  font-size: 16px;
+  font-style: normal;
+  font-weight: 700;
+  line-height: 115%; /* 18.4px */
+}
+.plan-summary-details-cost p {
+  color: #7e8299;
+  font-family: "DM Sans";
+  font-size: 10px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: 115%; /* 11.5px */
+}
+
+.plan-type-summary > p:last-child {
+  text-align: center;
+  color: #7e8299;
+  font-family: "DM Sans";
+  font-size: 12px;
+  font-style: normal;
+  font-weight: 500;
+  line-height: 115%; /* 13.8px */
+  margin-top: 2px;
+}
+.plan-type-summary > p:last-child span {
+  color: #0660fc;
+  font-family: "DM Sans";
+  font-size: 12px;
+  font-style: normal;
+  font-weight: 500;
+  line-height: 115%;
+}
+
+.choose-payment-method {
+  position: relative;
+  display: flex;
+  justify-content: space-evenly;
+  width: 100%;
+  /* margin-top: 40px; */
+}
+
+.paypal {
+  display: flex;
+  width: 76px;
+  height: 32px;
+  padding: 5px 7px;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 10px;
+  flex-shrink: 0;
+  border-radius: 6px;
+  border: 0.75px solid rgba(191, 212, 228, 0.4);
+  background: #fff;
+}
+
+.stripe {
+  display: flex;
+  width: 76px;
+  height: 32px;
+  padding: 5px 7px;
+  justify-content: center;
+  align-items: center;
+  gap: 10px;
+  flex-shrink: 0;
+  border-radius: 6px;
+  border: 0.75px solid rgba(191, 212, 228, 0.4);
+  background: #fff;
+}
+
+.label {
+  display: block;
+  position: relative;
+  padding-left: 35px;
+  margin-bottom: 12px;
+  cursor: pointer;
+  font-size: 22px;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+/* Hide the browser's default radio button */
+.label input {
+  position: absolute;
+  opacity: 0;
+  cursor: pointer;
+}
+
+/* Create a custom radio button */
+.checkmark {
+  position: absolute;
+  top: 3px;
+  left: 0;
+  height: 25px;
+  width: 25px;
+  background-color: #eee;
+  border-radius: 50%;
+}
+
+/* On mouse-over, add a grey background color */
+.label:hover input ~ .checkmark {
+  background-color: #ccc;
+}
+
+/* When the radio button is checked, add a blue background */
+.label input:checked ~ .checkmark {
+  background-color: #0660fc;
+}
+
+/* Create the indicator (the dot/circle - hidden when not checked) */
+.checkmark:after {
+  content: "";
+  position: absolute;
+  display: none;
+}
+
+/* Show the indicator (dot/circle) when checked */
+.label input:checked ~ .checkmark:after {
+  display: block;
+}
+
+/* Style the indicator (dot/circle) */
+.label .checkmark:after {
+  top: 9px;
+  left: 9px;
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  background: white;
+}
+
+.choose-payment-method::after {
+  content: "";
+  position: absolute;
+  width: 100%;
+  bottom: -20px;
+  height: 0.75px;
+  background: rgba(191, 212, 228, 0.4);
+}
+
+.footer {
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+  gap: 10px;
+  /* margin-top: 29px; */
+}
+
+.cancel,
+.subscribe {
+  cursor: pointer;
+  margin-right: 10px;
+}
+
+.cancel button {
+  cursor: pointer;
+  color: #5e6278;
+  font-family: "DM Sans";
+  font-size: 14px;
+  font-style: normal;
+  font-weight: 500;
+  line-height: 9.491px; /* 79.093% */
+  display: flex;
+  height: 30px;
+  padding: 10px 14px;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 10px;
+  border-radius: 7px;
+  border: 0.75px solid rgba(191, 212, 228, 0.4);
+  background: #fff;
+}
+.subscribe button {
+  cursor: pointer;
+  display: flex;
+  padding: 11px 10px;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 10px;
+  border-radius: 7px;
+  background: #0660fc;
+  color: #fff;
+  font-family: "DM Sans";
+  font-size: 14px;
+  font-style: normal;
+  font-weight: 500;
+  line-height: 9.491px; /* 79.093% */
+  border: none;
+}
+
+/* plan container */
+
+@media screen and (max-width: 500px) {
+  .subscription-plan-header {
+    width: 330px;
+  }
+}

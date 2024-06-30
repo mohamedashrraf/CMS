@@ -1,0 +1,324 @@
+<!DOCTYPE html>
+<div class="container" [ngClass]="{ lowOpacity: spinner }">
+  <div class="formDiv">
+    <div class="projName">
+      <div class="nameContainer">
+        <div><img src="assets/images/Icon.png" alt="Logo" /></div>
+        <div class="projNDiv">
+          <p class="Name">CMS Software</p>
+        </div>
+      </div>
+    </div>
+
+    <h1 id="welcomeId">
+      Welcome! 👋
+      <!-- <i class="fa-solid fa-hand fa-flip-horizontal fa-lg" style="color: #FFD43B;"></i> -->
+    </h1>
+    <p id="info" style="text-align: center">
+      Sign Up to Manage Blog post account
+    </p>
+
+    <form class="form-group" [formGroup]="formInfo" (ngSubmit)="Submit()" #form="ngForm">
+      <div class="FLinksContainer">
+        <div class="formLinks">
+          <a href="https://www.google.com/">
+            <p>
+              <img src="assets/images/google.svg" alt="" />
+              <span class="whenComputer">Sign up with Google &nbsp; &nbsp;</span>
+              <span class="whenPhone">&nbsp;With Google</span>
+            </p>
+          </a>
+        </div>
+        <div class="formLinks">
+          <a href="https://www.facebook.com/">
+            <p>
+              <img src="assets/images/facebook.svg" alt="" />
+
+              <span class="whenComputer">Sign up with Facebook</span>
+              <span class="whenPhone">With Facebook</span>
+            </p>
+          </a>
+        </div>
+      </div>
+
+      <div class="line">
+        <hr />
+        <span>OR</span>
+        <hr />
+      </div>
+      <div>
+        <label class="form-label" for="fromInput1">Full Name</label>
+        <input type="text" class="form-input" formControlName="fullName" (input)="checkFullnameLength('fullName')"
+          [ngClass]="{
+            'is-invalid':
+            formInfo.controls.fullName.touched &&
+            formInfo.controls.fullName.errors,
+            'is-valid':
+            formInfo.controls.fullName.touched && 
+            formInfo.controls.fullName.errors == null ,
+            'is-touched':
+            formInfo.controls.fullName.untouched && 
+            formInfo.controls.fullName.errors == null,
+        }" id="fromInput1" placeholder="i.e. Haitham mohamed" />
+        @if (formInfo.controls.fullName.errors &&
+        formInfo.controls.fullName.touched) {
+        <div class="invalid-feedback">
+          @if (formInfo.controls.fullName.errors['required'] ) {
+          <p class="required">Full Name is required</p>
+          }
+          <!-- @if (formInfo.controls.fullName.errors['minlength']) {
+          <p class="required">Minimum characters are 3</p>
+          } -->
+
+          @if (formInfo.controls.fullName.errors['pattern'] ||
+          formInfo.controls.fullName.errors['minlength']) {
+          <p class="required">Full Name is invalid</p>
+          }
+        </div>
+        }
+      </div>
+      <div>
+        <label class="form-label" for="fromInput2">Email</label>
+        <input type="email" class="form-input" id="fromInput2" placeholder="i.e. Haitham.mo@company.com"
+          formControlName="email" (input)="removeAlreadyExistError()" [ngClass]="{
+            'is-invalid':
+            formInfo.controls.email.touched &&
+            formInfo.controls.email.errors,
+            'is-valid':
+            formInfo.controls.email.touched && 
+            formInfo.controls.email.errors == null ,
+            'is-touched':
+            formInfo.controls.email.untouched && 
+            formInfo.controls.email.errors == null,
+        }" />
+        @if (formInfo.controls.email.touched && formInfo.controls.email.errors)
+        {
+        <div class="invalid-feedback">
+          @if (formInfo.controls.email.errors['required']) {
+          <p class="required">Email is required</p>
+          } @if (formInfo.controls.email.errors['email']) {
+          <p>Email is invalid</p>
+          }
+        </div>
+        }
+        @if(errorExit){
+        <p class="required1">Email Already Exists</p>
+        }
+      </div>
+      <div class="label-div">
+        <label class="form-label" for="fromInput3">Password</label>
+        @if (showPass) {
+        <input type="text" class="form-input passwordCheck" id="fromInput3" placeholder="******************"
+          formControlName="password" (onChangeInputValue)="shooww($event, 'password')"
+          (input)="checkPasswordLength('password')" [ngClass]="{
+              'is-invalid':
+              formInfo.controls.password.touched &&
+              formInfo.controls.password.errors,
+              'is-valid':
+              formInfo.controls.password.touched && 
+              formInfo.controls.password.errors == null ,
+              'is-touched':
+              formInfo.controls.password.untouched && 
+              formInfo.controls.password.errors == null,
+          }" (focusin)="test()" (focusout)="test()" [appPassword]="showPass" />
+        }@else {
+        <input type="password" class="form-input passwordCheck" id="fromInput3" placeholder="******************"
+          formControlName="password" (change)="unshowPassAfter2S($event)" (input)="checkPasswordLength('password')"
+          (onChangeInputValue)="shooww($event, 'password')" [ngClass]="{
+              'is-invalid':
+              formInfo.controls.password.touched &&
+              formInfo.controls.password.errors,
+              'is-valid':
+              formInfo.controls.password.touched && 
+              formInfo.controls.password.errors == null ,
+              'is-touched':
+              formInfo.controls.password.untouched && 
+              formInfo.controls.password.errors == null,
+          }" (focusin)="test()" (focusout)="test()" [appPassword]="showPass" />
+        } @if(showPass){
+        <fa-icon [icon]="faEye" class="EyeIcon" (click)="showPassword()"></fa-icon>
+        }@else {
+        <fa-icon [icon]="faEyaSlash" class="EyeIcon" (click)="showPassword()"></fa-icon>
+        }
+
+        <div [ngClass]="{ passContainerSmallSize: passwordHint == true }" class="passwordCheckContainer">
+          <div class="invalid-feedback" [hidden]="!passwordHint">
+            <div class="strongth-password">
+              @if(formInfo.controls.password.value!.length < 6 || formInfo.controls.password.value!.length>= 6 &&
+                formInfo.controls.password.errors){
+                <div class="bar" id="week"></div>
+                <div class="bar" id="mediumH"></div>
+                <div class="bar" id="strongH"></div>
+
+                } @if(formInfo.controls.password.value!.length >= 6 &&
+                formInfo.controls.password.value!.length < 15 && formInfo.controls.password.errors==null){ <div
+                  class="bar" id="mediumS">
+            </div>
+            <div class="bar" id="medium" #medium></div>
+            <div class="bar" id="strongH"></div>
+
+            } @if(formInfo.controls.password.value!.length >= 15 &&
+            formInfo.controls.password.errors==null){
+            <div class="bar" id="weekH"></div>
+            <div class="bar" id="strongS" #medium></div>
+            <div class="bar" id="strong" #strong></div>
+            }
+          </div>
+        </div>
+        <p id="passHint" [ngClass]="{ show: passwordHint }" [ngClass]="{ hide: passwordHint }">
+          Password hint : 8 characters minimum
+        </p>
+        <div class="passwordValidation" style="
+              display: flex;
+              align-items: center;
+              justify-content: space-between;
+            ">
+          <div [hidden]="!passwordHint" class="passwordHint">
+            @if(formInfo.controls.password.value!.length < 6 || formInfo.controls.password.value!.length>= 6 &&
+              formInfo.controls.password.errors){
+              <p class="passCheckWord">Password: Week</p>
+              } @if(formInfo.controls.password.value!.length >= 6 &&
+              formInfo.controls.password.value!.length < 15 && formInfo.controls.password.errors==null){ <p
+                class="passCheckWord">Password: Meduim</p>
+                } @if(formInfo.controls.password.value!.length >= 15 &&
+                formInfo.controls.password.errors==null){
+                <p class="passCheckWord">Password: Strong</p>
+                }
+          </div>
+          <button type="button" class="tooltip">
+            !
+            <ul class="tooltiptext">
+              Your Password Must Contain:
+              <li>
+                <span class="correctIcon" [ngClass]="{
+                      changeBG: numberLength
+                    }">✔</span>At least 8 characters
+              </li>
+              <li>
+                <span class="correctIcon" [ngClass]="{
+                      changeBG: uppercase
+                    }">✔</span>At least One Capital Letter
+              </li>
+              <li>
+                <span class="correctIcon" [ngClass]="{
+                      changeBG: Number
+                    }">✔</span>At least One Number
+              </li>
+              <li>
+                <span class="correctIcon" [ngClass]="{
+                      changeBG: specialChar
+                    }">✔</span>At least One Special
+                <span style="margin-left: 12%">Character:!#$%^&*()_+.</span>
+              </li>
+            </ul>
+          </button>
+        </div>
+      </div>
+  </div>
+  <div class="label-div">
+    <label class="form-label" for="fromInput4">Confirm Password</label>
+    @if (showConfirmPass) {
+    <input type="text" class="form-input passwordCheck" id="fromInput4" formControlName="confirmPassword"
+      placeholder="******************" (input)="checkPasswordLength('confirmPassword')"
+      (onChangeInputValue)="shooww($event, 'confirmPassword')" [ngClass]="{
+            'is-invalid':
+            formInfo.controls.confirmPassword.touched &&
+            formInfo.controls.confirmPassword.errors,
+            'is-valid':
+            formInfo.controls.confirmPassword.touched && 
+            formInfo.controls.confirmPassword.errors == null ,
+            'is-touched':
+            formInfo.controls.confirmPassword.untouched && 
+            formInfo.controls.confirmPassword.errors == null,
+        }" [appPassword]="showConfirmPass" />
+    }@else {
+    <input type="password" class="form-input passwordCheck" id="fromInput4" formControlName="confirmPassword"
+      placeholder="******************" (input)="checkPasswordLength('confirmPassword')"
+      (onChangeInputValue)="shooww($event, 'confirmPassword')" [ngClass]="{
+            'is-invalid':
+            formInfo.controls.confirmPassword.touched &&
+            formInfo.controls.confirmPassword.errors,
+            'is-valid':
+            formInfo.controls.confirmPassword.touched && 
+            formInfo.controls.confirmPassword.errors == null ,
+            'is-touched':
+            formInfo.controls.confirmPassword.untouched && 
+            formInfo.controls.confirmPassword.errors == null,
+        }" [appPassword]="showConfirmPass" />
+    } @if(showConfirmPass){
+    <fa-icon [icon]="faEye" class="EyeIcon" (click)="showConfirmPassword()"></fa-icon>
+    }@else {
+    <fa-icon [icon]="faEyaSlash" class="EyeIcon" (click)="showConfirmPassword()"></fa-icon>
+    } @if (formInfo.controls.confirmPassword.touched &&
+    formInfo.controls.confirmPassword.errors) {
+    <div class="invalid-feedback">
+      @if (formInfo.controls.confirmPassword.errors['required']) {
+      <p class="required">Confirm Password is required</p>
+      } @if (formInfo.controls.confirmPassword.errors['passwordMismatch']) {
+      <p class="required">Confirm Password does not match</p>
+      }
+    </div>
+    }
+  </div>
+
+  <button type="submit" class="submitButton" [disabled]="formInfo.invalid" [ngClass]="{ disabled: formInfo.invalid }">
+    Sign Up
+  </button>
+  </form>
+
+  <div class="paragraphs">
+    <p class="info">Have an Account? <a routerLink="/auth/signin">Login</a></p>
+    <p class="para">
+      By signing up you agree to our
+      <a style="font-weight: 400" href="">Terms</a> and
+      <a href="" style="font-weight: 400">privacy policy</a>
+    </p>
+  </div>
+</div>
+
+<div class="SlidesContainer">
+  <!-- Slideshow container -->
+  <div class="slideshow-container">
+    <!-- Full-width images with number and caption text -->
+    <div id="mySlide" class="mySlides fade">
+      <div class="cardDiv">
+        <div class="avatar" [ngClass]="{ hide: slidIndex == 1 }">
+          <img src="assets/images/data.svg" alt="Data" class="insideImg" id="inside" />
+        </div>
+
+        <img src="{{ showSlides() }}" alt="Slides" class="img1" />
+      </div>
+      <div class="text">
+        <p style="font-size: 22px; font-weight: 500">
+          Manage Any Content Anywhere
+        </p>
+        <p>
+          Lorem ipsum dolor sit amet consectetur adipisicing elit. Omnis
+          repellat modi dicta suscipit vero
+        </p>
+      </div>
+    </div>
+    <!-- Next and previous buttons -->
+    <!-- <div style="display: flex; justify-content: space-between; position: relative; top: -50%;">
+        <a class="prev" (click)="prevSlides()">&#10094;</a>
+        <a class="next" (click)="nextSlides()">&#10095;</a>
+      </div> -->
+  </div>
+
+  <div class="dots" style="text-align: center">
+    <a class="arrows" (click)="currentSlide(0)">&#x2190;</a>
+    <span id="dot1" class="active-dot" (click)="currentSlide(0)"
+      [ngClass]="{ dot: slidIndex == 1, 'active-dot': slidIndex == 0 }"></span>
+    <span id="dot2" class="dot" (click)="currentSlide(1)" [ngClass]="{ 'active-dot': slidIndex == 1 }"></span>
+    <a class="arrows" (click)="currentSlide(1)">&#x2192;</a>
+  </div>
+
+  <!-- The dots/circles -->
+</div>
+</div>
+
+@if(spinner){
+<div class="spinner">
+  <app-spinner></app-spinner>
+</div>
+}

@@ -1,0 +1,102 @@
+<div class="SlidesContainer" #icon>
+  <!-- Slideshow container -->
+  <div class="slideshow-container">
+    <!-- Full-width images with number and caption text -->
+    <div id="mySlide" class="mySlides fade">
+      <div class="cardDiv">
+        <div class="avatar" [ngClass]="{ hide: slideIndex == 1 }">
+          <img src="data.svg" alt="Data" class="insideImg" id="inside" />
+        </div>
+
+        <img [src]="showSlides()" alt="Slides" class="img1" />
+      </div>
+      <div class="text">
+        <p style="font-size: 22px; font-weight: 500">
+          Manage Any Content Anywhere
+        </p>
+        <p>
+          Lorem ipsum dolor sit amet consectetur adipisicing elit. Omnis
+          repellat modi dicta suscipit vero
+        </p>
+      </div>
+    </div>
+  </div>
+
+  <div class="dots" style="text-align: center">
+
+    <a class="arrows" (click)="currentSlide(0)">
+      @if(slideIndex===0){
+      <svg width="25" height="25" viewBox="0 0 25 25" fill="none" style="opacity: 0.1;"
+        xmlns="http://www.w3.org/2000/svg">
+        <path
+          d="M9.76873 18.8963C9.95873 18.8963 10.1487 18.8263 10.2987 18.6763C10.5887 18.3863 10.5887 17.9063 10.2987 17.6163L4.75873 12.0763L10.2987 6.53629C10.5887 6.24629 10.5887 5.76629 10.2987 5.47629C10.0087 5.18629 9.52873 5.18629 9.23873 5.47629L3.16873 11.5463C2.87873 11.8363 2.87873 12.3163 3.16873 12.6063L9.23873 18.6763C9.38873 18.8263 9.57873 18.8963 9.76873 18.8963Z"
+          fill="white" />
+        <path
+          d="M3.86873 12.8262H20.6987C21.1087 12.8262 21.4487 12.4862 21.4487 12.0762C21.4487 11.6662 21.1087 11.3262 20.6987 11.3262H3.86873C3.45873 11.3262 3.11873 11.6662 3.11873 12.0762C3.11873 12.4862 3.45873 12.8262 3.86873 12.8262Z"
+          fill="white" />
+      </svg>
+
+      }@else {
+      <svg width="25" height="25" viewBox="0 0 25 25" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <path
+          d="M9.76873 18.896C9.95873 18.896 10.1487 18.826 10.2987 18.676C10.5887 18.386 10.5887 17.906 10.2987 17.616L4.75873 12.076L10.2987 6.53604C10.5887 6.24604 10.5887 5.76604 10.2987 5.47604C10.0087 5.18604 9.52873 5.18604 9.23873 5.47604L3.16873 11.546C2.87873 11.836 2.87873 12.316 3.16873 12.606L9.23873 18.676C9.38873 18.826 9.57873 18.896 9.76873 18.896Z"
+          fill="white" />
+        <path
+          d="M3.86873 12.8259H20.6987C21.1087 12.8259 21.4487 12.4859 21.4487 12.0759C21.4487 11.6659 21.1087 11.3259 20.6987 11.3259H3.86873C3.45873 11.3259 3.11873 11.6659 3.11873 12.0759C3.11873 12.4859 3.45873 12.8259 3.86873 12.8259Z"
+          fill="white" />
+      </svg>
+      }
+    </a>
+
+    @if(slideIndex===0){
+    <svg width="8" height="9" viewBox="0 0 8 9" fill="none" xmlns="http://www.w3.org/2000/svg"
+      [ngClass]="{ 'active-dot': slideIndex == 0 }">
+      <rect opacity="0.6" x="0.36792" y="0.723877" width="7.28889" height="7.28889" rx="3.64444" fill="white" />
+    </svg>
+    }@else{
+    <svg width="8" height="9" viewBox="0 0 8 9" fill="none" xmlns="http://www.w3.org/2000/svg"
+      (click)="currentSlide(0)">
+      <rect opacity="0.6" x="0.123474" y="0.723877" width="7.28889" height="7.28889" rx="3.64444" fill="white" />
+    </svg>
+
+    }
+
+    @if(slideIndex===1){
+    <svg width="8" height="9" viewBox="0 0 8 9" fill="none" xmlns="http://www.w3.org/2000/svg"
+      [ngClass]="{ 'active-dot': slideIndex == 1 }">
+      <rect opacity="0.6" x="0.36792" y="0.723877" width="7.28889" height="7.28889" rx="3.64444" fill="white" />
+    </svg>
+    }@else{
+    <svg width="8" height="9" viewBox="0 0 8 9" fill="none" xmlns="http://www.w3.org/2000/svg"
+      (click)="currentSlide(1)">
+      <rect opacity="0.6" x="0.123474" y="0.723877" width="7.28889" height="7.28889" rx="3.64444" fill="white" />
+    </svg>
+
+    }
+
+    <a class="arrows" (click)="currentSlide(1)">
+      @if(slideIndex===1){
+      <svg width="25" height="25" viewBox="0 0 25 25" fill="none" style="opacity: 0.1;"
+        xmlns="http://www.w3.org/2000/svg">
+        <path
+          d="M14.9647 18.9664C14.7747 18.9664 14.5847 18.8964 14.4347 18.7464C14.1447 18.4564 14.1447 17.9764 14.4347 17.6864L19.9747 12.1464L14.4347 6.60636C14.1447 6.31636 14.1447 5.83636 14.4347 5.54636C14.7247 5.25636 15.2047 5.25636 15.4947 5.54636L21.5647 11.6164C21.8547 11.9064 21.8547 12.3864 21.5647 12.6764L15.4947 18.7464C15.3447 18.8964 15.1547 18.9664 14.9647 18.9664Z"
+          fill="white" />
+        <path
+          d="M20.8647 12.8962H4.03467C3.62467 12.8962 3.28467 12.5562 3.28467 12.1462C3.28467 11.7362 3.62467 11.3962 4.03467 11.3962H20.8647C21.2747 11.3962 21.6147 11.7362 21.6147 12.1462C21.6147 12.5562 21.2747 12.8962 20.8647 12.8962Z"
+          fill="white" />
+      </svg>
+      }@else {
+      <svg width="25" height="25" viewBox="0 0 25 25" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <path
+          d="M14.9647 18.9664C14.7747 18.9664 14.5847 18.8964 14.4347 18.7464C14.1447 18.4564 14.1447 17.9764 14.4347 17.6864L19.9747 12.1464L14.4347 6.60636C14.1447 6.31636 14.1447 5.83636 14.4347 5.54636C14.7247 5.25636 15.2047 5.25636 15.4947 5.54636L21.5647 11.6164C21.8547 11.9064 21.8547 12.3864 21.5647 12.6764L15.4947 18.7464C15.3447 18.8964 15.1547 18.9664 14.9647 18.9664Z"
+          fill="white" />
+        <path
+          d="M20.8647 12.8962H4.03467C3.62467 12.8962 3.28467 12.5562 3.28467 12.1462C3.28467 11.7362 3.62467 11.3962 4.03467 11.3962H20.8647C21.2747 11.3962 21.6147 11.7362 21.6147 12.1462C21.6147 12.5562 21.2747 12.8962 20.8647 12.8962Z"
+          fill="white" />
+      </svg>
+      }
+    </a>
+
+  </div>
+
+</div>

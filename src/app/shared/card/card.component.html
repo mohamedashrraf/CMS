@@ -1,0 +1,16 @@
+<div class="card" (click)="something()">
+  <div class="info">
+    <div class="main-info">
+      <div class="icon">
+        <img [src]="icon_path" alt="icon" />
+      </div>
+      <div class="title">{{ title }}</div>
+    </div>
+    <small class="description"
+      >{{ description }} <br />
+      {{ description_continue }}</small
+    >
+  </div>
+  <div class="total-number">{{ total_number }}</div>
+
+</div>

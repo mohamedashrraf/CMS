@@ -1,0 +1,11 @@
+<form #inpTextForm="ngForm">
+  <div class="input-text">
+    <label class="label-email" for="email">Email</label>
+    <input #email="ngModel" type="email" id="email" name="email" placeholder="Spatium.mo@software.com" required
+      [(ngModel)]="inp">
+  </div>
+
+  <div [hidden]="email.valid || email.pristine" class="required">
+    E-mail is required
+  </div>
+</form>

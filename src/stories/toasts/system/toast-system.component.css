@@ -1,0 +1,127 @@
+* {
+  margin: 0px;
+  padding: 0px;
+  box-sizing: border-box;
+}
+.button {
+  display: flex;
+  width: 380px;
+  height: 42px;
+  padding: 12px 10px;
+  justify-content: center;
+  align-items: center;
+  gap: 10px;
+  border-radius: 6px;
+  background: #0660fc;
+  color: #fff;
+  font-family: "DM Sans";
+  font-size: 14px;
+  font-style: normal;
+  font-weight: 700;
+  line-height: 14px;
+  cursor: pointer;
+  opacity: 0.85;
+}
+
+.button:hover {
+  opacity: 1;
+}
+
+.button:active {
+  border: 2px solid #fff;
+  outline: 1px solid #0660fc;
+}
+
+.button:focus {
+  border: 2px solid #fff;
+  outline: 1px solid #0660fc;
+}
+
+.close {
+  display: flex;
+  width: 24px;
+  height: 24px;
+  padding: 2px;
+  justify-content: center;
+  align-items: center;
+  position: absolute;
+  right: 15px;
+  top: 1px;
+  cursor: pointer;
+}
+
+.container {
+  position: absolute;
+  top: 10px;
+  right: 420px;
+  transition: all 1s;
+}
+
+.toast-container {
+  margin-top: 50px;
+  display: flex;
+  align-items: start;
+  justify-content: start;
+  gap: 16px;
+  border-radius: 10px;
+  border: 1px solid #e6e8ec;
+  border-left: none;
+  background: #fff;
+  width: 400px;
+  height: 90px;
+  position: relative;
+  transition: position 1s;
+  /* Popup */
+  box-shadow: 0px 12px 32px 0px rgba(6, 28, 61, 0.08);
+}
+
+.toast-container::after {
+  content: "";
+  position: absolute;
+  padding: 0px 3px;
+  left: 0px;
+  border-top-left-radius: 10px;
+  border-bottom-left-radius: 10px;
+  height: 100%;
+  align-self: stretch;
+  background-color: #0660fc;
+}
+
+.toast-container div {
+  margin-left: 15px;
+  margin-top: 10px;
+}
+
+.toast-container div h5 {
+  color: #3f4254;
+  font-family: "DM Sans";
+  font-size: 16px;
+  font-style: normal;
+  font-weight: 700;
+  line-height: 24px; /* 150% */
+  letter-spacing: -0.192px;
+  margin: 0px 3px 3px 3px;
+}
+
+.toast-container div p {
+  color: #7e8299;
+  margin: 3px;
+  /* Body/Smalls/500 */
+  font-family: Inter;
+  font-size: 14px;
+  font-style: normal;
+  font-weight: 500;
+  line-height: 20px; /* 142.857% */
+}
+
+.hide {
+  right: 0px;
+  /* width: 1px; */
+  transition: all 1s;
+}
+
+.show {
+  right: 400px;
+  /* width: 100px; */
+  transition: all 1s;
+}

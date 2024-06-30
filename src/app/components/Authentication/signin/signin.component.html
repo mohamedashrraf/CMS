@@ -1,0 +1,160 @@
+<!DOCTYPE html>
+<div class="container" [ngClass]="{ lowOpacity: spinner }">
+  <div class="formDiv">
+    <div class="projName">
+      <div class="nameContainer">
+        <div><img src="../../../assets/images/Icon.png" alt="Logo" /></div>
+        <div class="projNDiv"><p class="Name">CMS Software</p></div>
+      </div>
+    </div>
+
+    <div
+      class="container1"
+      [ngClass]="{ 'flip-out': Index == 2, 'flip-in': Index == 1 }"
+      [ngClass]="{ 'flip-out': Index == 3, 'flip-in': Index == 4 }"
+      [ngClass]="{ 'flip-out': Index == 5, 'flip-in': Index == 6 }"
+    >
+      <div class="loginContainer" id="loginContainerId">
+        <div class="bg">
+          <div class="loginDiv">
+            <h1>
+              Welcome! 👋
+              <!-- <i class="fa-solid fa-hand fa-flip-horizontal fa-lg" style="color: #FFD43B;"></i> -->
+            </h1>
+            <p class="info1">Login in to your CMS System account</p>
+            <div>
+              <form
+                action=""
+                [formGroup]="formInfo"
+                (ngSubmit)="Submit()"
+                #form="ngForm"
+              >
+                <div class="form-control">
+                  <label class="form-label" for="fromInput2">Email</label>
+                  <input
+                    type="email"
+                    class="form-input"
+                    id="fromInput2"
+                    placeholder="i.e. Haitham.mo@company.com"
+                    formControlName="email"
+                    (input)="clearErrorExit()"
+                    [ngClass]="{
+                      'is-invalid':
+                        formInfo.controls.email.touched &&
+                        formInfo.controls.email.errors
+                    }"
+                  />
+                  @if (formInfo.controls.email.touched &&
+                  formInfo.controls.email.errors) {
+                  <div class="invalid-feedback">
+                    @if (formInfo.controls.email.errors['required']) {
+                    <p>Email is required</p>
+                    } @if (formInfo.controls.email.errors['email']) {
+                    <p>Email is invalid</p>
+                    }
+                  </div>
+                  }
+                </div>
+                <div class="label-div form-control">
+                  <label class="form-label" for="fromInput3">Password</label>
+                  @if (showPass) {
+                  <input
+                    [appPassword]="showPass"
+                    type="text"
+                    class="form-input passwordCheck"
+                    id="fromInput3"
+                    placeholder="*****************"
+                    formControlName="password"
+                    (onChangeInputValue)="shooww($event, 'password')"
+                    (input)="
+                      [checkPasswordLength('password'), clearErrorExit()]
+                    "
+                    [ngClass]="{
+                      'is-invalid':
+                        formInfo.controls.password.touched &&
+                        formInfo.controls.password.errors
+                    }"
+                  />
+                  } @else {
+                  <input
+                    [appPassword]="showPass"
+                    type="password"
+                    class="form-input passwordCheck"
+                    id="fromInput3"
+                    placeholder="*****************"
+                    formControlName="password"
+                    (input)="
+                      [checkPasswordLength('password'), clearErrorExit()]
+                    "
+                    (onChangeInputValue)="shooww($event, 'password')"
+                    [ngClass]="{
+                      'is-invalid':
+                        formInfo.controls.password.touched &&
+                        formInfo.controls.password.errors
+                    }"
+                  />
+                  } @if(showPass){
+                  <fa-icon
+                    [icon]="faEye"
+                    class="EyeIcon"
+                    (click)="showPassword()"
+                  ></fa-icon>
+                  }@else {
+                  <fa-icon
+                    [icon]="faEyaSlash"
+                    class="EyeIcon"
+                    (click)="showPassword()"
+                  ></fa-icon>
+                  } @if (formInfo.controls.password.touched &&
+                  formInfo.controls.password.errors) {
+                  <div class="invalid-feedback">
+                    @if (formInfo.controls.password.errors['required']) {
+                    <p>Password is required</p>
+                    }
+                  </div>
+                  }
+                </div>
+                @if(errorExit && formInfo.valid){
+                <p class="required1">Email or Pasword is invalid</p>
+                }
+                <div class="checkbox">
+                  <div class="checkDiv">
+                    <input
+                      type="checkbox"
+                      id="checkbox"
+                      (change)="checkbox()"
+                      name="checkbox"
+                    />
+                    <label for="checkbox" id="checkLabel">Remember me</label>
+                  </div>
+                  <!-- <label style="display: inline; border: 1px solid #BFD4E466; width: 18px; height: 18px;"></label> -->
+
+                  <a routerLink="/auth/sendmail"
+                    ><p id="forget">Forget password?</p></a
+                  >
+                </div>
+                <button
+                  [ngClass]="{ disabled: formInfo.invalid }"
+                  type="submit"
+                  [disabled]="!form.valid"
+                >
+                  LOG IN
+                </button>
+                <p class="info22">
+                  Don't have an Account? <a routerLink="/auth/signup">Register</a>
+                </p>
+                <!-- <input type="submit"> -->
+              </form>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+@if(spinner){
+<div class="spinner">
+  <app-spinner></app-spinner>
+</div>
+}

@@ -1,0 +1,93 @@
+<div class="sorting" >
+  <div class="row">
+    <div class="sort-container">
+      <div class="sortIcon" (click)="addActiveSort()">
+        @if (activeSort) {
+        <svg width="30" height="30" viewBox="0 0 30 30" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <rect x="0.375" y="0.375" width="29.25" height="29.25" rx="6.625" fill="#FAFCFF" />
+          <rect x="0.375" y="0.375" width="29.25" height="29.25" rx="6.625" stroke="#0660FC" stroke-width="0.75" />
+          <path opacity="0.2"
+            d="M11.8575 7.5H18.135C20.8725 7.5 22.5 9.1275 22.5 11.8575V18.135C22.5 20.865 20.8725 22.4925 18.1425 22.4925H11.8575C9.1275 22.5 7.5 20.8725 7.5 18.1425V11.8575C7.5 9.1275 9.1275 7.5 11.8575 7.5Z"
+            fill="#0660FC" />
+          <path
+            d="M13.6799 10.6875C13.3649 10.6875 13.1174 10.9425 13.1174 11.25V17.3925L11.8649 16.14C11.6474 15.9225 11.2874 15.9225 11.0699 16.14C10.8524 16.3575 10.8524 16.7175 11.0699 16.935L13.2824 19.1475C13.3349 19.2 13.3949 19.2375 13.4624 19.2675C13.5299 19.2975 13.6049 19.3125 13.6799 19.3125C13.7549 19.3125 13.8224 19.2975 13.8974 19.2675C14.0324 19.2075 14.1449 19.1025 14.2049 18.96C14.2349 18.8925 14.2499 18.8175 14.2499 18.7425V11.25C14.2424 10.9425 13.9874 10.6875 13.6799 10.6875Z"
+            fill="#0660FC" />
+          <path
+            d="M18.9301 13.065L16.7176 10.8525C16.6651 10.8 16.6051 10.7625 16.5376 10.7325C16.4026 10.6725 16.2451 10.6725 16.1101 10.7325C15.9751 10.7925 15.8626 10.8975 15.8026 11.04C15.7726 11.1075 15.7576 11.175 15.7576 11.25V18.75C15.7576 19.0575 16.0126 19.3125 16.3201 19.3125C16.6276 19.3125 16.8826 19.0575 16.8826 18.75V12.6075L18.1351 13.86C18.2476 13.9725 18.3901 14.025 18.5326 14.025C18.6751 14.025 18.8176 13.9725 18.9301 13.86C19.1476 13.6425 19.1476 13.2825 18.9301 13.065Z"
+            fill="#0660FC" />
+        </svg>
+        }
+        @else {
+        <svg width="30" height="30" viewBox="0 0 30 30" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <rect x="0.375" y="0.375" width="29.25" height="29.25" rx="6.625" fill="white" />
+          <rect x="0.375" y="0.375" width="29.25" height="29.25" rx="6.625" stroke="#E5EEF4" stroke-width="0.75" />
+          <path opacity="0.2"
+            d="M11.8575 7.5H18.135C20.8725 7.5 22.5 9.1275 22.5 11.8575V18.135C22.5 20.865 20.8725 22.4925 18.1425 22.4925H11.8575C9.1275 22.5 7.5 20.8725 7.5 18.1425V11.8575C7.5 9.1275 9.1275 7.5 11.8575 7.5Z"
+            fill="#7E8299" />
+          <path
+            d="M13.6799 10.6875C13.3649 10.6875 13.1174 10.9425 13.1174 11.25V17.3925L11.8649 16.14C11.6474 15.9225 11.2874 15.9225 11.0699 16.14C10.8524 16.3575 10.8524 16.7175 11.0699 16.935L13.2824 19.1475C13.3349 19.2 13.3949 19.2375 13.4624 19.2675C13.5299 19.2975 13.6049 19.3125 13.6799 19.3125C13.7549 19.3125 13.8224 19.2975 13.8974 19.2675C14.0324 19.2075 14.1449 19.1025 14.2049 18.96C14.2349 18.8925 14.2499 18.8175 14.2499 18.7425V11.25C14.2424 10.9425 13.9874 10.6875 13.6799 10.6875Z"
+            fill="#7E8299" />
+          <path
+            d="M18.9301 13.065L16.7176 10.8525C16.6651 10.8 16.6051 10.7625 16.5376 10.7325C16.4026 10.6725 16.2451 10.6725 16.1101 10.7325C15.9751 10.7925 15.8626 10.8975 15.8026 11.04C15.7726 11.1075 15.7576 11.175 15.7576 11.25V18.75C15.7576 19.0575 16.0126 19.3125 16.3201 19.3125C16.6276 19.3125 16.8826 19.0575 16.8826 18.75V12.6075L18.1351 13.86C18.2476 13.9725 18.3901 14.025 18.5326 14.025C18.6751 14.025 18.8176 13.9725 18.9301 13.86C19.1476 13.6425 19.1476 13.2825 18.9301 13.065Z"
+            fill="#7E8299" />
+        </svg>
+        }
+      </div>
+    </div>
+
+    @if(toggleSortList){
+    <div class="sortList" clickOutside (clickOutside)="closeMenu()">
+      <div class="sortHeader">
+        <p>Sort By</p>
+      </div>
+      <div class="sortOptions">
+        <label for="sortSelect">Select Item to Sort by</label>
+        <!-- <select [(ngModel)]="selectedSortColumn" id="sortSelect" name="sortSelect">
+          @for (option of sortOptions; track $index) {
+          <option [value]="option.key">{{ option.displayName }}</option>
+          }
+        </select> -->
+
+          <div class="custom-dropdown">
+            <div class="selected-option" (click)="toggleDropdown('sortColumn')" [(ngModel)]="selectedSortColumn" ngDefaultControl>
+            {{ getSelectedColumnName() }}
+              <img class="arrow" [class.open]="dropdownOpen1" src="../../../assets/images/arrow-down.svg" alt="arrow">
+            </div>
+
+            @if (dropdownOpen1) {
+            <div class="dropdown-options">
+              @for (option of sortOptions; track $index) {
+              <div class="dropdown-option" (click)="selectOption('sortColumn', option.key)">{{ option.displayName }}</div>
+              }
+            </div>
+            }
+          </div>
+
+          <label for="sortOrderSelect">Value</label>
+          <div class="custom-dropdown">
+            <div class="selected-option custom-select" (click)="toggleDropdown('sortOrder')" [(ngModel)]="isDescending" ngDefaultControl>
+              {{ isDescending ? 'From Z - A' : 'From A - Z' }}
+              <img class="arrow" [class.open]="dropdownOpen2" src="../../../assets/images/arrow-down.svg" alt="arrow">
+            </div>
+            @if (dropdownOpen2) {
+            <div class="dropdown-options">
+              <div class="dropdown-option" (click)="selectOption('sortOrder', false)">From A - Z</div>
+              <div class="dropdown-option" (click)="selectOption('sortOrder', true)">From Z - A</div>
+            </div>
+            }
+          </div>
+
+        <div class="sortBtns">
+          <button class="sortCancelBtn" (click)="cancelSort();">
+            Cancel
+          </button>
+          <button class="sortApplyBtn" (click)="applySort()">
+            Apply
+          </button>
+        </div>
+      </div>
+
+    </div>
+    }
+  </div>
+</div>

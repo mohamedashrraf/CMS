@@ -1,0 +1,32 @@
+<div [ngClass]="{ hide: !deleteAccountModal, container: deleteAccountModal }">
+  <div class="row" style="box-shadow: 0px 12.982px 28.848px 0px rgba(112, 144, 176, 0.12);">
+    <div class="col-12">
+      <div class="card">
+        <div class="delete-icon" (click)="this.cancelBtn.emit()">
+          <img src="assets/images/delete-icon.svg" alt="delete" />
+        </div>
+        <div class="icon"
+          [style.backgroundImage]="backgroundImg ? 'url(' + backgroundImg + ')' : 'url(assets/images/ellipse-blue.svg)'"
+          style="background-repeat: no-repeat;">
+          <img [src]="icon_path" [alt]="action" />
+        </div>
+
+
+        <div class="card-content">
+          <h4>{{ title }}</h4>
+          <p>
+            {{ description }}
+          </p>
+        </div>
+        <div class="card-actions">
+          <button class="cancel" (click)="this.cancelBtn.emit()">
+            {{ cancel }}
+          </button>
+          <button class="action" [ngStyle]="{ 'background-color': actionBackground }" (click)="this.actionBtn.emit()">
+            {{ action }}
+          </button>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

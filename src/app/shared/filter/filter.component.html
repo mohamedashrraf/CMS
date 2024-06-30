@@ -1,0 +1,90 @@
+<div class="filteration">
+  <div class="filter" #filterEl (click)="addActiveFilter()">
+    @if (activeFilter) {
+            <img  src="assets/images/filterIcon.svg" alt="filterIcon">
+    }@else {
+    <img  src="assets/images/filterActiveIcon.svg" alt="filterActiveIcon">
+    }
+    <p>Filter</p>
+  </div>
+
+  @if (toggleFilterList) {
+  <div class="filterList">
+    <div class="filterHeader">
+      <p>No filter conditions are applied to this table</p>
+    </div>
+
+    @if (activeAddFilter) {
+    <p class="filterBtn" (click)="toggleAddDropdown()">
+      <img src="assets/images/addActiveFilter.svg" alt="addfilter" />
+    </p>
+  }@else {
+        <p class="filterBtn" (click)="toggleAddDropdown()">
+      <img src="assets/images/addfilter.svg" alt="addfilter" />
+    </p>
+  }
+
+    @if (toggleFilterDropdown) {
+    <div class="filter-dropdown">
+      <ul>
+        @for (filter of filters; track $index) {
+        <li (click)="selectFilter(filter)">
+          <p>{{filter.displayName}}</p>
+        </li>
+        }
+      </ul>
+    </div>
+    }
+  </div>
+  } @if (togglefilterCategory) {
+  <div class="filterCategory">
+    <div class="filterHeader2">
+      <p>View Show Records</p>
+    </div>
+    <div class="filterCols">
+      <div>
+        <label for="filterSelect">Where</label>
+        <!-- <select name="filterSelect" id="filterSelect"  [(ngModel)]="filterColumn">
+          @for (filter of filters; track $index) {
+          <option [value]="filter">{{filter.displayName}}</option>
+          }
+        </select> -->
+        <div class="custom-dropdown">
+          <div class="selected-option" (click)="toggleDropdown()" [(ngModel)]="filterColumn" ngDefaultControl>
+            {{ getSelectedColumnName() }}
+            <img class="arrow" [class.open]="dropdownOpen1" src="../../../assets/images/arrow-down.svg" alt="arrow">
+          </div>
+
+          @if (dropdownOpen1) {
+          <div class="dropdown-options">
+            @for (filter of filters; track $index) {
+            <div class="dropdown-option" (click)="selectOption(filter.key, filter.displayName)">{{ filter.displayName }}</div>
+            }
+          </div>
+          }
+        </div>
+        @if ( filterColumn === 'creationDate' || filterColumn ==="createdAt") {
+          @if(filterDisplayName === "One Day"){
+            <input class="dropdown-option" type="date" id="filterDate" name="filterDate" [(ngModel)]="startDate">
+          }
+          @if(filterDisplayName === "Date Range"){
+            <input class="dropdown-option" type="datetime-local" id="filterDate" name="filterDate" [(ngModel)]="startDate">
+            <input class="dropdown-option" type="datetime-local" id="filterDate" name="filterDate" [(ngModel)]="endDate">
+          }
+        }
+        @else {
+        <input type="text" #filterInput placeholder="Enter Value ..." [(ngModel)]="filterValue" />
+        }
+      </div>
+    </div>
+    <div class="apply">
+      <button class="applyfilterBtn" (click)="applyFilter()">
+        Apply
+      </button>
+    </div>
+  </div>
+  }
+</div>
+<!-- <select name="contain" id="filterContains">
+            <option value="Contains">Contains</option>
+          </select> -->

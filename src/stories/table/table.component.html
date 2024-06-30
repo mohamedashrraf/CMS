@@ -1,0 +1,53 @@
+<div class="container">
+  <table CELLSPACING="0">
+    <thead>
+      <tr>
+        <th></th>
+        <!-- <th><input type="checkbox" /></th> -->
+
+        @for (data of headRow; track $index) {
+        <th>{{ data }}</th>
+        }
+        <!-- <th></th> -->
+        <th>
+          <span><img src="table-setting.png" alt="" /></span>
+        </th>
+      </tr>
+    </thead>
+    <tbody>
+      @for (data of bodyRow; track data; let i=$index) {
+      @if(i < rows){ <tr class="row">
+        <!-- <td><input type="checkbox" (click)="onChecked($event)" /></td> -->
+        <td></td>
+        <td>{{ i + 1 }}</td>
+        <td>
+          <img [src]="
+                data.profileImagePath
+                ? data.profileImagePath
+                : 'table-communication.png'
+                " alt="" />{{ data.fullName }}
+        </td>
+        <td>
+          <span class="status"><span class="{{ data.userStatus ? 'active' : 'deactive' }}"></span>{{ data.userStatus ?
+            "Active" : "Deactive" }}</span>
+        </td>
+        <td>{{ data.roleName }}</td>
+        <td>{{ data.email }}</td>
+        <td>{{ data.createdAt }}</td>
+        <td>
+          <span><img src="edit-user-management.svg" alt="edit" /></span>
+          <div class="dots">
+            <div class="dot"></div>
+            <div class="dot"></div>
+            <div class="dot"></div>
+          </div>
+        </td>
+        </tr>
+        }
+
+        }
+    </tbody>
+    <tfoot></tfoot>
+  </table>
+</div>
+<app-paginator (rowsCount)="getCount($event)" [all]="bodyRow.length ? bodyRow.length : 0" />

@@ -1,0 +1,230 @@
+<div class="" [ngClass]="{ lowOpacity: deleteAccountModal, container: !deleteAccountModal }">
+  @if( isavailable){
+  <div class="dark-background"></div>
+  <div class="user-profile-container">
+    <div class="user-header">
+      <div class="header-icons">
+        <div class="refresh">
+          <img src="assets/images/refresh-2.svg" alt="" />
+
+          <p>Last update : Today,15:05pm</p>
+        </div>
+
+        <img class="close-profile" src="assets/images/cross-square.svg" alt="" (click)="close()" />
+      </div>
+
+      <div class="user-info">
+        <img
+          [src]=" currentUser.profileImagePath ? currentUser.profileImagePath : 'assets/images/default-user.png'"
+          alt="user-img" />
+        <div class="edit">
+          <svg width="10" height="10" viewBox="0 0 12 12" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <path opacity="0.4"
+              d="M7.74 1.5H3.76C2.035 1.5 1 2.53 1 4.26V8.235C1 9.97 2.035 11 3.76 11H7.735C9.465 11 10.495 9.97 10.495 8.24V4.26C10.5 2.53 9.465 1.5 7.74 1.5Z"
+              fill="white" />
+            <path
+              d="M10.51 1.49014C9.61499 0.590138 8.73999 0.570138 7.81999 1.49014L7.25499 2.05014C7.20499 2.10014 7.18999 2.17014 7.20999 2.23514C7.55999 3.46014 8.53999 4.44014 9.76499 4.79014C9.77999 4.79514 9.80499 4.79514 9.81999 4.79514C9.86999 4.79514 9.91999 4.77514 9.95499 4.74014L10.51 4.18014C10.965 3.72514 11.19 3.29014 11.19 2.84514C11.19 2.39514 10.965 1.95014 10.51 1.49014Z"
+              fill="white" />
+            <path
+              d="M8.92993 5.20992C8.79493 5.14492 8.66493 5.07992 8.54493 5.00492C8.44493 4.94492 8.34493 4.87992 8.24993 4.80992C8.16993 4.75992 8.07993 4.68492 7.98993 4.60992C7.97993 4.60492 7.94993 4.57992 7.90993 4.53992C7.75493 4.41492 7.58993 4.24492 7.43493 4.05992C7.42493 4.04992 7.39493 4.01992 7.36993 3.97492C7.31993 3.91992 7.24493 3.82492 7.17993 3.71992C7.12493 3.64992 7.05993 3.54992 6.99993 3.44492C6.92493 3.31992 6.85993 3.19492 6.79993 3.06492C6.73493 2.92492 6.68493 2.79492 6.63993 2.66992L3.94993 5.35992C3.77493 5.53492 3.60493 5.86492 3.56993 6.10992L3.35493 7.59992C3.30993 7.91492 3.39493 8.20992 3.58993 8.40492C3.75493 8.56992 3.97993 8.65492 4.22993 8.65492C4.28493 8.65492 4.33993 8.64992 4.39493 8.64492L5.87993 8.43492C6.12493 8.39992 6.45493 8.23492 6.62993 8.05492L9.31993 5.36492C9.19493 5.32492 9.06993 5.26992 8.92993 5.20992Z"
+              fill="white" />
+          </svg>
+
+        </div>
+        <h3>{{currentUser.fullName | titlecase}}</h3>
+        <p>{{currentUser.roleName | titlecase}}</p>
+      </div>
+
+      <div class="user-actions">
+        <div class="a-box" (click)="display('edit')" [class.active]="activeTab == 'edit'">
+          <a> Information</a>
+        </div>
+
+        <div class="hr"></div>
+        <div class="a-box">
+          <a (click)="display('change-password')" [class.active]="activeTab == 'change-password'">Password</a>
+        </div>
+
+        <div class="hr"></div>
+        <div class="a-box" (click)="display('activity')" [class.active]="activeTab == 'activity'">
+          <a>Activity log</a>
+        </div>
+      </div>
+    </div>
+    @if(activeTab=='edit'){
+    <div class="user-form">
+      <div class="user-form-header">
+        <div class="inner-text">
+          <h3>Edit account information</h3>
+          <p>Lorem ipsum is placeholder text commonly</p>
+        </div>
+        <button>Edit</button>
+      </div>
+      <div class="hr2"></div>
+
+      <form>
+        <div class="inputs-container">
+          <div class="input">
+            <label for="name">Name</label>
+            <input type="text" id="name" [value]="currentUser.fullName | titlecase" disabled />
+          </div>
+          <div class="input">
+            <label for="role">Role& permissions</label>
+            <input type="text" id="role" [value]="currentUser.roleName | titlecase" disabled />
+          </div>
+        </div>
+        <div class="inputs-container">
+          <div class="input">
+            <label for="email">Email</label>
+            <input type="text" id="email" [value]="currentUser.email | titlecase" disabled />
+          </div>
+          <div class="select">
+            <label for="number">Phone</label>
+            <div class="phone">
+              <select name="" id="">
+                <!-- <option value=""><img src="Group.svg" alt=""></option> -->
+              </select>
+              <input type="text" [value]="currentUser.phoneNumber | number" disabled />
+            </div>
+          </div>
+        </div>
+      </form>
+
+      <div class="hr3"></div>
+      <div class="user-form-footer">
+        <div class="inner-text">
+          <h3>Delete Account</h3>
+          <p>Lorem ipsum is placeholder text commonly</p>
+        </div>
+        <button class="close-detele" (click)="openModal()">Delete Account</button>
+      </div>
+    </div>
+    } @if(activeTab=='change-password'){
+
+    <div class="user-form">
+      <div class="user-form-header">
+        <div class="inner-text">
+          <h3>Change Password</h3>
+          <p>Lorem ipsum is placeholder text commonly</p>
+        </div>
+        <button>Edit</button>
+      </div>
+      <div class="hr2"></div>
+
+      <div class="form-container">
+        <form action="">
+          <div class="input">
+            <label for="password">Current Password</label>
+            <input type="password" id="password" placeholder="Enter the Current Password" disabled />
+          </div>
+
+          <div class="input">
+            <label for="password">Password</label>
+            <input type="password" id="password" value="12345678910" disabled />
+          </div>
+
+          <div class="input">
+            <label for="confirm-password">Confirm Password</label>
+            <input type="password" id="confirm-password" value="12345678910" disabled />
+          </div>
+        </form>
+        <img src="assets/images/Group 1000016543.svg" alt="" />
+      </div>
+    </div>
+    } @if(activeTab=='activity'){
+    <div class="user-form">
+      <div class="user-form-header">
+        <div class="inner-text">
+          <h3>Activity Log</h3>
+          <p>Lorem ipsum is placeholder text commonly</p>
+        </div>
+        <div class="search">
+          <img src="assets/images/magnifier.svg" alt="search" />
+          <input type="text" placeholder="search..." />
+        </div>
+      </div>
+      <div class="hr2"></div>
+      <div class="activity">
+        <ul>
+          <li>
+            <div class="txt-left">
+              <div class="img-container">
+                <img src="assets/images/message-text.svg" alt="" />
+              </div>
+              There are 2 new comment for you in “AirPlus Mobile App” .
+            </div>
+            <div class="time">
+              <img src="assets/images/time.svg" alt="time-icon" />4:23 PM
+            </div>
+          </li>
+
+          <li>
+            <div class="txt-left">
+              <div class="img-container">
+                <img src="assets/images/pin.svg" alt="" />
+              </div>
+              New Blog post is assigned to you.
+            </div>
+            <div class="time">
+              <img src="assets/images/time.svg" alt="time-icon" />4:23 PM
+            </div>
+          </li>
+          <li>
+            <div class="txt-left">
+              <div class="img-container">
+                <img src="assets/images/files-folders.svg" alt="" />
+              </div>
+              12 new Files uploaded now.
+            </div>
+            <div class="time">
+              <img src="assets/images/time.svg" alt="time-icon" />4:23 PM
+            </div>
+          </li>
+          <li>
+            <div class="txt-left">
+              <div class="img-container">
+                <img src="assets/images/message-text.svg" alt="" />
+              </div>
+              There are 2 new comment for you in “AirPlus Mobile App” .
+            </div>
+            <div class="time">
+              <img src="assets/images/time.svg" alt="time-icon" />4:23 PM
+            </div>
+          </li>
+          <li>
+            <div class="txt-left">
+              <div class="img-container">
+                <img src="assets/images/files-folders.svg" alt="" />
+              </div>
+              12 new Files uploaded now .
+            </div>
+            <div class="time">
+              <img src="assets/images/time.svg" alt="time-icon" />4:23 PM
+            </div>
+          </li>
+          <li>
+            <div class="txt-left">
+              <div class="img-container">
+                <img src="assets/images/message-text.svg" alt="" />
+              </div>
+              New Blog post is assigned to you .
+            </div>
+            <div class="time">
+              <img src="assets/images/time.svg" alt="time-icon" />4:23 PM
+            </div>
+          </li>
+        </ul>
+      </div>
+    </div>
+    }
+  </div>
+  }
+</div>
+
+<div class="card-modal" [ngClass]="{ hide: !deleteAccountModal, show: deleteAccountModal }">
+  <app-card-modal [title]="'Are you sure to delete the account?'" [description]="
+      'Lorem ipsum is placeholder text commonly ipsum is placeholde commonly'
+    " [backgroundImg]="'http://localhost:4200/assets/images/ellipse.svg'" [icon_path]="'assets/images/delete_icon.svg'"
+    [cancel]="'Cancel'" [action]="'Delete Account'" [actionBackground]="'rgba(241, 65, 108, 1);'"
+    (actionBtn)="deleteAccount()" (cancelBtn)="closeDeleteModal()"></app-card-modal>
+</div>

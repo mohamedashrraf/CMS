@@ -1,0 +1,70 @@
+<div class="card-container" [ngClass]="{ hide: !deleteAccountModal, container: deleteAccountModal }">
+
+  @if(action === "Delete Account"){
+  <svg class="background-corner" width="163" height="108" viewBox="0 0 163 108" fill="none"
+    xmlns="http://www.w3.org/2000/svg">
+    <circle cx="57" cy="2" r="106" fill="url(#paint0_radial_807_31180)" fill-opacity="0.08" />
+    <defs>
+      <radialGradient id="paint0_radial_807_31180" cx="0" cy="0" r="1" gradientUnits="userSpaceOnUse"
+        gradientTransform="translate(57 2) rotate(90) scale(106)">
+        <stop stop-color="#F1416C" />
+        <stop offset="1" stop-color="#F1416C" stop-opacity="0" />
+      </radialGradient>
+    </defs>
+  </svg>
+  }
+  @else if (action == "Save Changes") {
+  <svg class="background-corner" width="139" height="122" viewBox="0 0 139 122" fill="none"
+    xmlns="http://www.w3.org/2000/svg">
+    <circle cx="33" cy="16" r="106" fill="url(#paint0_radial_1155_29972)" fill-opacity="0.08" />
+    <defs>
+      <radialGradient id="paint0_radial_1155_29972" cx="0" cy="0" r="1" gradientUnits="userSpaceOnUse"
+        gradientTransform="translate(33 16) rotate(90) scale(106)">
+        <stop stop-color="#F6C000" />
+        <stop offset="1" stop-color="#F6C000" stop-opacity="0" />
+      </radialGradient>
+    </defs>
+  </svg>
+
+  }@else {
+  <svg class="background-corner" width="163" height="108" viewBox="0 0 163 108" fill="none"
+    xmlns="http://www.w3.org/2000/svg">
+    <circle cx="57" cy="2" r="106" fill="url(#paint0_radial_807_31208)" fill-opacity="0.08" />
+    <defs>
+      <radialGradient id="paint0_radial_807_31208" cx="0" cy="0" r="1" gradientUnits="userSpaceOnUse"
+        gradientTransform="translate(57 2) rotate(90) scale(106)">
+        <stop stop-color="#0660FC" />
+        <stop offset="1" stop-color="#0660FC" stop-opacity="0" />
+      </radialGradient>
+    </defs>
+  </svg>
+  }
+
+  <div class="row">
+    <div class="col-12">
+      <div class="card">
+
+        <div class="delete-icon" (click)="closeModal()">
+          <img src="delete-icon.svg" alt="delete" />
+        </div>
+        <div class="icon" #icon>
+          <img [src]="icon_path" alt="delete" />
+        </div>
+        <div class="card-content">
+          <h4>{{ title }}</h4>
+          <p>
+            {{ description }}
+          </p>
+        </div>
+        <div class="card-actions">
+          <button class="cancel" (click)="this.cancelBtn.emit()">
+            {{ cancel }}
+          </button>
+          <button class="action" [ngStyle]="{ 'background-color': actionBackground }" (click)="this.actionBtn.emit()">
+            {{ action }}
+          </button>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

@@ -1,0 +1,20 @@
+<!DOCTYPE html (click)="closingAnyMenu()">
+<div style="height: 100%" data-theme="theme" class="container" [@routerTransition]="getState(o)">
+  @if(ToastValue){
+  <div class="toast-container2">
+    <app-toast-system [toast]="ToastValue" [toastType]="currentToast.type" [label]="currentToast.title"
+      [info]="currentToast.message" (closeT)="closeToast()"></app-toast-system>
+  </div>
+  }
+  <router-outlet #o="outlet"></router-outlet>
+
+
+
+</div>
+
+@if (profileToggle) {
+<div class="dark-background"></div>
+<div class="profile-page">
+  <app-user-profile></app-user-profile>
+</div>
+}

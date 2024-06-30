@@ -1,0 +1,120 @@
+* {
+  box-sizing: border-box;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  margin: 0;
+}
+.container {
+  width: 100%;
+  box-sizing: border-box;
+  /* height: 100vh !important; */
+}
+
+small {
+  font-size: 16px;
+  color: rgba(161, 165, 183, 1);
+}
+
+.total-number {
+  font-weight: bold;
+}
+
+.section-title {
+  margin: 7px;
+  padding: 5px;
+}
+
+.section-title h3 {
+  color: #3f4254;
+  font-family: "DM Sans";
+  font-size: 22px;
+  font-style: normal;
+  font-weight: bold;
+  line-height: 150%; /* 27px */
+}
+
+.section-title p {
+  color: #7e8299;
+  font-family: "DM Sans";
+  font-size: 14px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: 150%; /* 21px */
+}
+
+.navigation {
+  width: 245px;
+  flex-shrink: 0;
+  border-radius: 7px;
+  border: 0.75px solid rgba(191, 212, 228, 0.4);
+  background: #fff;
+}
+
+.navigation ul {
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  width: 245px;
+  padding: 4px 2px;
+  margin: 0px;
+  box-shadow: 0px 18px 40px 0px rgba(112, 144, 176, 0.12);
+}
+
+.navigation ul li {
+  display: flex;
+  padding: 0px;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  cursor: pointer;
+  border-radius: 6px;
+}
+
+.navigation ul li p {
+  color: #7e8299;
+  font-family: "DM Sans";
+  font-size: 12px;
+  font-style: normal;
+  margin: 0;
+  font-weight: 500;
+  line-height: 18px;
+  padding: 0px 5px;
+}
+
+.active-navigation {
+  position: relative;
+  border-radius: 6px;
+  border: 0.5px solid #3e97ff;
+  background: #f4f9ff;
+  box-shadow: 0px 18px 40px 0px rgba(112, 144, 176, 0.12);
+  /* transition: all 1s; */
+}
+
+.active-navigation::after {
+  content: "";
+  width: 102px;
+  height: 1px;
+  padding: 0.3px;
+  bottom: -5px;
+  background: #0660fc;
+  position: absolute;
+  /* transform: translate(102px); */
+  /* transition: all 0.6s ease; */
+}
+
+.navigation ul .active-navigation p {
+  color: #3f4254;
+  font-family: "DM Sans";
+  font-size: 12px;
+  font-style: normal;
+  font-weight: 500;
+  line-height: 28px;
+  letter-spacing: -0.12px;
+  padding: 0px 5px;
+}

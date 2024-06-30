@@ -1,0 +1,141 @@
+<div class="savepdf">
+    <div class="container">
+        <div class="content" id="theContent">
+            <div class="header">
+                <div class="projName">
+                    <div><img src="../../assets/images/logo_invoice.svg" alt="Logo" class="logo" /></div>
+                    <div class="projNDiv">
+                        <p class="name">CMS Software</p>
+                        <p class="title">Manage your blog</p>
+                    </div>
+                </div>
+                <div class="header-right">
+                    <div class="inner-header">
+                        <p class="small">Invoice Number:</p>
+                        <p class="invoice-number">Nº: {{bill.id}}</p>
+                    </div>
+                    <div class="hr"></div>
+                    <div class="create-info">
+                        <div class="inner-header">
+                            <p class="small">Created Date</p>
+                            <p class="bold">{{current | date:"MMM dd,YYYY"}}</p>
+                        </div>
+                        <div class="inner-header">
+                            <p class="small">Expiration Date</p>
+                            <p class="bold">{{bill.expirationDate | date:"MMM dd,YYYY"}}</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="hr2"></div>
+            <div class="invoce-info">
+                <div class="info-item">
+                    <p>Bill from:</p>
+                    <p>Bill to:</p>
+                </div>
+                <div class="info-item">
+                    <p class="bold">Spatium Agency</p>
+                    <p class="bold">{{bill.name}}</p>
+                </div>
+                <div class="info-item">
+                    <p>(+20) 1126-787-966</p>
+                    <p>{{bill.email}}</p>
+                </div>
+                <!-- <div class="info-item">
+                    <p>No. 5, Ferial Street, Assiut City,Egypt</p>
+                </div>-->
+                <div class="info-item">
+                    <p>12345 6789 EG0001</p>
+                    <p></p>
+                </div>
+            </div>
+            <div class="table-info">
+                <table>
+                    <thead>
+                        <tr>
+                            <th>Payment Method</th>
+                            <th></th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>{{bill.paymentType}}</td>
+                            <td></td>
+
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+            <div class="table-info">
+                <table>
+                    <thead>
+                        <tr>
+                            <th>Subdcription Plan</th>
+                            <th>Quantity</th>
+                            <th></th>
+                            <th>Total</th>
+
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>{{bill.description}}</td>
+                            <td></td>
+                            <td></td>
+                            <td>{{bill.ammount}}</td>
+                        </tr>
+                        <tr>
+                            <td class="child">Number Of Users</td>
+                            <td>{{bill.numberOfUsers}}</td>
+                            <td></td>
+                            <td></td>
+                        </tr>
+                        <tr>
+                            <td class="child">Number Of Posts</td>
+                            <td>{{bill.numberOfPosts}}</td>
+                            <td></td>
+                            <td></td>
+                        </tr>
+                        <tr>
+                            <td class="child">Storage Capcity</td>
+                            <td>{{bill.storageCapacity}}</td>
+                            <td></td>
+                            <td></td>
+                        </tr>
+                        <tr>
+                            <td class="child">Seo Usage</td>
+                            <td>{{bill.seO_Usage}}</td>
+                            <td></td>
+                            <td></td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+            <div class="invoice-footer">
+                <div class="price">
+                    <p>Subtotal:</p>
+                    <p>{{bill.ammount | currency}}</p>
+                </div>
+                <div class="price">
+                    <p>TAX:</p>
+                    <p>$00.00</p>
+                </div>
+                <div class="price">
+                    <p>Total:</p>
+                    <p class="tax">{{bill.ammount | currency}}</p>
+                </div>
+            </div>
+            <div class="invoce-terms">
+                <p>Terms & Conditions</p>
+                <div class="inner">
+                    <img src="../../assets/images/quotes.svg" alt="" class="footer-img">
+                    <p>The above features are valid for 30 days from the subscription date</p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="container-s">
+        <button class="saveFile" (click)="generatePDF()">Save PDF</button>
+    </div>
+</div>

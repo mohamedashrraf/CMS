@@ -1,0 +1,260 @@
+.container {
+  margin: 0px 15px;
+  height: 100%;
+}
+
+.top-right {
+  position: absolute;
+  top: 0px;
+  right: 0px;
+  z-index: -1;
+}
+
+.bottom-left {
+  position: absolute;
+  bottom: 0px;
+  left: 0px;
+  z-index: -1;
+}
+
+.row {
+  display: flex;
+  width: 100%;
+}
+
+/* .header{
+    margin-left: 100px;
+  } */
+
+.projName {
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+  gap: 10px;
+}
+
+a {
+  display: flex;
+  width: 200px;
+  height: 42px;
+  padding: 12px 10px;
+  justify-content: center;
+  align-items: center;
+  gap: 6px;
+  flex-shrink: 0;
+  border-radius: 6px;
+  background: #0660fc;
+  text-decoration: none;
+  color: #ffffff;
+}
+
+.images {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 58%;
+}
+
+.left-side {
+  background: url("../../../../assets/images/500.svg") no-repeat;
+  background-size: contain;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  height: 265px;
+  position: relative;
+  z-index: 999;
+}
+
+.content {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-78%, 23%);
+}
+
+.content h4 {
+  color: #3f4254;
+  text-align: center;
+  font-family: "DM Sans";
+  font-size: 42px;
+  font-style: normal;
+  font-weight: 700;
+  line-height: 120%; /* 50.4px */
+  margin: 5px;
+}
+
+.col-1 {
+  width: 8.33%;
+}
+.col-2 {
+  width: 16.66%;
+}
+.col-3 {
+  width: 25%;
+}
+.col-4 {
+  width: 33.33%;
+}
+.col-5 {
+  width: 41.66%;
+}
+.col-6 {
+  width: 50%;
+}
+.col-7 {
+  width: 58.33%;
+}
+.col-8 {
+  width: 66.66%;
+}
+.col-9 {
+  width: 75%;
+}
+.col-10 {
+  width: 83.33%;
+}
+.col-11 {
+  width: 91.66%;
+}
+.col-12 {
+  width: 100%;
+}
+
+@media screen and (min-width: 1600px) {
+  .sidebar {
+    background-color: rgb(185, 111, 13);
+    height: 59.09rem;
+    /* height: 821px; */
+  }
+}
+
+@media screen and (max-width: 1600px) and (min-width: 1400px) {
+  .sidebar {
+    height: 59.09rem;
+    /* height: 821px; */
+  }
+}
+
+@media screen and (max-width: 1450px) {
+  .col-5 {
+    width: 50%;
+  }
+}
+@media screen and (max-width: 1400px) and (min-width: 1200px) {
+  .sidebar {
+    height: 59.09rem;
+    /* height: 821px; */
+  }
+}
+
+@media screen and (max-width: 1200px) and (min-width: 992px) {
+  .sidebar {
+    height: 59.09rem;
+    /* height: 821px; */
+  }
+  .left-side {
+    background-position: center;
+  }
+  .not-found-image {
+    display: none;
+  }
+  .content {
+    width: 100%;
+    transform: translate(-50%, 12%);
+  }
+}
+@media screen and (max-width: 992px) and (min-width: 786px) {
+  .card {
+    width: 24%;
+    margin: 3px;
+  }
+  .left-side {
+    background-position: center;
+  }
+  .not-found-image {
+    display: none;
+  }
+  .content {
+    width: 100%;
+    transform: translate(-50%, 12%);
+  }
+  svg {
+    display: none;
+  }
+}
+@media screen and (max-width: 786px) and (min-width: 601px) {
+  .row {
+    flex-wrap: wrap;
+  }
+  .content h4 {
+    font-size: 28px;
+  }
+  .left-side {
+    background-position: center;
+  }
+  .content p {
+    font-size: 18px;
+  }
+  .card {
+    width: 49%;
+    margin: 2px;
+  }
+  .not-found-image {
+    display: none;
+  }
+  .content {
+    width: 100%;
+    transform: translate(-50%, 12%);
+  }
+  svg {
+    display: none;
+  }
+}
+@media screen and (max-width: 601px) {
+  .row {
+    display: flex;
+    align-items: center;
+    flex-wrap: wrap;
+  }
+  .col-3 {
+    justify-content: center !important;
+    margin: 5px;
+    width: 100%;
+  }
+  .content h4 {
+    font-size: 26px;
+  }
+  .left-side {
+    background-position: center;
+  }
+  .content p {
+    font-size: 16px;
+  }
+  .not-found-image {
+    display: none;
+  }
+  .content {
+    width: 100%;
+    transform: translate(-50%, 12%);
+  }
+  svg {
+    display: none;
+  }
+}
+
+@media screen and (max-width: 425px) {
+  .content h4 {
+    font-size: 24px;
+  }
+  .left-side {
+    background-position: center;
+  }
+  .content p {
+    font-size: 14px;
+  }
+}

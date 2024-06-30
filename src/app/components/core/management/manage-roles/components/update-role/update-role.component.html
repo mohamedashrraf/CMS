@@ -1,0 +1,226 @@
+<div class="container">
+    <div class="add-user-container">
+        <div class="user-form">
+            <form [formGroup]="addRole" (ngSubmit)="newRole()">
+                <div class="user-header">
+                    <div class="header-icons">
+                        <div class="header-text">
+                            <h3>Update Role</h3>
+                        </div>
+                        <img src="/assets/images/Frame 1000016151.svg" alt="" (click)="close()" />
+                    </div>
+                    <div class="hr"></div>
+                </div>
+                    <div class="nav-col col-12">
+                      <div class="navigation">
+                        <ul>
+                          <li class="all-users" [ngClass]="{'active-navigation': isActive(true)}"
+                            (click)="showRolesDetails()">
+                            <p>Roles Details</p>
+                          </li>
+                          <li [ngClass]="{'active-navigation': isActive(false)}"
+                            (click)="showrelatedUsers()">
+                            <p>Related Users</p>
+                          </li>
+                        </ul>
+                      </div>
+                    </div>
+                    @if(relatedUsers){
+                      <div class="relatedUsers">
+                      <p class="relatedUsersTitle">Assign Users</p>
+                      <div class="userBar">
+                        <div>
+                        </div>
+                      </div>
+                      <div class="relatedUsersHeader">
+                        <p>All Users</p>
+                        <div class="search"><app-search></app-search></div>
+                      </div>
+                      <!-- <app-table></app-table> -->
+                      <div class="table-container">
+                                  <table>
+                                      <thead>
+                                          <tr>
+                                              <th>User Name</th>
+                                              <th>Email</th>
+                                              <th>Created time</th>
+                                              <th>Action</th>
+                                          </tr>
+                                      </thead>
+                                      <tbody>
+                                          <tr>
+                                              <td><img src="user1.jpg" alt="user1">Haitham mohamed</td>
+                                              <td>Haitham.moahmed.info</td>
+                                              <td>11:43 am – 18 Jun , 2024</td>
+                                              <td><button class="action-btn"><img [src]="'assets/images/delete_icon.svg'" alt="delete"></button></td>
+                                          </tr>
+                                          <tr>
+                                              <td><img src="user2.jpg" alt="user2">Haitham mohamed</td>
+                                              <td>Haitham.moahmed.info</td>
+                                              <td>11:43 am – 18 Jun , 2024</td>
+                                              <td><button class="action-btn"><img [src]="'assets/images/delete_icon.svg'" alt="delete"></button></td>
+                                          </tr>
+                                          <tr>
+                                              <td><img src="user3.jpg" alt="user3">Haitham mohamed</td>
+                                              <td>Haitham.moahmed.info</td>
+                                              <td>11:43 am – 18 Jun , 2024</td>
+                                              <td><button class="action-btn"><img [src]="'assets/images/delete_icon.svg'" alt="delete"></button></td>
+                                          </tr>
+                                          <tr>
+                                              <td><img src="user4.jpg" alt="user4">Haitham mohamed</td>
+                                              <td>Haitham.moahmed.info</td>
+                                              <td>11:43 am – 18 Jun , 2024</td>
+                                              <td><button class="action-btn"><img [src]="'assets/images/delete_icon.svg'" alt="delete"></button></td>
+                                          </tr>
+
+                                      </tbody>
+                                  </table>
+                              </div>
+
+
+
+
+                      </div>
+                    }
+                    @else{
+                      <div class="form-group">
+                          <div class="full-input">
+                              <label for="name">Role Name</label>
+                              <input type="text" id="name" placeholder="Role Name" formControlName="name" required />
+                              @if (addRole.controls['name'].errors &&
+                              addRole.controls['name'].touched) {
+                              <div class="invalid-feedback">
+                                  @if (addRole.controls['name'].errors['required'] ) {
+                                  <p class="required">Role Name is required.</p>
+                                  }
+                                  @if (addRole.controls['name'].errors['pattern']) {
+                                  <p class="required">Invalid Role Name</p>
+                                  }
+                                  @if(addRole.controls['name'].errors['maxLength']) {
+                                  <p class="required">Role Name must not exceed 60 characters.</p>
+                                  }
+                                  @if(addRole.controls['name'].errors['minlength']) {
+                                  <p class="required">Role Name must be at least 3 characters.</p>
+                                  }
+                              </div>
+                              }
+                          </div>
+                          <div class="full-input">
+                              <label>Role Icon</label>
+                              <div class="select-group" (click)="toggleMenu()">
+                                  <div class="select" id="count" [ngClass]="{'select-active':toggleSelectMenu}">
+                                      @if(selectedRoleIcon){
+                                      <img width="20" height="20" [src]="selectedRoleIcon" [alt]="selectedRole">
+                                      }
+                                  </div>
+                                  @if (toggleSelectMenu) {
+                                  <div class="select-options">
+                                      <ul>
+                                          @for (role of iconsList.data; track role.id;let i=$index) {
+                                          <li class="role-list" (click)="selectRole(role)">
+                                              <img [src]="role.iconPath" [alt]="role.id">
+                                          </li>
+                                          }
+                                      </ul>
+                                  </div>
+                                  }
+                              </div>
+                          </div>
+                      </div>
+                      <div class="form-group">
+                          <div class="full-textarea">
+                              <label for="description">Role Description</label>
+                              <textarea type="text" id="description"
+                                  placeholder="Placehold is a simple, fast and free image placeholder"
+                                  formControlName="description" required></textarea>
+                              @if (addRole.controls['description'].errors &&
+                              addRole.controls['description'].touched) {
+                              <div class="invalid-feedback">
+                                  @if (addRole.controls['description'].errors['required'] ) {
+                                  <p class="required">Role description is required.</p>
+                                  }
+                                  @if (addRole.controls['description'].errors['pattern']) {
+                                  <p class="required">Invalid Role description</p>
+                                  }
+                                  @if(addRole.controls['description'].errors['maxLength']) {
+                                  <p class="required">Role description must not exceed 200 characters.</p>
+                                  }
+                                  @if(addRole.controls['description'].errors['minlength']) {
+                                  <p class="required">Role description must be at least 50 characters.</p>
+                                  }
+                              </div>
+                              }
+                          </div>
+                      </div>
+                      <div class="hr"></div>
+                      <div class="role-permission">
+                          <div>
+                              <h5>Role Permissions</h5>
+                              <p>Lorem ipsum is placeholder text commonly</p>
+                          </div>
+                          <div>
+                              <p>Users : 0</p>
+                          </div>
+                      </div>
+                      <div class="user-permission">
+                          @for (userRole of userPermissionsRoles; track $index) {
+                          <div class="user-permission-item">
+                              <div class="main-role" (click)="togglePermission($event, userRole)">
+                                  <div class="main-role-left-side">
+                                      <div class="checkbox" style="z-index: 9999;position: relative;">
+                                          <input type="checkbox" (click)="checkAll($event, userRole)" />
+                                      </div>
+                                      <div class="title">
+                                          <p> {{ userRole.name }}</p>
+                                          <p>Included 0{{userRole.userPermissions.length}} permission</p>
+                                      </div>
+                                  </div>
+                                  <div class="toggle-user-permission-item">
+                                      <svg width="20" height="20" viewBox="0 0 20 20" fill="none" [ngClass]="{
+                                          rotate: userRole.showPermission,
+                                          'reverse-rotate': !userRole.showPermission
+                                        }" xmlns="http://www.w3.org/2000/svg">
+                                          <path
+                                              d="M0 5.81L0 14.19C0 17.3988 2.60123 20 5.81 20H14.19C17.3988 20 20 17.3988 20 14.19V5.81C20 2.60122 17.3988 0 14.19 0H5.81C2.60123 0 0 2.60122 0 5.81Z"
+                                              fill="white" />
+                                          <path
+                                              d="M14.5699 8.33003C14.5694 8.46473 14.5417 8.59795 14.4884 8.72167C14.4351 8.8454 14.3574 8.95708 14.2599 9.05003L10.6099 12.55C10.4225 12.7363 10.1691 12.8408 9.90491 12.8408C9.64073 12.8408 9.38727 12.7363 9.19991 12.55L5.70991 8.87003C5.61864 8.77548 5.54689 8.66387 5.49875 8.54159C5.45062 8.41931 5.42703 8.28875 5.42936 8.15735C5.43168 8.02596 5.45986 7.89631 5.51228 7.7758C5.56471 7.6553 5.64036 7.5463 5.73491 7.45503C5.82946 7.36376 5.94107 7.29201 6.06335 7.24387C6.18563 7.19573 6.31619 7.17215 6.44759 7.17447C6.57898 7.17679 6.70864 7.20497 6.82914 7.2574C6.94964 7.30983 7.05864 7.38548 7.14991 7.48003L9.99991 10.41L12.9299 7.61003C13.1173 7.42378 13.3707 7.31924 13.6349 7.31924C13.8991 7.31924 14.1525 7.42378 14.3399 7.61003C14.5078 7.8107 14.5904 8.06918 14.5699 8.33003Z"
+                                              fill="#7E8299" />
+                                      </svg>
+                                  </div>
+                              </div>
+                              @if (userRole.showPermission) {
+                              <div class="user-permission-subItem">
+                                  <div class="link-title">
+                                      <div class="sub-links" formArrayName="userPermissionId">
+                                          <ul>
+                                              @for (subItem of userRole.userPermissions; track subItem; let i = $index) {
+                                              <li>
+                                                  <input [id]="subItem.name" [checked]="subItem.checked" type="checkbox" (click)="onChecked($event, subItem.id, userRole)" />
+                                                  <label [for]="subItem.name">{{subItem.name}}</label>
+                                              </li>
+                                              }
+                                          </ul>
+                                      </div>
+                                  </div>
+                              </div>
+                              }
+                          </div>
+                          }
+                      </div>
+                      <div class="hr"></div>
+                    }
+                <div class="user-form-footer">
+                    <button type="button" (click)="close()">
+                        <span>Cancel</span>
+                    </button>
+                    <button type="submit">
+                        <!-- [class]="addRole.pending || addRole.invalid ? 'disabled' : ''"
+                        [disabled]="addRole.pending  || addRole.invalid" -->
+                        <span>Save Changes</span>
+                    </button>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>

@@ -1,0 +1,60 @@
+.btn {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 6px 10px 6px 6px;
+  border-radius: 7px;
+  background: rgba(6, 96, 252, 1);
+  color: #fff;
+  cursor: pointer;
+  gap: 5px;
+}
+
+p {
+  margin: 0;
+  font-size: 14px;
+}
+
+@media screen and (max-width: 1060px) {
+  .btn {
+    font-size: 12px;
+    padding: 6px 8px 5px 8px;
+  }
+}
+
+@media screen and (max-width: 1034px) and (min-width: 992px) {
+  .btn {
+    width: 100%;
+  }
+
+  .btn p{
+        font-size: 12px;
+  }
+}
+
+@media screen and (max-width: 960px) and (min-width: 917px) {
+  .btn {
+    gap: 0px;
+  }
+  .btn p {
+    font-size: 12px;
+  }
+}
+@media screen and (max-width: 917px) {
+  .btn p {
+    font-size: 12px;
+  }
+}
+@media screen and (max-width: 500px) {
+  .btn p {
+    display: none;
+  }
+}
+
+@media screen and (max-width: 380px) {
+  .btn {
+    width: 100%;
+    font-size: 12px;
+    /* padding: 6px 8px 5px 8px; */
+  }
+}

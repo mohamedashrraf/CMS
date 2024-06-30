@@ -1,0 +1,442 @@
+* {
+  box-sizing: border-box;
+  font-family: "DM Sans";
+}
+html,
+body {
+  height: 100%;
+  margin: 0;
+  padding: 0;
+}
+.container {
+  background-color: #f9fafc;
+  font-family: "DM Sans";
+  /* color: lightgray; */
+  min-height: 100vh;
+  /*transition-duration: 0.5s;*/
+}
+
+.projName {
+  padding-top: 15px;
+  padding-left: 15px;
+  display: flex;
+  justify-content: space-between;
+  transition: ease all 1.5s;
+}
+.projName img {
+  max-width: 100%;
+  width: 40px;
+  height: 43px;
+  padding-top: 3px;
+}
+.projName p {
+  font-size: 15px;
+  font-weight: 700;
+  padding-left: 10px;
+  color: black;
+}
+.nameContainer {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.Name {
+  padding: 0;
+}
+.projNDiv {
+  width: 150px;
+}
+
+select {
+  padding: 7px 10px 7px 7px;
+  border: 1px solid #bfd4e466;
+  /* padding-right: 20px; */
+  border-radius: 7px;
+}
+option {
+  padding: 10px;
+}
+
+.resetContainer {
+  margin: auto;
+  width: 50%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  transition: ease all 1.5s;
+}
+
+.bg2 {
+  background-image: url("../../../../assets/images/_Path_.svg");
+  background-repeat: no-repeat;
+  background-position: center;
+  /* margin: auto; */
+  width: 100%;
+  height: 600px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.resetDiv {
+  margin: auto;
+  top: -8%;
+  left: 5%;
+  padding: 30px 40px;
+  margin-top: 10%;
+  width: 60%;
+  background-color: white;
+  border-radius: 10px;
+  transition: ease all 1.5s;
+}
+
+.loginDiv img {
+  text-align: center;
+}
+
+h1 {
+  text-align: center;
+  margin: 0%;
+  color: black;
+}
+
+.info1 {
+  text-align: center;
+  margin-top: 2px;
+  padding-bottom: 10px;
+}
+
+.form-input {
+  height: 40px;
+  width: 98%;
+  border-radius: 5px;
+  margin-bottom: 5px;
+  border: 1px solid #bfd4e466;
+  padding: 10px 0 10px 10px;
+  margin: 7px 0;
+}
+
+.is-invalid {
+  border: 1px solid red;
+}
+.invalid-feedback {
+  color: red;
+}
+.info2 {
+  text-align: center;
+  margin-bottom: 0px;
+  padding-bottom: 10px;
+  padding-top: 10px;
+}
+.info2 a {
+  text-decoration: none;
+  color: #0660fc;
+  font-weight: 600;
+}
+a p {
+  display: inline-block;
+  text-align: right;
+  padding-left: 38%;
+}
+a {
+  cursor: pointer;
+  color: #0660fc;
+}
+button {
+  height: 40px;
+  width: 100%;
+  background-color: #0660fc;
+  border-radius: 5px;
+  color: white;
+  border: 0px;
+  width: 98%;
+  margin-top: 15px;
+  cursor: pointer;
+}
+
+.disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+}
+
+.invalid-feedback p {
+  margin: 0px;
+  font-size: 13px;
+}
+
+.spinner {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  min-height: 100vh;
+  z-index: 999;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+
+.lowOpacity {
+  align-items: center;
+  opacity: 0.7;
+  transition: all 1s;
+}
+@keyframes flipIn {
+  from {
+    transform: rotateY(-180deg);
+  }
+  to {
+    transform: rotateY(0deg);
+  }
+}
+@keyframes flipOut {
+  0% {
+    transform: rotateY(0deg);
+  }
+  25% {
+    transform: rotateY(45deg);
+  }
+  50% {
+    transform: rotateY(90deg);
+  }
+  75% {
+    transform: rotateY(135deg);
+  }
+  100% {
+    transform: rotateY(0deg);
+  }
+}
+
+@media screen and (max-width: 1600px) {
+  .loginDiv {
+    width: 70%;
+  }
+  .resetDiv {
+    width: 73%;
+  }
+  .checkbox a p {
+    padding-left: 22%;
+  }
+  .invalid-feedback p {
+    margin: 0px;
+    font-size: 13px;
+  }
+}
+@media screen and (max-width: 1200px) and (min-width: 992px) {
+  .loginDiv {
+    position: static;
+    width: 70%;
+    /* padding: 30px; */
+  }
+  .bg,
+  .bg2,
+  .bg3 {
+    background-image: none;
+    margin: 0;
+    /* padding: 10px; */
+  }
+  .resetContainer {
+    width: 70%;
+  }
+  /* .resetDiv {
+    width: 100%;
+    background: #ffffff;
+  } */
+  h1 {
+    font-size: 18px;
+  }
+  .is-invalid {
+    border: 1px solid red;
+  }
+
+  .invalid-feedback p {
+    margin: 0px;
+    font-size: 13px;
+  }
+}
+@media screen and (max-width: 992px) and (min-width: 786px) {
+  .container {
+    background-color: #f9fafc;
+  }
+  .bg,
+  .bg2,
+  .bg3 {
+    background-image: none;
+    margin: 0;
+    /* padding: 30px; */
+  }
+  .loginContainer {
+    width: 100%;
+    padding: 100px;
+  }
+  .loginDiv {
+    width: 100%;
+    background: #ffffff;
+  }
+  .loginDiv h1 {
+    font-size: 19px;
+  }
+  .info1 {
+    font-size: 14px;
+    color: #a1a5b7;
+  }
+  .info2 {
+    font-size: 14px;
+    color: #a1a5b7;
+  }
+
+  .label-div p {
+    display: none;
+  }
+  .selDiv {
+    display: none;
+  }
+
+  .resetContainer {
+    width: 100%;
+    padding: 100px;
+  }
+  .resetDiv {
+    width: 73%;
+    margin-top: 0%;
+    background: #ffffff;
+  }
+  .is-invalid {
+    border: 1px solid red;
+  }
+
+  .invalid-feedback p {
+    margin: 0px;
+    font-size: 13px;
+  }
+}
+@media screen and (max-width: 786px) and (min-width: 600px) {
+  .container {
+    background-color: #f9fafc;
+  }
+  .bg,
+  .bg2,
+  .bg3 {
+    background-image: none;
+    margin: 0;
+    /* padding: 10px; */
+  }
+  .loginContainer {
+    width: 100%;
+  }
+  .loginDiv {
+    width: 100%;
+    background: #ffffff;
+  }
+  .loginDiv h1 {
+    font-size: 20px;
+  }
+  .info1 {
+    font-size: 14px;
+    color: #a1a5b7;
+  }
+  .info2 {
+    font-size: 14px;
+    color: #a1a5b7;
+  }
+
+  .label-div p {
+    display: none;
+  }
+  .selDiv {
+    display: none;
+  }
+  .resetContainer {
+    margin: auto;
+    width: 100%;
+    padding: 50px;
+  }
+  .resetDiv {
+    width: 100%;
+    background: #ffffff;
+  }
+  .is-invalid {
+    border: 1px solid red;
+  }
+  .invalid-feedback p {
+    margin: 0px;
+    font-size: 13px;
+  }
+}
+@media screen and (max-width: 600px) {
+  .container {
+    background-color: #f9fafc;
+  }
+  .bg,
+  .bg2,
+  .bg3 {
+    background-image: none;
+    margin: 0;
+    /* padding: 10px; */
+  }
+  .loginContainer {
+    width: 100%;
+  }
+  .resetContainer {
+    width: 100%;
+  }
+  .resetDiv {
+    width: 90%;
+    background: #ffffff;
+  }
+  .loginDiv {
+    width: 100%;
+    margin: 0;
+    position: static;
+    padding: 0;
+    background: #ffffff;
+  }
+  h1 {
+    font-size: 24px;
+  }
+  .info1 {
+    font-size: 14px;
+    color: #a1a5b7;
+  }
+  .info2 {
+    font-size: 12px;
+    color: #a1a5b7;
+  }
+  .nameContainer {
+    padding: 0;
+  }
+  .label-div p {
+    display: none;
+  }
+  .selDiv {
+    display: none;
+  }
+  .logout {
+    font-size: 16px;
+  }
+  .loginDiv1 {
+    width: 80%;
+  }
+  .is-invalid {
+    border: 1px solid red;
+  }
+  a p {
+    padding-left: 135px;
+  }
+}
+
+@media screen and (max-width: 350px) {
+  .resetDiv {
+    padding: 15px;
+  }
+
+  .info2 {
+    font-size: 11px;
+  }
+
+  .invalid-feedback p {
+    margin: 0px;
+    font-size: 13px;
+  }
+}

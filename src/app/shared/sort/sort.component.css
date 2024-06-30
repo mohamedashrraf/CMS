@@ -1,0 +1,225 @@
+* {
+  margin: 0;
+  padding: 0;
+}
+
+.sorting {
+  box-sizing: border-box;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: relative;
+  transition: all 0.5s ease-in-out;
+}
+.sort-container {
+  position: relative;
+}
+.sortIcon {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  /* padding: 6px 10px 6px 10px; */
+  background-color: #fff;
+  border: 0.75px solid rgba(191, 212, 228, 0.4);
+  border-radius: 7px;
+  cursor: pointer;
+  margin: 0px 10px;
+}
+.sortIcon svg {
+  width: 34px;
+  height: 34px;
+}
+.sortList {
+  width: 330px;
+  flex-shrink: 0;
+  border-radius: 9px;
+  border: 1px solid rgba(191, 212, 228, 0.4);
+  background: #fff;
+  box-shadow: 0px 12.982px 28.848px 0px rgba(112, 144, 176, 0.12);
+  position: absolute;
+  top: 110%; /* Position below filter btn */
+  right: 10px;
+  z-index: 1000;
+}
+
+.sortHeader {
+  position: relative;
+}
+.sortHeader p {
+  color: #3f4254;
+
+  font-family: "DM Sans";
+  font-size: 14px;
+  font-style: normal;
+  font-weight: 500;
+  line-height: 20px;
+  letter-spacing: -0.28px;
+  margin: 10px 16px;
+}
+.sortHeader::after {
+  content: "";
+  position: absolute;
+  margin: 0px 14px;
+  width: 90%;
+  height: 1px;
+  background: rgba(191, 212, 228, 0.4);
+}
+.sortOptions {
+  padding: 1px 23px;
+}
+.sortOptions label {
+  margin-top: 16px;
+  margin-bottom: 5px;
+  display: block;
+  color: #7e8299;
+  font-family: "DM Sans";
+  font-size: 12px;
+  font-style: normal;
+  font-weight: 500;
+  line-height: 20px;
+  letter-spacing: -0.24px;
+}
+
+/* .sortOptions select{
+    width: 100%;
+  display: flex;
+      font-size: 14px;
+
+padding: 13px 10px;
+justify-content: center;
+align-items: center;
+gap: 10px;
+border-radius: 6px;
+border: 1px solid rgba(191, 212, 228, 0.40);
+background: #FFF;
+} */
+
+/********* Custom Select Box *********/
+.custom-dropdown {
+  position: relative;
+}
+
+.selected-option {
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  cursor: pointer;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 100%;
+  font-size: 14px;
+  padding: 13px 10px;
+  border-radius: 6px;
+  border: 1px solid rgba(191, 212, 228, 0.4);
+  background: #fff;
+}
+
+.dropdown-options {
+  position: absolute;
+  width: 100%;
+  border: 1px solid #ccc;
+  border-radius: 6px;
+  background-color: #fff;
+  z-index: 1000;
+}
+
+.dropdown-option {
+  padding: 10px;
+  font-size: 14px;
+  cursor: pointer;
+  color: #7e8299;;
+}
+
+.dropdown-option:hover {
+  background-color: rgba(6, 96, 252, 0.12);
+  background: linear-gradient(
+    to right,
+    rgba(6, 96, 252, 0.12),
+    rgba(6, 96, 252, 0)
+  );
+  color: #3f4254;
+  border-radius: 8px;
+  transition: all 0.5s ease-in-out;
+}
+
+.arrow {
+  margin-left: 10px;
+  transition: transform 0.3s ease;
+  float: right;
+}
+
+.arrow.open {
+  transform: rotate(180deg);
+}
+
+.sortBtns {
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+}
+.sortApplyBtn {
+  padding: 3px 10px;
+  margin: 16px 0px;
+  gap: 10px;
+  border-radius: 7px;
+  background: #0660fc;
+  color: #fff;
+  font-family: "DM Sans";
+  font-size: 12px;
+  font-style: normal;
+  font-weight: 500;
+  line-height: 24px;
+  letter-spacing: -0.24px;
+  border-radius: 7px;
+  cursor: pointer;
+  background: #0660fc;
+  border: 0.75px solid var(--stroke, rgba(191, 212, 228, 0.4));
+}
+.sortCancelBtn {
+  display: inline-flex;
+  height: 28px;
+  padding: 16px 10px;
+  margin: 0px 10px;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 10px;
+  flex-shrink: 0;
+  border-radius: 7px;
+  cursor: pointer;
+  border: 0.75px solid var(--stroke, rgba(191, 212, 228, 0.4));
+  background: #fff;
+}
+
+@media screen and (max-width: 1200px) and (min-width: 992px) {
+}
+@media screen and (max-width: 992px) and (min-width: 786px) {
+}
+@media screen and (max-width: 786px) and (min-width: 600px) {
+  .sortList {
+    width: 250px;
+    right: -10%;
+  }
+}
+
+@media screen and (min-width: 320px) and (max-width: 600px) {
+  .sortList {
+    width: 240px;
+    right: -60%;
+  }
+  #sortSelect,
+  #sortWay {
+    width: 100%;
+  }
+}
+
+@media screen and (max-width: 320px) {
+  .sortList {
+    width: 220px;;
+    right: -25%;
+  }
+  #sortSelect,
+  #sortWay {
+    width: 100%;
+  }
+}
